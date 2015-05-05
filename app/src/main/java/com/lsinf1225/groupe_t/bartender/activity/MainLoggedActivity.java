@@ -2,6 +2,7 @@ package com.lsinf1225.groupe_t.bartender.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 

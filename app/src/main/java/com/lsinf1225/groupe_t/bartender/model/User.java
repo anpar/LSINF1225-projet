@@ -83,6 +83,17 @@ public class User {
     private static User connectedUser = null;
 
     /**
+     * Check if the connexterUser is a waiter
+     */
+    public static boolean isWaiter() {
+        if (User.connectedUser != null) {
+            return(User.connectedUser.getType().equals((String) "waiter"));
+        }
+
+        return false;
+    }
+
+    /**
      * Returns the connected user.
      */
     public static User getConnectedUser() {return User.connectedUser;}

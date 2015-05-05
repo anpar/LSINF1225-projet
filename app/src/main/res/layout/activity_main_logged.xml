@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:text="@string/menu_button"
         android:id="@+id/menu_button"
-        android:layout_marginTop="62dp"
+        android:layout_marginTop="95dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
@@ -20,8 +20,7 @@
         android:layout_height="wrap_content"
         android:text="@string/search_button"
         android:id="@+id/search_button"
-        android:layout_marginTop="64dp"
-        android:layout_below="@+id/menu_button"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -30,7 +29,16 @@
         android:text="@string/logout_button"
         android:id="@+id/logout_button"
         android:onClick="logout"
-        android:layout_marginTop="62dp"
+        android:layout_marginTop="88dp"
         android:layout_below="@+id/search_button"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_text"
+        android:id="@+id/welcome_text"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
