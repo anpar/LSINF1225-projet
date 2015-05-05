@@ -18,7 +18,6 @@ public class LoginActivity extends Activity implements TextView.OnEditorActionLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        setTitle("@string/login_activity_title");
 
         EditText loginEditText = (EditText) findViewById(R.id.login_field_value);
         loginEditText.setOnEditorActionListener(this);
@@ -80,4 +79,6 @@ public class LoginActivity extends Activity implements TextView.OnEditorActionLi
         }
         return false;
     }
+
+
 }

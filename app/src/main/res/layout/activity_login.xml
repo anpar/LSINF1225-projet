@@ -12,7 +12,8 @@
         android:text="@string/login_field_label"
         android:layout_alignBottom="@+id/login_field_value"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="47dp" />
+        android:layout_marginBottom="47dp"
+        android:id="@+id/login_username_form_label" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -29,7 +30,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/password_field_label"
-        android:id="@+id/password_field_label"
+        android:id="@+id/login_password_form_label"
         android:layout_above="@+id/password_field_value"
         android:layout_centerHorizontal="true" />
 

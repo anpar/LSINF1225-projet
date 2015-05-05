@@ -129,5 +129,4 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
             c.moveToNext();
         }
     }
-
 }

@@ -1,11 +1,8 @@
 package com.lsinf1225.groupe_t.bartender.model;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
-import android.util.SparseArray;
-
-import java.util.ArrayList;
 
 import com.lsinf1225.groupe_t.bartender.MySQLiteHelper;
 
@@ -48,11 +45,10 @@ public class User {
      * Connects the current user.
      */
     public boolean login() {
-        ArrayList<User> users = getUsers();
-        if(users.contains(this)) {
-            int indexOfUser = users.indexOf(this);
-            this.id = users.get(indexOfUser).getId();
-            this.type = users.get(indexOfUser).getType();
+        User user = User.passwordMatch(this.login, this.password);
+        if(user != null) {
+            this.id = user.getId();
+            this.type = user.getType();
             connectedUser = this;
             return(true);
         }
@@ -73,17 +69,12 @@ public class User {
      ***************************************************************************/
 
     /**
-     * Contains instances of already existing users.
-     */
-    private static SparseArray<User> userSparseArray = new SparseArray<>();
-
-    /**
      * Connected user.
      */
     private static User connectedUser = null;
 
     /**
-     * Check if the connexterUser is a waiter
+     * Check if the connectedUser is a waiter
      */
     public static boolean isWaiter() {
         if (User.connectedUser != null) {
@@ -108,31 +99,55 @@ public class User {
     /**
      * Provides the users list.
      */
-    public static ArrayList<User> getUsers() {
+    public static User passwordMatch(String login, String password) {
         SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
         String [] columns = {DB_COLUMN_ID, DB_COLUMN_NAME, DB_COLUMN_PASSWORD, DB_COLUMN_TYPE};
-        Cursor cursor = db.query(DB_TABLE, columns, null, null, null, null, null);
+        String where = DB_COLUMN_NAME + " = ? AND " + DB_COLUMN_PASSWORD + " = ?";
+        String[] whereArgs = {login, password};
+        Cursor cursor = db.query(DB_TABLE, columns, where, whereArgs, null, null, null);
         cursor.moveToFirst();
 
-        ArrayList<User> users = new ArrayList<>();
-        while(!cursor.isAfterLast()) {
+        if(cursor.getCount() == 1) {
             int uId = cursor.getInt(0);
             String uLogin = cursor.getString(1);
             String uPassword = cursor.getString(2);
             String uType = cursor.getString(3);
 
-            User user = User.userSparseArray.get(uId);
-            if(user == null) {
-                user = new User(uId, uLogin, uPassword, uType);
-            }
+            User user = new User(uId, uLogin, uPassword, uType);
+            cursor.close();
+            db.close();
 
-            users.add(user);
-            cursor.moveToNext();
+            return user;
         }
 
-        cursor.close();
-        db.close();
+        return(null);
+    }
 
-        return users;
+    public static boolean isNew(String username) {
+        SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
+        String [] columns = {DB_COLUMN_ID, DB_COLUMN_NAME, DB_COLUMN_PASSWORD, DB_COLUMN_TYPE};
+        String where = DB_COLUMN_NAME + " = ?";
+        String[] whereArgs = {username};
+        Cursor cursor = db.query(DB_TABLE, columns, where, whereArgs, null, null, null);
+        cursor.moveToFirst();
+
+        if(cursor.getCount() == 1) {
+            return false;
+        }
+
+        return(true);
+    }
+
+    public static boolean add(User newUser) {
+        boolean addSuccessful = false;
+
+        SQLiteDatabase db = MySQLiteHelper.get().getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(DB_COLUMN_NAME, newUser.getLogin());
+        values.put(DB_COLUMN_PASSWORD, newUser.getPassword());
+        values.put(DB_COLUMN_TYPE, (String) "customer");
+        addSuccessful = db.insert(DB_TABLE, null, values) > 0;
+
+        return addSuccessful;
     }
 }
