@@ -3,10 +3,7 @@ package com.lsinf1225.groupe_t.bartender.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
@@ -61,14 +58,8 @@ public class LoginActivity extends Activity implements TextView.OnEditorActionLi
         User user = new User(0, login, password, "");
 
         if (user.login()) {
-            Intent intent;
-            if(user.getType().equals((String) "customer")) {
-                intent = new Intent(this, CustomerLoggedMenuActivity.class);
-                startActivity(intent);
-            } else {
-                intent = new Intent(this, WaiterLoggedMenuActivity.class);
-                startActivity(intent);
-            }
+            Intent intent = new Intent(this, MainLoggedActivity.class);
+            startActivity(intent);
         } else {
             BarTenderApp.notifyShort(R.string.login_wrong_password_msg);
         }
@@ -83,8 +74,6 @@ public class LoginActivity extends Activity implements TextView.OnEditorActionLi
      */
     @Override
     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-        // L'attribut android:imeOptions="actionNext" est défini dans le fichier xml de layout
-        // (activity_login.xml), L'actionId attendue est donc IME_ACTION_NEXT.
         if (actionId == EditorInfo.IME_ACTION_DONE) {
             login(v);
             return true;

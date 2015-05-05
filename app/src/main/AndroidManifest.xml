@@ -18,12 +18,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.CustomerLoggedMenuActivity"
+            android:name=".activity.MainLoggedActivity"
             android:label="@string/title_activity_customer_logged_menu" >
-        </activity>
-        <activity
-            android:name=".activity.WaiterLoggedMenuActivity"
-            android:label="@string/title_activity_waiter_logged_menu" >
         </activity>
     </application>
 </manifest>
