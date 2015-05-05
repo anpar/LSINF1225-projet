@@ -53,6 +53,7 @@ public class User {
             int indexOfUser = users.indexOf(this);
             this.id = users.get(indexOfUser).getId();
             this.type = users.get(indexOfUser).getType();
+            connectedUser = this;
             return(true);
         }
 
