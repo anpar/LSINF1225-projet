@@ -23,7 +23,7 @@ public class MainLoggedActivity extends Activity {
         welcomeTxt.setText(getString(R.string.welcome_text) + " " + User.getConnectedUser().getLogin());
         if(!User.isWaiter()) {
             Button orderButton=(Button) findViewById(R.id.order_button);
-            orderButton.setVisibility(View.GONE);
+            orderButton.setVisibility(View.INVISIBLE);
         }
     }
 
