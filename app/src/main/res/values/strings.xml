@@ -36,4 +36,14 @@
 
     <string name="main_back_button_disable">Pour retourner en arrière, déconnectez vous.</string>
 
+    <!-- ShowMenuActivity -->
+    <string name="show_list_name_title">Boisson</string>
+    <string name="show_list_price_title">Prix</string>
+    <string name="title_activity_show_drink_details">ShowDrinkDetailsActivity</string>
+    <string name="show_list_error_no_item">La carte est vide.</string>
+    <string name="show_list_no_result">Pas de résulat.</string>
+
+    <!-- DRAFT -->
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 </resources>
