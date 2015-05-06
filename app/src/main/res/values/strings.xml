@@ -23,6 +23,7 @@
     <string name="welcome_text">Bienvenue</string>
     <string name="logout_button">Déconnexion</string>
     <string name="search_button">Recherche</string>
+    <string name="order_button">Commandes</string>
 
     <!-- RegisterActivity -->
     <string name="register_username_field_label">Nom d\'utilisateur :</string>

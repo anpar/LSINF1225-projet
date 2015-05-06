@@ -57,8 +57,9 @@ public class LoginActivity extends Activity implements TextView.OnEditorActionLi
         User user = new User(0, login, password, "");
 
         if (user.login()) {
-            Intent intent = new Intent(this, MainLoggedActivity.class);
-            startActivity(intent);
+                Intent intent = new Intent(this, MainLoggedActivity.class);
+                startActivity(intent);
+
         } else {
             BarTenderApp.notifyShort(R.string.login_wrong_password_msg);
         }
