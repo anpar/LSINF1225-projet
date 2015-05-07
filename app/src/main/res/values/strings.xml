@@ -21,7 +21,7 @@
     <string name="login_field_label">Identifiant :</string>
     <string name="password_field_label">Mot de passe :</string>
     <string name="login_button_text">Connexion</string>
-    <string name="login_wrong_password_msg">Identifiants incorrects!</string>
+    <string name="login_wrong_password_msg" translatable="false">Identifiants incorrects!</string>
     <string name="title_activity_customer_logged_menu">CustomerLoggedMenuActivity</string>
 
     <string name="title_activity_waiter_logged_menu">WaiterLoggedMenuActivity</string>
@@ -40,20 +40,27 @@
     <string name="show_details_name_title">Nom:</string>
     <string name="show_details_picture_title">Image:</string>
     <string name="show_details_price_title">Prix:</string>
-    <string name="show_details_quantity_title">Quantité Disponible:</string>
+    <string name="show_details_quantity_title">Quantité disponible:</string>
     <string name="show_details_volume_title">Volume:</string>
     <string name="show_details_stockmax_title">Stock maximal:</string>
     <string name="show_details_threshold_title">Seuil:</string>
     <string name="show_details_category_title">Catégorie:</string>
-    <string name="show_details_subcategory_title">Sous_catégorie:</string>
-    <string name="show_details_average_title">Note moyenne:</string>
+    <string name="show_details_subcategory_title">Sous catégorie:</string>
+    <string name="show_details_average_title">Note:</string>
 
     <!-- ShowMenuActivity -->
     <string name="show_list_name_title">Boisson</string>
     <string name="show_list_price_title">Prix</string>
+    <string name="menu_title">La carte</string>
     <string name="title_activity_show_drink_details">ShowDrinkDetailsActivity</string>
     <string name="show_list_error_no_item">La carte est vide.</string>
     <string name="show_list_no_result">Pas de résulat.</string>
+
+    <!-- ShowOrderActivity -->
+    <string name="title_activity_show_bill">Commandes</string>
+
+    <!-- ShowBillActivity -->
+    <string name="title_activity_show_order">Additions</string>
 
     <!-- DRAFT -->
     <string name="hello_world">Hello world!</string>
