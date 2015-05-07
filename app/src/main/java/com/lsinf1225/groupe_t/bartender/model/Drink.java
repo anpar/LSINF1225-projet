@@ -229,7 +229,7 @@ public class Drink {
      * Contient les instances déjà existantes des objets afin d'éviter de créer deux instances du
      * même objet.
      */
-    private static final SparseArray<Drink> drinkSparseArray = new SparseArray<Drink>();
+    private static final SparseArray<Drink>     drinkSparseArray = new SparseArray<Drink>();
 
     /**
      * Fournit la liste de tous les éléments de la collection de l'utilisateur courant dont le nom
