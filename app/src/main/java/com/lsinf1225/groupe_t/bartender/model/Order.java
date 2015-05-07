@@ -1,15 +1,25 @@
 package com.lsinf1225.groupe_t.bartender.model;
 
 
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
 import android.util.SparseArray;
 
+import com.lsinf1225.groupe_t.bartender.BarTenderApp;
 import com.lsinf1225.groupe_t.bartender.MySQLiteHelper;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Calendar;
+import java.text.SimpleDateFormat;
+import java.text.DateFormat;
 /**
  * Created by Louis on 7/05/2015.
  */
@@ -48,7 +58,7 @@ public class Order {
     /**
      * liste de boissons commandées
      */
-    private ArrayList<Order> Order_list;
+    private ArrayList<Drink> drink_list;
 
     /**
      * liste du nombres de boissons commandées
@@ -114,8 +124,8 @@ public class Order {
     }
 
 
-   public ArrayList<Order> getOrder_list(){
-       return Order_list;
+   public ArrayList<Drink> getDrink_list(){
+       return drink_list;
    }
 
    public String getDate(){
