@@ -21,7 +21,6 @@ public class OrderDetails {
     private Drink drink;
     private int idOrder;
     private int quantity;
-    private int total;
     public OrderDetails(Drink drink,int id_order,int quantity){
         this.drink=drink;
         this.idOrder=id_order;
@@ -48,14 +47,14 @@ public class OrderDetails {
         String[] selectionArgs = new String[]{String.valueOf(id_order)};
 
         Cursor c = db.query(DB_TABLE_ORDER_DETAILS, columns, selection, selectionArgs, null, null, null);
-
+        float total=0;
         ArrayList<OrderDetails> list = new ArrayList<>();
         OrderDetails item;
         Drink drink;
         if(c != null && c.moveToFirst()) {
             while (!c.isAfterLast()) {
                 drink=Drink.get(c.getInt(1));
-                //total=total+(drink.getPrice()*c.getInt(2));
+                total=total+(drink.getPrice()*c.getInt(2));
                 item = new OrderDetails(drink, c.getInt(0), c.getInt(2));
                 c.moveToNext();
                 list.add(item);
@@ -63,7 +62,7 @@ public class OrderDetails {
 
             c.close();
         }
-
+        Order.get(id_order).setTotal(total);
         db.close();
         return list;
     }
