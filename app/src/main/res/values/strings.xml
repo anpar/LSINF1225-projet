@@ -51,9 +51,16 @@
     <!-- ShowMenuActivity -->
     <string name="show_list_name_title">Boisson</string>
     <string name="show_list_price_title">Prix</string>
+    <string name="menu_title">La carte</string>
     <string name="title_activity_show_drink_details">ShowDrinkDetailsActivity</string>
     <string name="show_list_error_no_item">La carte est vide.</string>
     <string name="show_list_no_result">Pas de résulat.</string>
+
+    <!-- ShowOrderActivity -->
+    <string name="title_activity_show_bill">Commandes</string>
+
+    <!-- ShowBillActivity -->
+    <string name="title_activity_show_order">Additions</string>
 
     <!-- DRAFT -->
     <string name="hello_world">Hello world!</string>
