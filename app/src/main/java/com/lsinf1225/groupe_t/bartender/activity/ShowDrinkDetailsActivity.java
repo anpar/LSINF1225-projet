@@ -7,7 +7,7 @@ import android.view.MenuItem;
 
 import com.lsinf1225.groupe_t.bartender.R;
 
-public class ShowDrinkDetailsActivity extends ActionBarActivity {
+public class ShowDrinkDetailsActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
