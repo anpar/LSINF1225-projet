@@ -9,6 +9,11 @@ import android.util.SparseArray;
 import com.lsinf1225.groupe_t.bartender.MySQLiteHelper;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Calendar;
+import java.text.SimpleDateFormat;
+import java.text.DateFormat;
+
 /**
  * Created by Louis on 7/05/2015.
  */
@@ -29,12 +34,6 @@ public class Order {
     public static final String DB_COL_QUANTITY = "quantity";
 
 
-    /* Pour éviter les ambiguités dans les requêtes, il faut utiliser le format
-    *      nomDeTable.nomDeColonne
-    * lorsque deux tables possèdent le même nom de colonne.
-    */
-    public static final String DB_COL_ORDER_ID = DB_TABLE_ORDERS + "." + DB_COL_ID;
-    public static final String DB_COL_DETAILS_ID = DB_TABLE_ORDER_DETAILS + "." + DB_COL_ID;
 
     /**
      * Nom de colonne sur laquelle le tri est effectué
@@ -53,7 +52,7 @@ public class Order {
     /**
      * liste de boissons commandées
      */
-    private ArrayList<Order> Order_list;
+    private ArrayList<Drink> drink_list;
 
     /**
      * liste du nombres de boissons commandées
@@ -94,6 +93,31 @@ public class Order {
 
     }
 
+
+    /**
+     * Constructeur de notre élément de collection. Initialise une instance de l'élément présent
+     * dans la base de données.
+     *
+     * @note Ce constructeur est privé (donc utilisable uniquement depuis cette classe). Cela permet
+     * d'éviter d'avoir deux instances différentes d'un même élément dans la base de données, nous
+     * utiliserons la méthode statique get(ciId) pour obtenir une instance d'un élément de notre
+     * collection.
+     */
+
+
+    public Order(Drink drink,int id_order, int table_number, String login_waiter, int quantity){
+        this.drink_list.add(drink);
+        this.id_order = id_order;
+        this.table_number = table_number;
+        this.login_waiter = login_waiter;
+        this.list_quantity.add(quantity);
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Calendar cal = Calendar.getInstance();
+        this.date = dateFormat.format(cal.getTime()); //TODO pas sur que ca fonctionne
+
+    }
+
+
     /**
      * Fournit l'id de l'élément de collection courant.
      */
@@ -102,25 +126,25 @@ public class Order {
     }
 
 
-   public ArrayList<Order> getOrder_list(){
-       return Order_list;
-   }
+    public ArrayList<Drink> getDrink_list(){
+        return drink_list;
+    }
 
-   public String getDate(){
-       return date;
-   }
+    public String getDate(){
+        return date;
+    }
 
-   public String getLogin_waiter(){
-       return  login_waiter;
-   }
+    public String getLogin_waiter(){
+        return  login_waiter;
+    }
 
-   public int getTable_number() {
-       return table_number;
-   }
+    public int getTable_number() {
+        return table_number;
+    }
 
-   public ArrayList<Integer> getList_quantity(){
-       return list_quantity;
-   }
+    public ArrayList<Integer> getList_quantity(){
+        return list_quantity;
+    }
 
 
 
@@ -148,11 +172,11 @@ public class Order {
         c.moveToFirst();
 
         this.id_order = c.getInt(0);
-        this.date=c.getString(1);
+        //TODO date
         this.login_waiter = c.getString(2);
         this.table_number = c.getInt(3);
         c.close();
-        db.close();
+
     }
 
     /**

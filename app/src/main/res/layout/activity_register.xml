@@ -66,7 +66,7 @@
         android:layout_height="wrap_content"
         android:text="@string/register_button_text"
         android:id="@+id/register_button"
-        android:onClick=""
+        android:onClick="register"
         android:layout_below="@+id/register_password_confirmed_field_value"
         android:layout_alignRight="@+id/register_password_confirmed_field_value"
         android:layout_alignEnd="@+id/register_password_confirmed_field_value"
