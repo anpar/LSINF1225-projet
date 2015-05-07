@@ -54,6 +54,7 @@
     <string name="title_activity_show_drink_details">ShowDrinkDetailsActivity</string>
     <string name="show_list_error_no_item">La carte est vide.</string>
     <string name="show_list_no_result">Pas de résulat.</string>
+    <string name="menu_title">La carte</string>
 
     <!-- DRAFT -->
     <string name="hello_world">Hello world!</string>

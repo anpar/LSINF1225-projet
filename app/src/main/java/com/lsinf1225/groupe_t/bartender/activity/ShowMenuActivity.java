@@ -111,7 +111,7 @@ public class ShowMenuActivity extends Activity implements AdapterView.OnItemClic
         Intent intent = new Intent(this, ShowDrinkDetailsActivity.class);
         // L'id de l'élément de collection est passé en argument afin que la vue de détails puisse
         // récupérer celui-ci.
-        intent.putExtra("s_id", collectedItems.get(position).getId());
+        intent.putExtra("s_id", collectedItems.get(position).getId_drink());
         startActivity(intent);
     }
 
