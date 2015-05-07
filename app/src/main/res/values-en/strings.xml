@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BarTender</string>
+    <string name="action_settings">settings</string>
+    <string name="login_activity_title">Log in please</string>
+    <string name="login_button">Connect</string>
+    <string name="login_button_text">Connect</string>
+    <string name="login_field_label">Username</string>
+    <string name="login_wrong_password_msg">Inccorect username</string>
+    <string name="logout_button">Log out</string>
+    <string name="main_back_button_disable">Disconnect to go back to the previous view</string>
+    <string name="menu_button">Menu</string>
+    <string name="order_button">Orders</string>
+    <string name="password_field_label">Password</string>
+    <string name="register_button">Sign up</string>
+    <string name="register_button_text">I sign up</string>
+    <string name="register_password_confirmation_field_label">Check up password</string>
+    <string name="register_password_field_label">Password :</string>
+    <string name="register_username_already_exists">This username already exist</string>
+    <string name="register_username_field_label">Username</string>
+    <string name="register_wrong_password_msg">The password is incorrect</string>
+    <string name="search_button">Search</string>
+    <string name="show_details_average_title">Average note</string>
+    <string name="show_details_category_title">Category :</string>
+    <string name="show_details_description_title">Description :</string>
+    <string name="show_details_name_title">Name :</string>
+    <string name="show_details_picture_title">Picture :</string>
+    <string name="show_details_price_title">Price :</string>
+    <string name="show_details_quantity_title">Available quantity :</string>
+    <string name="show_details_stockmax_title">Maximum stock</string>
+    <string name="show_details_subcategory_title">Sub_category :</string>
+    <string name="show_details_threshold_title">Threshold :</string>
+    <string name="show_details_volume_title">Volume :</string>
+    <string name="show_list_error_no_item">The menu is empty.</string>
+    <string name="show_list_name_title">Drink</string>
+    <string name="show_list_no_result">No result.</string>
+    <string name="show_list_price_title">Price</string>
+    <string name="sorry_error">Sorry, there is an error</string>
+    <string name="welcome_text">Welcome</string>
+</resources>
