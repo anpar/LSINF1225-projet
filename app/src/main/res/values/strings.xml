@@ -6,6 +6,16 @@
     <string name="login_button">Connexion</string>
     <string name="register_button">Inscription</string>
 
+    <!-- RegisterActivity -->
+    <string name="register_username_field_label">Nom d\'utilisateur :</string>
+    <string name="register_password_field_label">Mot de passe :</string>
+    <string name="register_password_confirmation_field_label">Confirmer le mot de passe :</string>
+    <string name="register_button_text">Je m\'inscris!</string>
+    <string name="register_wrong_password_msg">Les mots de passe ne correspondent pas.</string>
+    <string name="register_username_already_exists">Ce nom d\'utilisateur est déjà pris.</string>
+    <string name="sorry_error">Une erreur est survenue, désolé.</string>
+    <string name="main_back_button_disable">Pour retourner en arrière, déconnectez vous.</string>
+
     <!-- Login strings -->
     <string name="login_activity_title">Identifiez-vous</string>
     <string name="login_field_label">Identifiant :</string>
@@ -15,7 +25,7 @@
     <string name="title_activity_customer_logged_menu">CustomerLoggedMenuActivity</string>
 
     <string name="title_activity_waiter_logged_menu">WaiterLoggedMenuActivity</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_main">BarTender</string>
     <string name="title_activity_register">RegisterActivity</string>
     <string name="title_activity_show_menu">ShowMenuActivity</string>
 
