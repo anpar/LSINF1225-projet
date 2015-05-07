@@ -85,7 +85,7 @@ public class Order {
     /**
      * date de la commande
      */
-    private Date date;
+    private String date;
 
     /**
      *  login du serveur qui a servit la commande
@@ -102,14 +102,31 @@ public class Order {
      * utiliserons la méthode statique get(ciId) pour obtenir une instance d'un élément de notre
      * collection.
      */
-
-
     public Order(int id_order){
         this.id_order = id_order;
         Order.orderSparseArray.put(id_order, this);
         loadData();
-
     }
+
+    /**
+     * Constructeur à utiliser pour initialiser une commande.
+     * @param drink :boisson commandée
+     * @param id_order : id de la commande initialisée
+     * @param table_number : numéro de la table où la commande est passée
+     * @param login_waiter : login du serveur qui prend la commande
+     * @param quantity : quantité de la boisson commandée
+     */
+    public Order(Drink drink,int id_order, int table_number, String login_waiter, int quantity){
+        this.drink_list.add(drink);
+        this.id_order = id_order;
+        this.table_number = table_number;
+        this.login_waiter = login_waiter;
+        this.list_quantity.add(quantity);
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Calendar cal = Calendar.getInstance();
+        this.date = dateFormat.format(cal.getTime());  //TODO pas sur que ca fonctionne
+    }
+
 
     /**
      * Fournit l'id de l'élément de collection courant.
@@ -123,7 +140,7 @@ public class Order {
        return drink_list;
    }
 
-   public Date getDate(){
+   public String getDate(){
        return date;
    }
 
@@ -140,6 +157,45 @@ public class Order {
    }
 
 
+    /**
+     * Ajoute une boisson à la commande en cours
+     * @param drink : boisson à ajouter
+     * @param quantity : quantité commandée
+     */
+    public void AddDrink(Drink drink, int quantity)
+    {
+        this.drink_list.add(drink);
+        this.list_quantity.add(quantity);
+    }
+
+    /**
+     * Place tous les éléments de la commande en cours dans la base
+     * SQL.
+     */
+    public void pushOrder(){
+
+        SQLiteDatabase db = MySQLiteHelper.get().getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(DB_COL_ORDERS_ID,this.id_order);
+        values.put(DB_COL_DATE, date);
+        values.put(DB_COL_LOGIN_WAITER, login_waiter);
+        values.put(DB_COL_TABLE_NUMBER, table_number);
+
+        for (int i = 0; i <drink_list.size() ; i++) {
+            this.pushDrink(drink_list.get(i),list_quantity.get(i),db);
+        }
+        db.close();
+    }
+
+    public void pushDrink(Drink drink, Integer quantity, SQLiteDatabase db){
+
+        ContentValues values = new ContentValues();
+        values.put(DB_COL_ID_DRINK,drink.getId_drink() );
+        values.put(DB_COL_QUANTITY,quantity);
+        values.put(DB_COL_ORDERS_ID, this.id_order);
+        db.insert(DB_TABLE_ORDER_DETAILS, null, values);
+
+    }
 
 
 
@@ -178,7 +234,7 @@ public class Order {
      *
      * @return Liste d'éléments.
      */
-    public static ArrayList<Order> getDrinks() {
+    public static ArrayList<Order> getOrders() {
         return getOrders(null, null);
     }
 
@@ -271,5 +327,46 @@ public class Order {
         return num.toString() + " - " + getLogin_waiter();
     }
 
+    /**
+     *  Supprime les bill de la base de donné et tous les info la concernant
+     *
+     * @param id_bill
+     * @return nombre d'élément (orders/bill)supprimé de la base de donnée
+     */
+    int remove_order(int id_bill) {
+        SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
+
+        String re[]= {""+id_bill};
+        Cursor c = db.rawQuery("SELECT B.table_number FROM bills B WHERE B.id_number = ?",re);
+
+        int table_number = 0;
+        while (!c.isAfterLast()) {
+            table_number = c.getInt(0);
+            c.moveToNext();
+        }
+        c.close();
+
+        String salt[] = {""+id_bill};
+        int r = db.delete("bills","id_bill = ?",salt);
+
+        String arg[] = {""+table_number};
+        Cursor cursor = db.rawQuery("SELECT DISTINCT D.id_order FROM order_details D,orders O WHERE D.id_order = O.id_order AND O.table_number = ?",arg);
+
+        cursor.moveToFirst();
+
+        int id;
+        int s=0;
+        while (!cursor.isAfterLast()) {
+            id = cursor.getInt(0);
+            String pepper[] = {""+id};
+            s += db.delete("order_details","id_order = ?",pepper);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        String fred[] = {""+id_bill,""+table_number};
+        int q = db.delete("orders","id_bill = ? AND table_number = ?",fred);
+
+        return r+q+s;
+    }
 
 }
