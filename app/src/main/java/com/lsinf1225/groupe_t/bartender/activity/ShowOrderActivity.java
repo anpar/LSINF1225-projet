@@ -3,6 +3,7 @@ package com.lsinf1225.groupe_t.bartender.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -33,14 +34,15 @@ public class ShowOrderActivity extends Activity implements AdapterView.OnItemCli
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_show_order);
-
+        Log.d("myApp", "Constructeur ");
         // Chargement des éléments à afficher dans la variable de classe collectedItems
         loadCollectedItems();
 
-        ListView myListView = (ListView) findViewById(R.id.show_DrinksListView);
+        ListView myListView = (ListView) findViewById(R.id.show_OrderView);
 
         // Création de l'adapter pour faire la liaison entre les données (collectedItems) et
         // l'affichage de chaque ligne de la liste.
+        Log.d("myApp", "Adaptateur ");
         myListViewAdapter = new MyOrdersListAdapter(this, collectedItems);
         myListView.setAdapter(myListViewAdapter);
 
@@ -64,13 +66,16 @@ public class ShowOrderActivity extends Activity implements AdapterView.OnItemCli
     private void loadCollectedItems() {
         // Récupération de la requête de recherche.
         // Si aucune requête n'a été passée lors de la création de l'activité, searchQuery sera null.
+        Log.d("myApp", "Rentre dans load");
         String searchQuery = getIntent().getStringExtra("searchQuery");
 
+
         if(searchQuery != null) {
-            collectedItems = Order.searchDrink(searchQuery);
+            collectedItems = Order.searchOrder(searchQuery);
         } else {
-            collectedItems = Order.getDrinks();
+            collectedItems = Order.getOrders();
         }
+
 
         // S'il n'y a aucun éléments dans la liste, il faut afficher un message. Ce message est différent
         // s'il y avait une requête de recherche (message du type "Aucun résultat trouvé") ou si
@@ -108,41 +113,44 @@ public class ShowOrderActivity extends Activity implements AdapterView.OnItemCli
      */
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intent = new Intent(this, ShowDrinkDetailsActivity.class);
+        Intent intent = new Intent(this, ShowOrderActivity.class);
         // L'id de l'élément de collection est passé en argument afin que la vue de détails puisse
         // récupérer celui-ci.
-        intent.putExtra("s_id", collectedItems.get(position).getId_drink());
+        intent.putExtra("s_id", collectedItems.get(position).getId());
         startActivity(intent);
     }
+/*
 
-    /**
+
+/**
      * Gère le changement du tri sur la liste.
      *
      * Cette méthode est appelée grâce à l'arttribut onClick présent dans le fichier xml de layout.
      *
      * @param view Vue sur laquelle l'utilisateur a cliqué.
      */
+
     public void change_order(View view) {
         // Détermine si le clic a été fait sur la colonne de nom (name) ou de note (rating).
         switch (view.getId()) {
-            case R.id.show_list_name_title:
-                if (Order.order_by.equals(Order.DB_COL_NAME_DRINK)) {
+            case R.id.show_list_id:
+                if (Order.order_by.equals(Order.DB_COL_ID)) {
                     // Si le tri est déjà effectué sur les noms, il faut juste inverser l'ordre.
                     Order.reverseOrder();
                 } else {
                     // Sinon il faut indiquer que le tri se fait sur les noms par ordre alphabétique (croissant)
-                    Order.order_by = Order.DB_COL_NAME_DRINK;
+                    Order.order_by = Order.DB_COL_ID;
                     Order.order = "ASC";
                 }
                 break;
-            case R.id.show_list_price_title:
-                if (Order.order_by.equals(Order.DB_COL_PRICE)) {
+            case R.id.show_list_waiter:
+                if (Order.order_by.equals(Order.DB_COL_LOGIN_WAITER)) {
                     // Si le tri est déjà effectué sur les notes, il faut juste inverser l'ordre
                     Order.reverseOrder();
                 } else {
                     // Sinon il faut indiquer que le tri se fait sur les notes par ordre décroissant
                     // (la meilleure note d'abord)
-                    Order.order_by = Order.DB_COL_PRICE;
+                    Order.order_by = Order.DB_COL_LOGIN_WAITER;
                     Order.order = "DESC";
                 }
                 break;
@@ -168,8 +176,8 @@ public class ShowOrderActivity extends Activity implements AdapterView.OnItemCli
      * et de CollectedItem.order_by.
      */
     private void updateDrawableOrder() {
-        TextView priceTitle = (TextView) findViewById(R.id.show_list_price_title);
-        TextView nameTitle = (TextView) findViewById(R.id.show_list_name_title);
+        TextView priceTitle = (TextView) findViewById(R.id.show_list_waiter);
+        TextView nameTitle = (TextView) findViewById(R.id.show_list_id);
 
         /**
          * Remise à zéro des images de tri.
@@ -183,7 +191,7 @@ public class ShowOrderActivity extends Activity implements AdapterView.OnItemCli
 
         // Détermination de la colonne sur laquelle le tri est effectué.
         TextView orderTitle;
-        boolean orderByRating = Order.order_by.equals(Order.DB_COL_PRICE);
+        boolean orderByRating = Order.order_by.equals(Order.DB_COL_ID);
         if (orderByRating) {
             orderTitle = priceTitle;
         } else {
@@ -194,7 +202,7 @@ public class ShowOrderActivity extends Activity implements AdapterView.OnItemCli
         boolean orderDesc = Order.order.equals("DESC");
 
         // Placement de l'icône en fonction de l'ordre de tri.
-        /*if (orderDesc) {
+       /*if (orderDesc) {
             orderTitle.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_down_active, 0, 0, 0);
         } else {
             orderTitle.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_up_active, 0, 0, 0);

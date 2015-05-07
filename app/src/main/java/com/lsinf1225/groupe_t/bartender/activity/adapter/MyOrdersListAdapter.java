@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.lsinf1225.groupe_t.bartender.R;
@@ -59,7 +58,7 @@ public class MyOrdersListAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return collectedItems.get(position).getId_drink();
+        return collectedItems.get(position).getId();
     }
 
     /**
@@ -76,17 +75,17 @@ public class MyOrdersListAdapter extends BaseAdapter {
 
         if (convertView == null) {
             // Création d'un nouvelle vue avec le layout correspondant au fichier xml
-            convertView = mInflater.inflate(R.layout.collected_drink_layout, parent, false);
+            convertView = mInflater.inflate(R.layout.collected_order_layout, parent, false);
         }
 
         // Récupération des deux éléments de notre vue dans le but d'y placer les données.
-        TextView nameTextView = (TextView) convertView.findViewById(R.id.show_row_name);
-        TextView priceTextView = (TextView) convertView.findViewById(R.id.show_row_price);
+        TextView nameTextView = (TextView) convertView.findViewById(R.id.show_row_id);
+        TextView priceTextView = (TextView) convertView.findViewById(R.id.show_row_waiter);
 
         // Récupération et placement des données.
         Order collectedItem = collectedItems.get(position);
-        nameTextView.setText(collectedItem.getName_drink() + " (" + Float.toString(collectedItem.getVolume()) + "cl)");
-        priceTextView.setText(Float.toString(collectedItem.getPrice()) + "€");
+        nameTextView.setText(collectedItem.getId() );
+        priceTextView.setText(collectedItem.getLogin_waiter());
 
         return convertView;
     }

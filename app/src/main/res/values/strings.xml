@@ -65,4 +65,5 @@
     <!-- DRAFT -->
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_show_order_details">ShowOrderDetailsActivity</string>
 </resources>
