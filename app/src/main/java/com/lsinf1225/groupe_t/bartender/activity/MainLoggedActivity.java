@@ -3,7 +3,6 @@ package com.lsinf1225.groupe_t.bartender.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -24,6 +23,8 @@ public class MainLoggedActivity extends Activity {
         if(!User.isWaiter()) {
             Button orderButton=(Button) findViewById(R.id.order_button);
             orderButton.setVisibility(View.INVISIBLE);
+            Button billButton=(Button) findViewById(R.id.bill_button);
+            billButton.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -36,6 +37,16 @@ public class MainLoggedActivity extends Activity {
 
     public void menu(View v) {
         Intent intent = new Intent(this, ShowMenuActivity.class);
+        startActivity(intent);
+    }
+
+    public void order(View v){
+        Intent intent = new Intent(this,ShowOrderActivity.class);
+        startActivity(intent);
+    }
+
+    public void bill(View v){
+        Intent intent = new Intent(this,ShowBillActivity.class);
         startActivity(intent);
     }
 

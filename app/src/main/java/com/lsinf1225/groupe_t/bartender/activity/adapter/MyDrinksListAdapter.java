@@ -85,8 +85,8 @@ public class MyDrinksListAdapter extends BaseAdapter {
 
             // Récupération et placement des données.
             Drink collectedItem = collectedItems.get(position);
-            nameTextView.setText(collectedItem.getName_drink());
-            priceTextView.setText(Float.toString(collectedItem.getPrice()));
+            nameTextView.setText(collectedItem.getName_drink() + " (" + Float.toString(collectedItem.getVolume()) + "cl)");
+            priceTextView.setText(Float.toString(collectedItem.getPrice()) + "€");
 
             return convertView;
         }
