@@ -29,7 +29,7 @@
             android:gravity="left"
             android:onClick="change_order"
             android:padding="@dimen/default_padding"
-            android:text="@string/show_list_name_title"
+            android:text="@string/show_list_id_order_title"
             android:textStyle="bold"/>
 
         <Button
@@ -41,7 +41,7 @@
             android:gravity="center"
             android:onClick="change_order"
             android:padding="@dimen/default_padding"
-            android:text="@string/show_list_price_title"
+            android:text="@string/show_list_waiter_title"
             android:textStyle="bold"
             />
     </LinearLayout>
@@ -59,7 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/menu_title"
+        android:text="@string/order_title"
         android:id="@+id/textView4"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
