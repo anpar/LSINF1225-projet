@@ -5,7 +5,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.util.Log;
 import android.util.SparseArray;
 
 import com.lsinf1225.groupe_t.bartender.BarTenderApp;
@@ -162,7 +161,7 @@ public class Drink {
     private void loadData() {
         SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
 
-        String[] columns = new String[]{DB_COL_DRINK_ID, DB_COL_NAME_DRINK, DB_COL_PRICE, DB_COL_DESCRIPTION, DB_COL_ICON, DB_COL_CATEGORY,
+         String[] columns = new String[]{DB_COL_DRINK_ID, DB_COL_NAME_DRINK, DB_COL_PRICE, DB_COL_DESCRIPTION, DB_COL_ICON, DB_COL_CATEGORY,
                                         DB_COL_SUBCATEGORY, DB_COL_VOLUME,DB_COL_AVAILABLE_QUANTITY, DB_COL_THRESHOLD, DB_COL_MAX_STOCK};
 
         String selection = DB_COL_DRINK_ID + " = ? ";

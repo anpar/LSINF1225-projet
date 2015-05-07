@@ -79,13 +79,13 @@ public class MyOrdersListAdapter extends BaseAdapter {
         }
 
         // Récupération des deux éléments de notre vue dans le but d'y placer les données.
-        TextView nameTextView = (TextView) convertView.findViewById(R.id.show_row_id);
-        TextView priceTextView = (TextView) convertView.findViewById(R.id.show_row_waiter);
+        TextView idOrderView= (TextView) convertView.findViewById(R.id.show_row_id_order);
+        TextView WaiterView = (TextView) convertView.findViewById(R.id.show_row_waiter);
 
         // Récupération et placement des données.
         Order collectedItem = collectedItems.get(position);
-        nameTextView.setText(collectedItem.getId() );
-        priceTextView.setText(collectedItem.getLogin_waiter());
+        idOrderView.setText(Integer.toString(collectedItem.getId()));
+        WaiterView.setText(collectedItem.getLogin_waiter());
 
         return convertView;
     }
