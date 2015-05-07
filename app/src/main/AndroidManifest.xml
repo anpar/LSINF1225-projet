@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.lsinf1225.groupe_t.bartender">
+    package="com.lsinf1225.groupe_t.bartender" >
 
     <application
         android:name=".BarTenderApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".activity.LoginActivity"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" >
+        </activity>
         <activity
             android:name=".activity.MainLoggedActivity"
-            android:label="@string/title_activity_customer_logged_menu"></activity>
+            android:label="@string/title_activity_customer_logged_menu" >
+        </activity>
         <activity
             android:name=".activity.MainActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,13 +27,24 @@
         </activity>
         <activity
             android:name=".activity.RegisterActivity"
-            android:label="@string/title_activity_register"></activity>
+            android:label="@string/title_activity_register" >
+        </activity>
         <activity
             android:name=".activity.ShowMenuActivity"
-            android:label="@string/title_activity_show_menu"></activity>
+            android:label="@string/title_activity_show_menu" >
+        </activity>
         <activity
             android:name=".activity.ShowDrinkDetailsActivity"
-            android:label="@string/title_activity_show_drink_details"></activity>
+            android:label="@string/title_activity_show_drink_details" >
+        </activity>
+        <activity
+            android:name=".activity.ShowOrderActivity"
+            android:label="@string/title_activity_order" >
+        </activity>
+        <activity
+            android:name=".activity.ShowBillActivity"
+            android:label="@string/title_activity_bill" >
+        </activity>
     </application>
 
 </manifest>

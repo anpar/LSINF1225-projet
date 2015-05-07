@@ -1,6 +1,5 @@
 package com.lsinf1225.groupe_t.bartender.activity;
 
-import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,18 +7,19 @@ import android.view.MenuItem;
 
 import com.lsinf1225.groupe_t.bartender.R;
 
-public class ShowDrinkDetailsActivity extends Activity {
+public class ShowOrderActivity extends ActionBarActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_show_drink_details);
+        setContentView(R.layout.activity_show_order);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_show_drink_details, menu);
+        getMenuInflater().inflate(R.menu.menu_order, menu);
         return true;
     }
 

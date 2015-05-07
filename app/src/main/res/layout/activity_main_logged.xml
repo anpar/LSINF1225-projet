@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:text="@string/menu_button"
         android:id="@+id/menu_button"
+        android:onClick="menu"
         android:layout_above="@+id/search_button"
         android:layout_alignRight="@+id/search_button"
         android:layout_alignEnd="@+id/search_button"
@@ -55,7 +56,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/order_button"
+        android:onClick="order"
         android:id="@+id/order_button"
         android:layout_below="@+id/search_button"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Additions"
+        android:onClick="bill"
+        android:id="@+id/bill_button"
+        android:layout_below="@+id/order_button"
+        android:layout_alignRight="@+id/order_button"
+        android:layout_alignEnd="@+id/order_button"
+        android:layout_alignLeft="@+id/order_button"
+        android:layout_alignStart="@+id/order_button" />
 </RelativeLayout>
