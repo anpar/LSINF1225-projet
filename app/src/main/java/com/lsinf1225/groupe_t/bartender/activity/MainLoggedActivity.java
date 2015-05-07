@@ -41,12 +41,12 @@ public class MainLoggedActivity extends Activity {
     }
 
     public void order(View v){
-        Intent intent = new Intent(this,OrderActivity.class);
+        Intent intent = new Intent(this,ShowOrderActivity.class);
         startActivity(intent);
     }
 
     public void bill(View v){
-        Intent intent = new Intent(this,BillActivity.class);
+        Intent intent = new Intent(this,ShowBillActivity.class);
         startActivity(intent);
     }
 

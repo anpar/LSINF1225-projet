@@ -38,11 +38,11 @@
             android:label="@string/title_activity_show_drink_details" >
         </activity>
         <activity
-            android:name=".activity.OrderActivity"
+            android:name=".activity.ShowOrderActivity"
             android:label="@string/title_activity_order" >
         </activity>
         <activity
-            android:name=".activity.BillActivity"
+            android:name=".activity.ShowBillActivity"
             android:label="@string/title_activity_bill" >
         </activity>
     </application>

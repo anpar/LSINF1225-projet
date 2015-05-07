@@ -7,19 +7,19 @@ import android.view.MenuItem;
 
 import com.lsinf1225.groupe_t.bartender.R;
 
-public class BillActivity extends ActionBarActivity {
+public class ShowOrderActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bill);
+        setContentView(R.layout.activity_show_order);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_bill, menu);
+        getMenuInflater().inflate(R.menu.menu_order, menu);
         return true;
     }
 
