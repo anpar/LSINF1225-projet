@@ -158,7 +158,6 @@ public class ShowMenuActivity extends Activity implements AdapterView.OnItemClic
         myListViewAdapter.setCollectedItems(collectedItems);
     }
 
-
     /**
      * Met à jour les icônes de tri afin qu'elles correspondent au tri actuellement en cours.
      *
@@ -171,34 +170,9 @@ public class ShowMenuActivity extends Activity implements AdapterView.OnItemClic
         TextView priceTitle = (TextView) findViewById(R.id.show_list_price_title);
         TextView nameTitle = (TextView) findViewById(R.id.show_list_name_title);
 
-        /**
-         * Remise à zéro des images de tri.
-         * @note : Attention, le tri par défaut pour les noms est croissant
-         * (up) et celui pour les notes est décroissant (down). Il faut que cela correspondent dans
-         * le comportement de la méthode change_order.
-         */
-        //nameTitle.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_up_inactive, 0, 0, 0);
-        //priceTitle.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_down_inactive, 0, 0, 0);
-
-
         // Détermination de la colonne sur laquelle le tri est effectué.
         TextView orderTitle;
         boolean orderByRating = Drink.order_by.equals(Drink.DB_COL_PRICE);
-        if (orderByRating) {
-            orderTitle = priceTitle;
-        } else {
-            orderTitle = nameTitle;
-        }
-
-        // Détermination de l'ordre de tri.
-        boolean orderDesc = Drink.order.equals("DESC");
-
-        // Placement de l'icône en fonction de l'ordre de tri.
-        /*if (orderDesc) {
-            orderTitle.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_down_active, 0, 0, 0);
-        } else {
-            orderTitle.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_up_active, 0, 0, 0);
-        }*/
     }
 
 }

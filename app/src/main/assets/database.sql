@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS "bills";
 CREATE TABLE "bills" ("id_bill" INTEGER PRIMARY KEY  NOT NULL  UNIQUE , "date" DATETIME NOT NULL  DEFAULT CURRENT_DATE, "table_number" INTEGER NOT NULL );
 INSERT INTO "bills" VALUES(1,'2015-02-27',1);
-INSERT INTO "bills" VALUES(2,'2015-03-04',1);
+INSERT INTO "bills" VALUES(2,'2015-03-04',2);
 DROP TABLE IF EXISTS "drinks";
 CREATE TABLE "drinks" ("id_drink" INTEGER PRIMARY KEY NOT NULL UNIQUE ,"name_drink" CHAR NOT NULL ,"price" REAL NOT NULL ,"available_quantity" INTEGER NOT NULL ,"volume" INTEGER NOT NULL ,"description" TEXT NOT NULL ,"icon" TEXT NOT NULL ,"max_stock" INTEGER NOT NULL ,"threshold" INTEGER NOT NULL ,"category" CHAR NOT NULL ,"subcategory" CHAR);
 INSERT INTO "drinks" VALUES(1,'Jupiler',2,18,25,'La Jupiler est une bière belge blonde de fermentation basse de type pils. Elle a été créée et fabriquée par la brasserie Piedboeuf dans le village de Jupille-sur-Meuse, banlieue de Liège dont elle tire son nom.','icon/JUP25.jpg',200,20,'Bières','Blondes');
@@ -31,7 +31,7 @@ INSERT INTO "order_details" VALUES(2,1,4);
 DROP TABLE IF EXISTS "orders";
 CREATE TABLE "orders" ("id_order" INTEGER PRIMARY KEY  NOT NULL  UNIQUE , "date" DATETIME NOT NULL  DEFAULT CURRENT_DATE, "login_waiter" CHAR(30) NOT NULL , "table_number" INTEGER NOT NULL );
 INSERT INTO "orders" VALUES(1,'2015-02-27','john',1);
-INSERT INTO "orders" VALUES(2,'2015-02-27','john',1);
+INSERT INTO "orders" VALUES(2,'2015-02-27','john',2);
 DROP TABLE IF EXISTS "ratings";
 CREATE TABLE "ratings" ("id_drink" INTEGER NOT NULL ,"login_client" CHAR(30) NOT NULL ,"value" INTEGER NOT NULL ,"comment" TEXT, PRIMARY KEY ("id_drink", "login_client"));
 INSERT INTO "ratings" VALUES(1,'anparis',4.5,'Excellente bière ! Bien meilleure que le Cara Pils !');

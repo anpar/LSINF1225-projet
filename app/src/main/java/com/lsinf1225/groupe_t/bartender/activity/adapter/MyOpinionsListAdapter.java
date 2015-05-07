@@ -9,7 +9,6 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.lsinf1225.groupe_t.bartender.R;
-import com.lsinf1225.groupe_t.bartender.model.Drink;
 import com.lsinf1225.groupe_t.bartender.model.Opinion;
 
 import java.util.ArrayList;

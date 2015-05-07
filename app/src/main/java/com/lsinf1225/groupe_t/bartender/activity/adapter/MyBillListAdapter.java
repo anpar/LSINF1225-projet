@@ -12,9 +12,7 @@ import com.lsinf1225.groupe_t.bartender.model.Bill;
 
 import java.util.ArrayList;
 
-/**
- * Created by gillonb on 07/05/15.
- */
+
 public class MyBillListAdapter extends BaseAdapter {
 
     /**
@@ -76,8 +74,8 @@ public class MyBillListAdapter extends BaseAdapter {
 
         // Récupération et placement des données.
         Bill collectedItem = collectedItems.get(position);
-        tableTextView.setText(collectedItem.getTable_number());
-        priceTextView.setText(Float.toString(collectedItem.getTotal()) + "€"); //parse to string
+        tableTextView.setText(Integer.toString(collectedItem.getTable_number()));
+        priceTextView.setText(Float.toString(collectedItem.getTotal()) + "€");
 
         return convertView;
     }
