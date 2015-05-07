@@ -152,6 +152,7 @@ public class Drink {
     public float getVolume() {
         return volume;
     }
+    public float getRating() { return rating; }
 
     /**
      * (Re)charge les informations depuis la base de données.
@@ -205,6 +206,7 @@ public class Drink {
         }
 
         this.rating = total/numberOrRatings;
+        Log.d("Ratings", "Rating is " + this.rating);
 
         c.close();
         db.close();

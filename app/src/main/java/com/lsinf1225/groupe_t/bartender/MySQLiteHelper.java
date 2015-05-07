@@ -14,7 +14,7 @@ import java.io.InputStreamReader;
 public class MySQLiteHelper extends SQLiteOpenHelper {
     private static final String DATABASE_SQL_FILENAME = "database.sql";
     private static final String DATABASE_NAME = "database.sqlite";
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
 
     private static MySQLiteHelper instance;
 
@@ -111,6 +111,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                     "Vérifiez que chaque instruction SQL est au plus sur une ligne." +
                     "L'erreur est : " + e.getMessage(), e);
         }
+
     }
 
 
