@@ -37,6 +37,14 @@
             android:name=".activity.ShowDrinkDetailsActivity"
             android:label="@string/title_activity_show_drink_details" >
         </activity>
+        <activity
+            android:name=".activity.OrderActivity"
+            android:label="@string/title_activity_order" >
+        </activity>
+        <activity
+            android:name=".activity.BillActivity"
+            android:label="@string/title_activity_bill" >
+        </activity>
     </application>
 
 </manifest>
