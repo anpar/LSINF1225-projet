@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/textview_drink_detail_name"
+        android:id="@+id/textview_drink_detail_name_c"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
@@ -51,13 +51,13 @@
         android:layout_alignParentEnd="false"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/textview_drink_detail_name" />
+        android:layout_below="@+id/textview_drink_detail_name_c" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/textview_drink_detail_price"
+        android:id="@+id/textview_drink_detail_price_c"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/textview_drink_detail_description" />
@@ -67,7 +67,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/textView_drink_detail_volume"
-        android:layout_alignTop="@+id/textview_drink_detail_price"
+        android:layout_alignTop="@+id/textview_drink_detail_price_c"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
