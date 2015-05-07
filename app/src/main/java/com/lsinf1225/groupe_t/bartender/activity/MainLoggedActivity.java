@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.lsinf1225.groupe_t.bartender.BarTenderApp;
@@ -20,6 +21,10 @@ public class MainLoggedActivity extends Activity {
 
         TextView welcomeTxt = (TextView) findViewById(R.id.welcome_text);
         welcomeTxt.setText(getString(R.string.welcome_text) + " " + User.getConnectedUser().getLogin());
+        if(!User.isWaiter()) {
+            Button orderButton=(Button) findViewById(R.id.order_button);
+            orderButton.setVisibility(View.INVISIBLE);
+        }
     }
 
     public void logout(View v) {
@@ -27,6 +32,11 @@ public class MainLoggedActivity extends Activity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    public void menu(View v) {
+        Intent intent = new Intent(this, ShowMenuActivity.class);
+        startActivity(intent);
     }
 
     /**
