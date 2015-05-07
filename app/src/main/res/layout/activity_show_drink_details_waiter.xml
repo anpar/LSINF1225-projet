@@ -3,17 +3,16 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
-
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".activity.ShowDrinkDetailsActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
         android:id="@+id/show_details_name_ll"
-        >
+        android:layout_alignRight="@+id/show_details_volume_ll"
+        android:layout_alignEnd="@+id/show_details_volume_ll">
 
         <TextView
             android:text="@string/show_details_name_title"
@@ -30,39 +29,42 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/show_details_name_ll"
-        android:id="@+id/show_details_price_ll"
-        >
-
-        <TextView
-            android:text="@string/show_details_price_title"
-            style="@style/show_details_title"
-            />
+        android:id="@+id/show_details_volume_ll"
+        android:layout_below="@+id/show_details_name_ll">
 
         <TextView
             android:id="@+id/show_details_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
+
+        <TextView
+            android:text="@string/show_details_volume_title"
+            style="@style/show_details_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/show_details_price_ll"
         android:id="@+id/show_details_quantity_ll"
-        >
-
-        <TextView
-            android:text="@string/show_details_quantity_title"
-            style="@style/show_details_title"
-            />
+        android:layout_below="@+id/show_details_volume_ll"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
 
         <TextView
             android:id="@+id/show_details_quanity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
+
+        <TextView
+            android:text="@string/show_details_price_title"
+            style="@style/show_details_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -73,15 +75,17 @@
         >
 
         <TextView
-            android:text="@string/show_details_volume_title"
-            style="@style/show_details_title"
-            />
-
-        <TextView
             android:id="@+id/show_details_volume"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
+
+        <TextView
+
+            android:text="@string/show_details_description_title"
+            style="@style/show_details_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
     <LinearLayout
@@ -92,15 +96,17 @@
         >
 
         <TextView
-            android:text="@string/show_details_stockmax_title"
-            style="@style/show_details_title"
-            />
-
-        <TextView
             android:id="@+id/show_details_stockmax"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
+
+        <TextView
+            android:text="@string/show_details_category_title"
+            style="@style/show_details_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -111,15 +117,17 @@
         >
 
         <TextView
-            android:text="@string/show_details_threshold_title"
-            style="@style/show_details_title"
-            />
-
-        <TextView
             android:id="@+id/show_details_threshold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
+
+        <TextView
+            android:text="@string/show_details_subcategory_title"
+            style="@style/show_details_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -129,33 +137,44 @@
         >
 
         <TextView
-            android:text="@string/show_details_category_title"
-            style="@style/show_details_title"
-            />
-
-        <TextView
             android:id="@+id/show_details_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
+
+        <TextView
+            android:text="@string/show_details_average_title"
+            style="@style/show_details_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ratingBar"
+            android:numStars="5" />
+
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/show_details_category_ll"
         android:id="@+id/show_details_subcategory_ll"
-        >
-
-        <TextView
-            android:text="@string/show_details_subcategory_title"
-            style="@style/show_details_title"
-            />
+        android:weightSum="1">
 
         <TextView
             android:id="@+id/show_details_subcategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
+
+        <TextView
+            style="@style/show_details_title"
+            android:text="@string/show_details_stockmax_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView6" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -166,15 +185,16 @@
         >
 
         <TextView
-            android:text="@string/show_details_average_title"
-            style="@style/show_details_title"
-            />
-
-        <TextView
             android:id="@+id/show_details_average"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
+
+        <TextView
+            android:text="@string/show_details_threshold_title"
+            style="@style/show_details_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -183,33 +203,25 @@
         android:id="@+id/show_details_description_ll">
 
         <TextView
-
-            android:text="@string/show_details_description_title"
-            style="@style/show_details_title"
-            />
-
-        <TextView
             android:id="@+id/show_details_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/show_details_description_ll"
-        android:id="@+id/show_details_picture_ll">
 
         <TextView
-            android:text="@string/show_details_picture_title"
             style="@style/show_details_title"
-            />
-
-        <ImageView
-            android:layout_height="300dp"
-            android:id="@+id/show_details_picture"
+            android:text="@string/show_details_quantity_title"
             android:layout_width="wrap_content"
-            />
+            android:layout_height="wrap_content"
+            android:id="@+id/textView5" />
     </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Voir les commentaires des clients"
+        android:id="@+id/button_see_comments_label"
+        android:layout_below="@+id/show_details_description_ll"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp" />
 
 </RelativeLayout>

@@ -40,13 +40,13 @@
     <string name="show_details_name_title">Nom:</string>
     <string name="show_details_picture_title">Image:</string>
     <string name="show_details_price_title">Prix:</string>
-    <string name="show_details_quantity_title">Quantité Disponible:</string>
+    <string name="show_details_quantity_title">Quantité disponible:</string>
     <string name="show_details_volume_title">Volume:</string>
     <string name="show_details_stockmax_title">Stock maximal:</string>
     <string name="show_details_threshold_title">Seuil:</string>
     <string name="show_details_category_title">Catégorie:</string>
-    <string name="show_details_subcategory_title">Sous_catégorie:</string>
-    <string name="show_details_average_title">Note moyenne:</string>
+    <string name="show_details_subcategory_title">Sous catégorie:</string>
+    <string name="show_details_average_title">Note:</string>
 
     <!-- ShowMenuActivity -->
     <string name="show_list_name_title">Boisson</string>
