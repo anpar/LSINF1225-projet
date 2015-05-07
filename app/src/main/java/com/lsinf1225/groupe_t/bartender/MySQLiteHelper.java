@@ -111,6 +111,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                     "Vérifiez que chaque instruction SQL est au plus sur une ligne." +
                     "L'erreur est : " + e.getMessage(), e);
         }
+
     }
 
 

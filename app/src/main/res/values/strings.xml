@@ -21,7 +21,7 @@
     <string name="login_field_label">Identifiant :</string>
     <string name="password_field_label">Mot de passe :</string>
     <string name="login_button_text">Connexion</string>
-    <string name="login_wrong_password_msg">Identifiants incorrects!</string>
+    <string name="login_wrong_password_msg" translatable="false">Identifiants incorrects!</string>
     <string name="title_activity_customer_logged_menu">CustomerLoggedMenuActivity</string>
 
     <string name="title_activity_waiter_logged_menu">WaiterLoggedMenuActivity</string>
