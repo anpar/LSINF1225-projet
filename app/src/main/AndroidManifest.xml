@@ -39,11 +39,11 @@
         </activity>
         <activity
             android:name=".activity.ShowOrderActivity"
-            android:label="@string/title_activity_order" >
+            android:label="@string/title_activity_show_order" >
         </activity>
         <activity
             android:name=".activity.ShowBillActivity"
-            android:label="@string/title_activity_bill" >
+            android:label="@string/title_activity_show_bill" >
         </activity>
     </application>
 
