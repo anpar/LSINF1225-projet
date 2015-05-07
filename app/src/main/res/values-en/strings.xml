@@ -43,5 +43,5 @@
     <string name="opinion_added">Opinion successfully added!!</string>
     <string name="error_retrieving_opinions">An error occured while retrieving opinions.</string>
     <string name="error_adding_opinion">An error occured while adding your opinion.</string>
-    <srting name="add_comment_label">Add.</srting>
+    <string name="add_comment_label">Add.</string>
 </resources>

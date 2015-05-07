@@ -22,6 +22,11 @@ import com.lsinf1225.groupe_t.bartender.R;
 import com.lsinf1225.groupe_t.bartender.model.Opinion;
 import com.lsinf1225.groupe_t.bartender.model.User;
 
+/*
+     TODO : ajouter les fonctions onResume (ou onRestart, ou je sais pas quoi)
+     pour que les commentaires se rechargent directement quand on en ajoute un.
+ */
+
 public class AddOpinionActivity extends Activity implements TextView.OnEditorActionListener, RatingBar.OnRatingBarChangeListener{
 
     private float note = -1;
@@ -48,10 +53,12 @@ public class AddOpinionActivity extends Activity implements TextView.OnEditorAct
     }
 
     public void addOpinion(View v) {
+        EditText comment = (EditText) findViewById(R.id.addCommentText);
+        this.comment = comment.getText().toString();
         if(note != -1) {
             int id_drink = getIntent().getIntExtra("id_drink", -1);
             if(id_drink != -1) {
-                if(Opinion.add(id_drink, User.getConnectedUser().getLogin(), note, comment)) {
+                if(Opinion.add(id_drink, User.getConnectedUser().getLogin(), note, this.comment)) {
                     BarTenderApp.notifyShort(R.string.opinion_added);
                     finish(); // Go back to the previous activity
                 } else {
@@ -94,8 +101,6 @@ public class AddOpinionActivity extends Activity implements TextView.OnEditorAct
     @Override
     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
         if (actionId == EditorInfo.IME_ACTION_DONE) {
-            comment = v.toString().replace("'","''"); // Avoid crashing Android because of single quote in SQL query
-            Log.d("onEditorAction", "comment = " + comment);
             return true;
         }
         return false;

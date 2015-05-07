@@ -33,7 +33,8 @@
         android:id="@+id/textView9"
         android:layout_below="@+id/addOpinionRatingBar"
         android:layout_alignLeft="@+id/addOpinionRatingBar"
-        android:layout_alignStart="@+id/addOpinionRatingBar" />
+        android:layout_alignStart="@+id/addOpinionRatingBar"
+        />
 
     <EditText
         android:layout_width="wrap_content"
