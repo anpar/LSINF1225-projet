@@ -46,6 +46,14 @@
             android:label="@string/title_activity_show_bill" >
         </activity>
         <activity
+            android:name=".activity.ShowCommentsActivity"
+            android:label="@string/title_activity_show_comments" >
+        </activity>
+        <activity
+            android:name=".activity.AddOpinionActivity"
+            android:label="@string/title_activity_add_opinion" >
+        </activity>
+        <activity
             android:name=".activity.ShowOrderDetailsActivity"
             android:label="@string/title_activity_show_order_details" >
         </activity>
