@@ -9,7 +9,6 @@ import android.util.SparseArray;
 import com.lsinf1225.groupe_t.bartender.MySQLiteHelper;
 
 import java.util.ArrayList;
-import java.util.Date;
 /**
  * Created by Louis on 7/05/2015.
  */
@@ -30,6 +29,12 @@ public class Order {
     public static final String DB_COL_QUANTITY = "quantity";
 
 
+    /* Pour éviter les ambiguités dans les requêtes, il faut utiliser le format
+    *      nomDeTable.nomDeColonne
+    * lorsque deux tables possèdent le même nom de colonne.
+    */
+    public static final String DB_COL_ORDER_ID = DB_TABLE_ORDERS + "." + DB_COL_ID;
+    public static final String DB_COL_DETAILS_ID = DB_TABLE_ORDER_DETAILS + "." + DB_COL_ID;
 
     /**
      * Nom de colonne sur laquelle le tri est effectué
@@ -63,7 +68,7 @@ public class Order {
     /**
      * date de la commande
      */
-    private Date date;
+    private String date;
 
     /**
      *  login du serveur qui a servit la commande
@@ -101,7 +106,7 @@ public class Order {
        return Order_list;
    }
 
-   public Date getDate(){
+   public String getDate(){
        return date;
    }
 
@@ -132,7 +137,7 @@ public class Order {
     private void loadData() {
         SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
 
-        String[] columns = new String[]{DB_COL_ID,DB_COL_LOGIN_WAITER, DB_COL_TABLE_NUMBER};
+        String[] columns = new String[]{DB_COL_ID,DB_COL_DATE,DB_COL_LOGIN_WAITER, DB_COL_TABLE_NUMBER};
 
         String selection = DB_COL_ID + " = ? ";
         String[] selectionArgs = new String[]{String.valueOf(id_order)};
@@ -143,11 +148,11 @@ public class Order {
         c.moveToFirst();
 
         this.id_order = c.getInt(0);
-       //TODO date
+        this.date=c.getString(1);
         this.login_waiter = c.getString(2);
         this.table_number = c.getInt(3);
         c.close();
-
+        db.close();
     }
 
     /**
