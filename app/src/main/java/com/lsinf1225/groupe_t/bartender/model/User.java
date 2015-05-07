@@ -17,6 +17,7 @@ public class User {
     private static final String DB_COLUMN_PASSWORD = "u_password";
     private static final String DB_COLUMN_TYPE = "u_type";
     private static final String DB_TABLE = "users";
+    public static final String EMPTY = "";
 
     private int id;
     private String login;
