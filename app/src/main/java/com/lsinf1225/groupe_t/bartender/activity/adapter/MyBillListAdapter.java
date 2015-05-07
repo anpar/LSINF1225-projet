@@ -8,23 +8,15 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.lsinf1225.groupe_t.bartender.R;
-import com.lsinf1225.groupe_t.bartender.model.Order;
+import com.lsinf1225.groupe_t.bartender.model.Bill;
 
 import java.util.ArrayList;
 
 /**
- * Gère l'affichage personnalisé de notre liste.
- *
- * Cette classe permet de créer un Adapter personnalisé pour notre liste d'éléments de collection.
- * De cette manière il nous est possible d'utiliser un layout particulier (ici
- * collected_item_row.xml) pour chaque ligne reprenant le nom de l'élément et sa note (rating).
- *
- * @author Damien Mercier
- * @version 1
- * @see <a href="http://d.android.com/reference/android/widget/Adapter.html">Adapter</a>
- * @see <a href="http://d.android.com/reference/android/widget/BaseAdapter.html">BaseAdapter</a>
+ * Created by gillonb on 07/05/15.
  */
-public class MyOrdersListAdapter extends BaseAdapter {
+public class MyBillListAdapter extends BaseAdapter {
+
     /**
      * Permet d'instancier un fichier xml de layout dans une vue.
      */
@@ -33,7 +25,7 @@ public class MyOrdersListAdapter extends BaseAdapter {
     /**
      * Liste des éléments de collection à mettre dans la liste.
      */
-    private ArrayList<Order> collectedItems;
+    private ArrayList<Bill> collectedItems;
 
     /**
      * Constructeur.
@@ -41,7 +33,7 @@ public class MyOrdersListAdapter extends BaseAdapter {
      * @param context        Contexte de l'application.
      * @param collectedItems Liste des éléments de collection à placer dans la liste.
      */
-    public MyOrdersListAdapter(Context context, ArrayList<Order> collectedItems) {
+    public MyBillListAdapter(Context context, ArrayList<Bill> collectedItems) {
         mInflater = LayoutInflater.from(context);
         this.collectedItems = collectedItems;
     }
@@ -58,7 +50,7 @@ public class MyOrdersListAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return collectedItems.get(position).getId();
+        return collectedItems.get(position).getId_bill();
     }
 
     /**
@@ -75,17 +67,17 @@ public class MyOrdersListAdapter extends BaseAdapter {
 
         if (convertView == null) {
             // Création d'un nouvelle vue avec le layout correspondant au fichier xml
-            convertView = mInflater.inflate(R.layout.collected_order_layout, parent, false);
+            convertView = mInflater.inflate(R.layout.collected_bill_layout, parent, false);
         }
 
         // Récupération des deux éléments de notre vue dans le but d'y placer les données.
-        TextView idOrderView= (TextView) convertView.findViewById(R.id.show_row_id_order);
-        TextView WaiterView = (TextView) convertView.findViewById(R.id.show_row_waiter);
+        TextView tableTextView = (TextView) convertView.findViewById(R.id.show_table_number);
+        TextView priceTextView = (TextView) convertView.findViewById(R.id.show_total_price);
 
         // Récupération et placement des données.
-        Order collectedItem = collectedItems.get(position);
-        idOrderView.setText(Integer.toString(collectedItem.getId()));
-        WaiterView.setText(collectedItem.getLogin_waiter());
+        Bill collectedItem = collectedItems.get(position);
+        tableTextView.setText(collectedItem.getTable_number());
+        priceTextView.setText(Float.toString(collectedItem.getTotal()) + "€"); //parse to string
 
         return convertView;
     }
@@ -99,7 +91,7 @@ public class MyOrdersListAdapter extends BaseAdapter {
      *
      * @post Les éléments de la liste ont été remplacés par les éléments passés en argument.
      */
-    public void setCollectedItems(ArrayList<Order> newCollectedItems) {
+    public void setCollectedItems(ArrayList<Bill> newCollectedItems) {
         this.collectedItems = newCollectedItems;
         notifyDataSetChanged();
     }

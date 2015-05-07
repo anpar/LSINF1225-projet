@@ -71,4 +71,9 @@
     <string name="you_have_to_be_connected">Connexion requise.</string>
     <string name="show_now_comment">Pas encore de commentaire.</string>
     <string name="show_msg_error_already_commented">Vous avez déjà commenté cette boisson.</string>
+    <string name="please_specify_a_note_value">Veuillez indiquez une note.</string>
+    <string name="opinion_added">Votre avis a été ajouté!</string>
+    <string name="error_retrieving_opinions">Erreur lors de la récupération des avis.</string>
+    <string name="error_adding_opinion">Erreur lors de l\'ajout du commentaire.</string>
+    <string name="add_comment_label">Ajouter</string>
 </resources>
