@@ -9,21 +9,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Voir les commentaires"
+        android:onClick="showComment"
         android:id="@+id/button_see_comments_label"
+        android:layout_marginBottom="81dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="36dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Donner son avis"
-        android:id="@+id/button_give_opinion_label"
-        android:layout_above="@+id/button_see_comments_label"
-        android:layout_alignRight="@+id/button_see_comments_label"
-        android:layout_alignEnd="@+id/button_see_comments_label"
-        android:layout_alignLeft="@+id/button_see_comments_label"
-        android:layout_alignStart="@+id/button_see_comments_label" />
+        android:layout_centerHorizontal="true" />
 
     <RatingBar
         android:layout_width="wrap_content"

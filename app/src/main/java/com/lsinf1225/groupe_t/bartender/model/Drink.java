@@ -168,7 +168,6 @@ public class Drink {
 
         String selection = DB_COL_DRINK_ID + " = ? ";
         String[] selectionArgs = new String[]{String.valueOf(id_drink)};
-        Log.d("Menu", "Trying to retrieve " + id_drink);
 
         Cursor c = db.query(DB_TABLE_DRINKS, columns, selection, selectionArgs, null, null, null);
 
@@ -197,6 +196,7 @@ public class Drink {
         c = db.query(DB_TABLE_RATINGS, columns, selection, selectionArgs, null, null, null);
         c.moveToFirst();
 
+        this.rating = 0;
         float total = 0;
         int numberOrRatings = 0;
         while (!c.isAfterLast()) {
@@ -205,8 +205,9 @@ public class Drink {
             c.moveToNext();
         }
 
-        this.rating = total/numberOrRatings;
-        Log.d("Ratings", "Rating is " + this.rating);
+        if(numberOrRatings > 0) {
+            this.rating = total / numberOrRatings;
+        }
 
         c.close();
         db.close();

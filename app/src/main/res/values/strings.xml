@@ -65,4 +65,9 @@
     <!-- DRAFT -->
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_show_comments">ShowCommentsActivity</string>
+    <string name="title_activity_add_opinion">AddOpinionActivity</string>
+    <string name="you_have_to_be_connected">Connexion requise.</string>
+    <string name="show_now_comment">Pas encore de commentaire.</string>
+    <string name="show_msg_error_already_commented">Vous avez déjà commenté cette boisson.</string>
 </resources>

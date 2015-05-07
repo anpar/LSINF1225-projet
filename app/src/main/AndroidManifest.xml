@@ -45,6 +45,14 @@
             android:name=".activity.ShowBillActivity"
             android:label="@string/title_activity_show_bill" >
         </activity>
+        <activity
+            android:name=".activity.ShowCommentsActivity"
+            android:label="@string/title_activity_show_comments" >
+        </activity>
+        <activity
+            android:name=".activity.AddOpinionActivity"
+            android:label="@string/title_activity_add_opinion" >
+        </activity>
     </application>
 
 </manifest>
