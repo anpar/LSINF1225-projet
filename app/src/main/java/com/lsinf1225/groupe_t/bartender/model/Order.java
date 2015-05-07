@@ -1,25 +1,15 @@
 package com.lsinf1225.groupe_t.bartender.model;
 
 
-import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.util.Log;
 import android.util.SparseArray;
 
-import com.lsinf1225.groupe_t.bartender.BarTenderApp;
 import com.lsinf1225.groupe_t.bartender.MySQLiteHelper;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Calendar;
-import java.text.SimpleDateFormat;
-import java.text.DateFormat;
 /**
  * Created by Louis on 7/05/2015.
  */
@@ -40,23 +30,11 @@ public class Order {
     public static final String DB_COL_QUANTITY = "quantity";
 
 
-    /* Pour éviter les ambiguités dans les requêtes, il faut utiliser le format
-     *      nomDeTable.nomDeColonne
-     * lorsque deux tables possèdent le même nom de colonne.
-     */
-    public static final String DB_COL_ORDERS_ID = DB_TABLE_ORDERS + "." + DB_COL_ID;
-    public static final String DB_COL_ORDER_DETAILS_ID = DB_TABLE_ORDER_DETAILS + "." + DB_COL_ID;
-
-    /*
-     * Pour joindre les deux tables dans une même requête.
-     */
-    public static final String DB_TABLES = DB_TABLE_ORDERS + " INNER JOIN " + DB_TABLE_ORDER_DETAILS + " ON " + DB_COL_ORDERS_ID + " = " + DB_COL_ORDER_DETAILS_ID;
-
 
     /**
      * Nom de colonne sur laquelle le tri est effectué
      */
-    public static String order_by = DB_COL_ORDERS_ID;
+    public static String order_by = DB_COL_ID;
     /**
      * Ordre de tri : ASC pour croissant et DESC pour décroissant
      */
@@ -70,7 +48,7 @@ public class Order {
     /**
      * liste de boissons commandées
      */
-    private ArrayList<Drink> drink_list;
+    private ArrayList<Order> Order_list;
 
     /**
      * liste du nombres de boissons commandées
@@ -136,8 +114,8 @@ public class Order {
     }
 
 
-   public ArrayList<Drink> getDrink_list(){
-       return drink_list;
+   public ArrayList<Order> getOrder_list(){
+       return Order_list;
    }
 
    public String getDate(){
@@ -210,9 +188,9 @@ public class Order {
     private void loadData() {
         SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
 
-        String[] columns = new String[]{DB_COL_ORDERS_ID, DB_COL_DATE,DB_COL_LOGIN_WAITER, DB_COL_TABLE_NUMBER};
+        String[] columns = new String[]{DB_COL_ID,DB_COL_LOGIN_WAITER, DB_COL_TABLE_NUMBER};
 
-        String selection = DB_COL_ORDERS_ID + " = ? ";
+        String selection = DB_COL_ID + " = ? ";
         String[] selectionArgs = new String[]{String.valueOf(id_order)};
         Log.d("Menu", "Trying to retrieve " + id_order);
 
@@ -225,7 +203,6 @@ public class Order {
         this.login_waiter = c.getString(2);
         this.table_number = c.getInt(3);
         c.close();
-
 
     }
 
@@ -248,7 +225,21 @@ public class Order {
      */
     private static final SparseArray<Order> orderSparseArray = new SparseArray<Order>();
 
+    /**
+     * Fournit la liste de tous les éléments de la collection de l'utilisateur courant dont le nom
+     * contient searchsearchQuery.
+     *
+     * @param searchQuery Requête de recherche.
+     *
+     * @return Liste d'éléments de collection répondant à la requête de recherche.
+     */
+    public static ArrayList<Order> searchOrder(String searchQuery) {
+        String selection = DB_COL_LOGIN_WAITER + " LIKE ?";
+        String[] selectionArgs = new String[]{"%" + searchQuery + "%"};
 
+        // Les critères de selection sont passés à la sous-méthode de récupération des éléments.
+        return getOrders(selection, selectionArgs);
+    }
 
     /**
      * Fournit la liste de tous les objets correspondant aux critères de sélection demandés.
@@ -267,7 +258,7 @@ public class Order {
     private static ArrayList<Order> getOrders(String selection, String[] selectionArgs) {
         ArrayList<Order> orders = new ArrayList<Order>();
         SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
-        String[] columns = new String[]{DB_COL_ORDERS_ID};
+        String[] columns = new String[]{DB_COL_ID};
         Cursor c = db.query(DB_TABLE_ORDERS, columns, selection, selectionArgs, null, null, Order.order_by + " " + Order.order);
 
         if(c != null && c.moveToFirst()) {
