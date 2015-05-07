@@ -55,7 +55,13 @@ public class ShowCommentsActivity extends Activity {
             Opinion comp = new Opinion(1,User.getConnectedUser().getLogin(), 0,"");
             if (!collectedItems.contains(comp)) {
                 Intent intent = new Intent(this, AddOpinionActivity.class);
-                startActivity(intent);
+                int id_drink = getIntent().getIntExtra("id_drink", -1);
+                if(id_drink != -1) {
+                    intent.putExtra("id_drink", id_drink);
+                    startActivity(intent);
+                } else {
+                    BarTenderApp.notifyShort(R.string.sorry_error);
+                }
             } else {
                 BarTenderApp.notifyShort(R.string.show_msg_error_already_commented);
             }
@@ -70,14 +76,12 @@ public class ShowCommentsActivity extends Activity {
      * liste des résultats.
      */
     private void loadCollectedItems() {
-        // Récupération de la requête de recherche.
-        // Si aucune requête n'a été passée lors de la création de l'activité, searchQuery sera null.
         int id_drink = getIntent().getIntExtra("id_drink", -1);
 
         if(id_drink != -1) {
             collectedItems = Opinion.getComments(id_drink);
         } else {
-            BarTenderApp.notifyShort(R.string.show_list_error_no_item);
+            BarTenderApp.notifyShort(R.string.error_retrieving_opinions);
         }
 
         // S'il n'y a aucun éléments dans la liste, il faut afficher un message. Ce message est différent

@@ -30,7 +30,7 @@ public class ShowDrinkDetailsActivity extends Activity {
         int id = getIntent().getIntExtra("id_drink", -1);
 
         if (id == -1) {
-            throw new RuntimeException("Aucun id de morceau n'a été spécifié.");
+            throw new RuntimeException("Aucun id de boisson n'a été spécifié.");
         }
 
         // Récupération de la boisson

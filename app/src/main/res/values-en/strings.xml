@@ -39,4 +39,9 @@
     <string name="welcome_text">Welcome</string>
     <string name="you_have_to_be_connected">You have to log in.</string>
     <string name="show_msg_error_already_commented">Opinion already given.</string>
+    <string name="please_specify_a_note_value">Please, specify a note.</string>
+    <string name="opinion_added">Opinion successfully added!!</string>
+    <string name="error_retrieving_opinions">An error occured while retrieving opinions.</string>
+    <string name="error_adding_opinion">An error occured while adding your opinion.</string>
+    <srting name="add_comment_label">Add.</srting>
 </resources>

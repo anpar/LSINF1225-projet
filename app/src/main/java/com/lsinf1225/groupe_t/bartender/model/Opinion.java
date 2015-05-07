@@ -1,5 +1,6 @@
 package com.lsinf1225.groupe_t.bartender.model;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
@@ -79,5 +80,20 @@ public class Opinion {
     public boolean equals(Object obj) {
         Opinion op = (Opinion) obj;
         return(op.getLogin_client().equals(login_client));
+    }
+
+    public static boolean add(int id_drink, String login, float note, String comment) {
+        boolean addSuccessful = false;
+
+        SQLiteDatabase db = MySQLiteHelper.get().getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(DB_COLUMN_ID_DRINK, id_drink);
+        values.put(DB_COLUMN_LOGIN_CLIENT, login);
+        values.put(DB_COLUMN_VALUE, note);
+        Log.d("AddComment", "value of comment" + comment);
+        values.put(DB_COLUMN_COMMENT, comment);
+        addSuccessful = db.insert(DB_TABLE, null, values) > 0;
+
+        return addSuccessful;
     }
 }
