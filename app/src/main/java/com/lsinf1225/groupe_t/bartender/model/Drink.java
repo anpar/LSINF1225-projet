@@ -1,7 +1,6 @@
 package com.lsinf1225.groupe_t.bartender.model;
 
 
-import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
@@ -234,7 +233,7 @@ public class Drink {
 
     /**
      * Fournit la liste de tous les éléments de la collection de l'utilisateur courant dont le nom
-     * contient searchQuery.
+         * contient searchsearchQuery.
      *
      * @param searchQuery Requête de recherche.
      *

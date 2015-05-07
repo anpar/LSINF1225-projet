@@ -65,6 +65,7 @@
     <!-- DRAFT -->
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_show_order_details">ShowOrderDetailsActivity</string>
     <string name="title_activity_show_comments">ShowCommentsActivity</string>
     <string name="title_activity_add_opinion">AddOpinionActivity</string>
     <string name="you_have_to_be_connected">Connexion requise.</string>
