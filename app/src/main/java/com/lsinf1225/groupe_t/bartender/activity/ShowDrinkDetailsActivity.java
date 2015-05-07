@@ -1,13 +1,16 @@
 package com.lsinf1225.groupe_t.bartender.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.lsinf1225.groupe_t.bartender.BarTenderApp;
 import com.lsinf1225.groupe_t.bartender.R;
 import com.lsinf1225.groupe_t.bartender.model.Drink;
 import com.lsinf1225.groupe_t.bartender.model.User;
@@ -82,5 +85,11 @@ public class ShowDrinkDetailsActivity extends Activity {
             RatingBar rating = (RatingBar) findViewById(R.id.ratingBar);
             rating.setRating(currentDrink.getRating());
         }
+    }
+
+    public void showComment(View v) {
+        Intent intent = new Intent(this, ShowCommentsActivity.class);
+        intent.putExtra("id_drink", currentDrink.getId_drink());
+        startActivity(intent);
     }
 }

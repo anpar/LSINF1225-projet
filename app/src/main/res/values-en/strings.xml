@@ -37,4 +37,6 @@
     <string name="show_list_price_title">Price</string>
     <string name="sorry_error">Sorry, there is an error</string>
     <string name="welcome_text">Welcome</string>
+    <string name="you_have_to_be_connected">You have to log in.</string>
+    <string name="show_msg_error_already_commented">Opinion already given.</string>
 </resources>
