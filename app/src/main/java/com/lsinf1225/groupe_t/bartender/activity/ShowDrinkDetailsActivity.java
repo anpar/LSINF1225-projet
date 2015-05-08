@@ -36,15 +36,16 @@ public class ShowDrinkDetailsActivity extends Activity {
             throw new RuntimeException("Aucun id de boisson n'a été spécifié.");
         }
 
-        int id_order = getIntent().getIntExtra("id_order",-1);
-        if (id_order == -1){
-            Button AddButton=(Button) findViewById(R.id.add_drink);
-            AddButton.setVisibility(View.INVISIBLE);
-            TextView X=(TextView) findViewById(R.id.multiplicator);
-            X.setVisibility(View.INVISIBLE);
-            EditText number=(EditText) findViewById(R.id.drink_quantity);
-            number.setVisibility(View.INVISIBLE);
-
+        if (User.isWaiter()){
+            int id_order = getIntent().getIntExtra("id_order",-1);
+            if (id_order == -1) {
+                Button AddButton = (Button) findViewById(R.id.add_drink);
+                AddButton.setVisibility(View.INVISIBLE);
+                TextView X = (TextView) findViewById(R.id.multiplicator);
+                X.setVisibility(View.INVISIBLE);
+                EditText number = (EditText) findViewById(R.id.drink_quantity);
+                number.setVisibility(View.INVISIBLE);
+            }
         }
 
         // Récupération de la boisson

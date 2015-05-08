@@ -42,7 +42,7 @@ public class SearchActivity extends Activity  implements TextView.OnEditorAction
         subcatSpinner= (Spinner) findViewById(R.id.spinner_subcat);
         subcatlist = Drink.getSubcategories("");
         subcatadapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, subcatlist);
-        catSpinner.setAdapter(catadapter);
+        subcatSpinner.setAdapter(subcatadapter);
 
         EditText priceMin = (EditText) findViewById(R.id.editText_min_price);
         priceMin.setOnEditorActionListener(this);

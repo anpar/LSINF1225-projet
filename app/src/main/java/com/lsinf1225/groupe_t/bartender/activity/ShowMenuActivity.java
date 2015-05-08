@@ -131,8 +131,9 @@ public class ShowMenuActivity extends Activity implements AdapterView.OnItemClic
         // L'id de l'élément de collection est passé en argument afin que la vue de détails puisse
         // récupérer celui-ci.
         intent.putExtra("id_drink", collectedItems.get(position).getId_drink());
-        intent.putExtra("id_order", getIntent().getIntExtra("id_order", -1));
-
+        if (User.isWaiter()) {
+            intent.putExtra("id_order", getIntent().getIntExtra("id_order", -1));
+        }
         startActivity(intent);
     }
 
