@@ -77,7 +77,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Total de la commande"
-        android:id="@+id/textView14"
+        android:id="@+id/textView_order_details_total"
         android:layout_below="@+id/textView4"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -88,7 +88,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/textView15"
-        android:layout_alignTop="@+id/textView14"
+        android:layout_alignTop="@+id/textView_order_details_total"
         android:layout_alignLeft="@+id/textView12"
         android:layout_alignStart="@+id/textView12"
         android:textColor="#ff20ff11" />

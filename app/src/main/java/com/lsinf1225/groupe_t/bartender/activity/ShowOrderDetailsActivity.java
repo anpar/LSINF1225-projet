@@ -1,26 +1,14 @@
 package com.lsinf1225.groupe_t.bartender.activity;
 
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.Button;
+import android.support.v7.app.ActionBarActivity;
 import android.widget.ListView;
-import android.widget.ProgressBar;
-import android.widget.RatingBar;
-import android.widget.TextView;
 
 import com.lsinf1225.groupe_t.bartender.BarTenderApp;
 import com.lsinf1225.groupe_t.bartender.R;
-import com.lsinf1225.groupe_t.bartender.activity.adapter.MyOpinionsListAdapter;
-import com.lsinf1225.groupe_t.bartender.model.Drink;
-import com.lsinf1225.groupe_t.bartender.model.Opinion;
 import com.lsinf1225.groupe_t.bartender.activity.adapter.MyOrderDetailsListAdapter;
 import com.lsinf1225.groupe_t.bartender.model.Order;
 import com.lsinf1225.groupe_t.bartender.model.OrderDetails;
-import com.lsinf1225.groupe_t.bartender.model.User;
 
 import java.util.ArrayList;
 
@@ -58,7 +46,6 @@ public class ShowOrderDetailsActivity extends ActionBarActivity {
      */
     private void loadCollectedItems() {
         int id_order = getIntent().getIntExtra("id_order", -1);
-
         if(id_order != -1) {
             collectedItems = OrderDetails.getOrderDetails(id_order);
         } else {

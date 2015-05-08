@@ -33,7 +33,7 @@ public class Order {
     public static final String DB_COL_QUANTITY = "quantity";
 
 
-    private float total;
+
     /**
      * Nom de colonne sur laquelle le tri est effectué
      */
@@ -72,6 +72,8 @@ public class Order {
      *  login du serveur qui a servit la commande
      */
     private String login_waiter;
+
+    private float total;
 
 
     /**
