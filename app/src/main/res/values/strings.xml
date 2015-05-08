@@ -53,7 +53,7 @@
     <string name="show_list_price_title">Prix</string>
     <string name="menu_title">La carte</string>
     <string name="title_activity_show_drink_details" translatable="false">ShowDrinkDetailsActivity</string>
-    <string name="show_list_error_no_item">La carte est vide.</string>
+    <string name="show_list_error_no_item">Pas de commande en cours.</string>
     <string name="show_list_no_result">Pas de résulat.</string>
 
     <!-- ShowOrderActivity -->
