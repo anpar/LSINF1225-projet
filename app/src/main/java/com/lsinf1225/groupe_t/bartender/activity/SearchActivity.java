@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -40,7 +39,7 @@ public class SearchActivity extends Activity  implements TextView.OnEditorAction
         catSpinner.setAdapter(catadapter);
 
         subcatSpinner= (Spinner) findViewById(R.id.spinner_subcat);
-        subcatlist = Drink.getSubcategories("");
+        subcatlist = Drink.getSubcategories();
         subcatadapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, subcatlist);
         subcatSpinner.setAdapter(subcatadapter);
 
@@ -48,14 +47,6 @@ public class SearchActivity extends Activity  implements TextView.OnEditorAction
         priceMin.setOnEditorActionListener(this);
         EditText priceMax = (EditText) findViewById(R.id.editText_max_price);
         priceMax.setOnEditorActionListener(this);
-    }
-
-    public void onClick(View v) {
-        int pos = catSpinner.getSelectedItemPosition();
-        if(pos != AdapterView.INVALID_POSITION){
-            subcatlist = Drink.getSubcategories(catlist.get(pos));
-            subcatadapter.notifyDataSetChanged();
-        }
     }
 
     @Override
