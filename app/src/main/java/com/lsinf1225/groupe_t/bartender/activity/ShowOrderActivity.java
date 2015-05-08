@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -124,18 +125,29 @@ public class ShowOrderActivity extends Activity implements AdapterView.OnItemCli
     }
 
 
-   /* public void newOrder(View v) {
+    public void newOrder(View v) {
 
-                Intent intent = new Intent(this, ShowMenuActivity.class);
-                int table_number = getIntent().getIntExtra("table_number", -1);
-                if(table_number!= -1) {
-                    intent.putExtra("id_drink", table_number);
-                    startActivity(intent);
-                } else {
+            Intent intent = new Intent(this, ShowMenuActivity.class);
+            EditText table_numberText = (EditText) findViewById(R.id.show_order_table_number);
+
+            String tableString = table_numberText.getText().toString();
+            if (tableString.matches("")){
+                BarTenderApp.notifyShort(R.string.no_table_number);
+            }
+            else {
+                int table_number = Integer.parseInt(tableString);
+                int id_order = Order.addOrder(table_number);
+
+                if (table_number == -1) {
                     BarTenderApp.notifyShort(R.string.sorry_error);
+
+                } else {
+                    intent.putExtra("id_order", id_order);
+                    startActivity(intent);
                 }
+            }
     }
-*/
+
 
     /**
      * Gère le changement du tri sur la liste.

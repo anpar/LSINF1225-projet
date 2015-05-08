@@ -64,5 +64,24 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New"
+        android:id="@+id/new_order_button"
+        android:onClick="newOrder"
+        android:layout_below="@+id/textView4"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/show_order_table_number"
+        android:layout_alignBottom="@+id/new_order_button"
+        android:layout_toStartOf="@+id/textView4"
+        android:layout_toLeftOf="@+id/textView4" />
+
 
 </RelativeLayout>

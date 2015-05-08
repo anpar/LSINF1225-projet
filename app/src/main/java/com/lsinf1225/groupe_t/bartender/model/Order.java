@@ -293,8 +293,8 @@ public class Order {
         return num.toString() + " - " + getLogin_waiter();
     }
 
-    public static boolean addOrder(int table_number) {
-        boolean addSuccessful = false;
+    public static int addOrder(int table_number) {
+
         SQLiteDatabase db = MySQLiteHelper.get().getWritableDatabase();
 
         SimpleDateFormat parse = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -302,10 +302,11 @@ public class Order {
         contentValues.put(DB_COL_TABLE_NUMBER, table_number);
         contentValues.put(DB_COL_DATE, parse.format(new Date()));
         contentValues.put(DB_COL_LOGIN_WAITER, User.getConnectedUser().getLogin());
-        addSuccessful = db.insert(DB_TABLE_ORDERS,null,contentValues) > 0;
-
-        return(addSuccessful);
+        return (int)db.insert(DB_TABLE_ORDERS,null,contentValues);
     }
+
+
+
 
     /**
      *  Supprime les bill de la base de donné et tous les info la concernant
