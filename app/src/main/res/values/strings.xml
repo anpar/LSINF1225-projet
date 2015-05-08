@@ -65,6 +65,9 @@
     <!-- ShowBillActivity -->
     <string name="title_activity_show_order">Additions</string>
 
+    <!--AddBillActivity-->
+    <string name="numero_table">Nouvelle addition</string>
+
     <!-- DRAFT -->
     <string name="hello_world" translatable="false">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -90,4 +93,10 @@
     <string name="addition_closed">Addition clôturée.</string>
     <string name="bill_closed">Facture cloturée.</string>
     <string name="show_list_no_order">Pas de commande en cours.</string>
+
+    <string name="title_activity_search">Recherches</string>
+    <string name="no_quantity">Veuillez insérer une quantité.</string>
+    <string name="nonvalid_quantity">Veuillez insérer une quantité valide.</string>
+    <string name="not_enough_drinks">Il n\'y a plus assez de cette boisson en stock.</string>
+
 </resources>
