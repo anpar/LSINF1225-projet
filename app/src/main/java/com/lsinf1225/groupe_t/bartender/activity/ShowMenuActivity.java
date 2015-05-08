@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -42,6 +43,8 @@ public class ShowMenuActivity extends Activity implements AdapterView.OnItemClic
             finishButton.setVisibility(View.INVISIBLE);
             TextView id_orderText=(TextView) findViewById(R.id.show_menu_order_id_text);
             id_orderText.setVisibility(View.INVISIBLE);
+            EditText number=(EditText) findViewById(R.id.drink_quantity);
+            number.setVisibility(View.INVISIBLE);
         }
         else{
             TextView id_orderText = (TextView) findViewById(R.id.show_current_id_order);

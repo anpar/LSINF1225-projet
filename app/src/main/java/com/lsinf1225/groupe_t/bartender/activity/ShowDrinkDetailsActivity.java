@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RatingBar;
@@ -33,6 +34,15 @@ public class ShowDrinkDetailsActivity extends Activity {
 
         if (id == -1) {
             throw new RuntimeException("Aucun id de boisson n'a été spécifié.");
+        }
+
+        int id_order = getIntent().getIntExtra("id_order",-1);
+        if (id_order == -1){
+            Button AddButton=(Button) findViewById(R.id.add_drink);
+            AddButton.setVisibility(View.INVISIBLE);
+            TextView X=(TextView) findViewById(R.id.multiplicator);
+            X.setVisibility(View.INVISIBLE);
+
         }
 
         // Récupération de la boisson
@@ -96,11 +106,25 @@ public class ShowDrinkDetailsActivity extends Activity {
     }
 
     public void addDrinkToOrder (View v){
-        EditText quantityText = (EditText) findViewById(R.id.drink_quantity);
-        int quantity = Integer.parseInt(quantityText.getText().toString());
-        OrderDetails.addDrink(getIntent().getIntExtra("id_order", -1), quantity,currentDrink.getId_drink());
-        BarTenderApp.notifyShort(R.string.add__drink_succeed);
-        finish();
 
+
+        EditText quantityText = (EditText) findViewById(R.id.drink_quantity);
+        String quantityString = quantityText.getText().toString();
+        if (quantityString.matches("")){
+            BarTenderApp.notifyShort(R.string.no_quantity);
+        }
+        else {
+            int quantity = Integer.parseInt(quantityText.getText().toString());
+            if (quantity <= 0){
+                BarTenderApp.notifyShort(R.string.nonvalid_quantity);
+            }
+            if (!Drink.upDateStock(currentDrink.getId_drink(), quantity)) {
+                BarTenderApp.notifyShort(R.string.not_enough_drinks);
+            } else {
+                OrderDetails.addDrink(getIntent().getIntExtra("id_order", -1), quantity, currentDrink.getId_drink());
+                BarTenderApp.notifyShort(R.string.add__drink_succeed);
+                finish();
+            }
+        }
     }
 }
