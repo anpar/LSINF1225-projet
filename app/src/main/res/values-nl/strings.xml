@@ -55,5 +55,5 @@
     <string name="menu_button">Kaart</string>
     <string name="menu_title">Kaart</string>
     <string name="title_activity_show_bill">Bestellingen</string>
-    <string name="title_activity_show_order">Rekening</string>
+    <string name="title_activity_show_order">Rekeningen</string>
 </resources>
