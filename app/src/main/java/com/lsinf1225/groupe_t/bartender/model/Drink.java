@@ -1,6 +1,7 @@
 package com.lsinf1225.groupe_t.bartender.model;
 
 
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
@@ -320,5 +321,15 @@ public class Drink {
      */
     public String toString() {
         return getName_drink() + " - " + getPrice() + "€";
+    }
+
+    public int upDateStock(String id_drink,int quantity){
+        SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
+        String sel[] = {""+id_drink};
+
+        ContentValues values = new ContentValues();
+        values.put(DB_COL_AVAILABLE_QUANTITY, );
+
+        int nb_rows_affect = db.update(DB_TABLE_DRINKS, ContentValues values, "WHERE ", String[] whereArgs)
     }
 }
