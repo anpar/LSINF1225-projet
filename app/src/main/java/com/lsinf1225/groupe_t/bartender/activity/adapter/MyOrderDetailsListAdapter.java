@@ -10,6 +10,8 @@ import android.widget.BaseAdapter;
 
 import com.lsinf1225.groupe_t.bartender.R;
 import com.lsinf1225.groupe_t.bartender.model.OrderDetails;
+
+import com.lsinf1225.groupe_t.bartender.model.Order;
 import com.lsinf1225.groupe_t.bartender.model.Opinion;
 
 import java.util.ArrayList;
@@ -72,13 +74,15 @@ public class MyOrderDetailsListAdapter extends BaseAdapter{
         }
 
         // Récupération des deux éléments de notre vue dans le but d'y placer les données.
-        TextView drink = (TextView) convertView.findViewById(R.id.textview_show_comments_comment);
-        TextView quantity = (RatingBar) convertView.findViewById(R.id.show_comment_rating_bar);
+        TextView drink = (TextView) convertView.findViewById(R.id.order_details_row_drink);
+        TextView quantity = (TextView) convertView.findViewById(R.id.order_details_row_price);
+        TextView price = (TextView) convertView.findViewById(R.id.order_details_row_quantity);
 
         // Récupération et placement des données.
         OrderDetails collectedItem = collectedItems.get(position);
-        drink.setText(collectedItem.getDrink.getName_drink());
+        drink.setText(collectedItem.getDrink().getName_drink());
         quantity.setText(Integer.toString(collectedItem.getQuantity()));
+        price.setText(Float.toString(collectedItem.getDrink().getPrice()));
 
         return convertView;
     }

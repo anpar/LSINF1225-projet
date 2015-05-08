@@ -17,7 +17,7 @@ import com.lsinf1225.groupe_t.bartender.R;
 import com.lsinf1225.groupe_t.bartender.activity.adapter.MyOpinionsListAdapter;
 import com.lsinf1225.groupe_t.bartender.model.Drink;
 import com.lsinf1225.groupe_t.bartender.model.Opinion;
-import com.lsinf1225.groupe_t.bartender.activity.adapter.MyOrderDetailsListAdapter
+import com.lsinf1225.groupe_t.bartender.activity.adapter.MyOrderDetailsListAdapter;
 import com.lsinf1225.groupe_t.bartender.model.Order;
 import com.lsinf1225.groupe_t.bartender.model.OrderDetails;
 import com.lsinf1225.groupe_t.bartender.model.User;
@@ -57,7 +57,7 @@ public class ShowOrderDetailsActivity extends ActionBarActivity {
      * liste des résultats.
      */
     private void loadCollectedItems() {
-        int id_drink = getIntent().getIntExtra("id_order", -1);
+        int id_order = getIntent().getIntExtra("id_order", -1);
 
         if(id_order != -1) {
             collectedItems = OrderDetails.getOrderDetails(id_order);
