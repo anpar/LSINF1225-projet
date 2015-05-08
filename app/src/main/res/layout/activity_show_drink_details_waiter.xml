@@ -6,13 +6,14 @@
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".activity.ShowDrinkDetailsActivity">
 
     <TextView
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/textview_drink_detail_name_c"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/textview_drink_detail_stock_max"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:gravity="center" />
 
     <TextView
         android:layout_width="50dp"
@@ -24,7 +25,8 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textview_drink_detail_name_c"
         android:layout_toLeftOf="@+id/textview_drink_detail_threshold"
-        android:layout_toStartOf="@+id/textview_drink_detail_threshold" />
+        android:layout_toStartOf="@+id/textview_drink_detail_threshold"
+        android:gravity="center_vertical|left" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -34,7 +36,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_toRightOf="@+id/textview_drink_detail_price_c"
-        android:layout_below="@+id/textview_drink_detail_name_c" />
+        android:layout_below="@+id/textview_drink_detail_name_c"
+        android:gravity="center_vertical|right" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -142,7 +145,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/stock_level_label"
-        android:layout_alignEnd="@+id/stock_level_label" />
+        android:layout_alignEnd="@+id/stock_level_label"
+        android:gravity="center_vertical|left" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -153,7 +157,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_toRightOf="@+id/textview_drink_detail_category"
-        android:layout_toEndOf="@+id/textview_drink_detail_category" />
+        android:layout_toEndOf="@+id/textview_drink_detail_category"
+        android:gravity="center_vertical|right" />
 
     <RelativeLayout
         android:layout_width="fill_parent"
