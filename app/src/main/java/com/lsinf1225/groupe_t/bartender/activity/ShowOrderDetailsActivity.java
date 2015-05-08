@@ -1,7 +1,7 @@
 package com.lsinf1225.groupe_t.bartender.activity;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -13,7 +13,7 @@ import com.lsinf1225.groupe_t.bartender.model.OrderDetails;
 
 import java.util.ArrayList;
 
-public class ShowOrderDetailsActivity extends ActionBarActivity {
+public class ShowOrderDetailsActivity extends Activity {
     private Order currentOrder;
 
         private ArrayList<OrderDetails> collectedItems;

@@ -84,7 +84,7 @@ public class ShowOrderActivity extends Activity implements AdapterView.OnItemCli
         // "Aucun élément n'est présent dans votre collection).
         if (collectedItems.isEmpty()) {
             if (table_number == -1) {
-                // TODO : changer les string ici.
+                // TODO : OK mais a vérifier
                 BarTenderApp.notifyShort(R.string.show_list_error_no_item);
             } else {
                 BarTenderApp.notifyShort(R.string.show_list_no_result);

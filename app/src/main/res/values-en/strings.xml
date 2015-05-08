@@ -31,7 +31,7 @@
     <string name="show_details_subcategory_title">Sub_category :</string>
     <string name="show_details_threshold_title">Threshold :</string>
     <string name="show_details_volume_title">Volume :</string>
-    <string name="show_list_error_no_item">The menu is empty.</string>
+    <string name="show_list_error_no_item">No current order</string>
     <string name="show_list_name_title">Drink</string>
     <string name="show_list_no_result">No result.</string>
     <string name="show_list_price_title">Price</string>
