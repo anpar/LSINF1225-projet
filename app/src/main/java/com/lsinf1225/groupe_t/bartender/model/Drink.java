@@ -14,8 +14,6 @@ import com.lsinf1225.groupe_t.bartender.MySQLiteHelper;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.sql.SQLInput;
 import java.util.ArrayList;
 
 /**
@@ -253,7 +251,7 @@ public class Drink {
     public static String checkString(String token) {
         String out;
         if(token == null) {
-            out = "*";
+            out = "%";
         } else {
             out = "%" + token + "%";
         }
@@ -267,7 +265,7 @@ public class Drink {
         String selection = DB_COL_NAME_DRINK + " = LIKE ? AND "
                          + DB_COL_CATEGORY + " = LIKE ? AND "
                          + DB_COL_SUBCATEGORY + " = LIKE ? AND "
-                         + DB_COL_PRICE + " > ? AND"
+                         + DB_COL_PRICE + " > ? AND "
                          + DB_COL_PRICE + " < ?";
         String selectionArgs[] = new String[]{checkString(name), checkString(cat), checkString(subcat), Float.toString(pmin), Float.toString(pmax)};
         Cursor c = db.query(DB_TABLE_DRINKS, columns, selection, selectionArgs, null, null, null, null);

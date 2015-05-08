@@ -70,24 +70,26 @@ public class SearchActivity extends Activity  implements TextView.OnEditorAction
             intent.putExtra("name", name);
         }
         String catText = (String)catSpinner.getSelectedItem();
-        if(!name.matches("")) {
+        if(!catText.matches("")) {
             intent.putExtra("cat", catText);
         }
         String subcatText = (String)subcatSpinner.getSelectedItem();
-        if(!name.matches("")) {
+        if(!subcatText.matches("")) {
             intent.putExtra("subcat", subcatText);
         }
 
         EditText pminText= (EditText) findViewById(R.id.editText_min_price);
-        Float pmin=Float.parseFloat(pminText.getText().toString());
-        if(!name.matches("")) {
+        if(!pminText.getText().toString().matches("")) {
+            Float pmin=Float.parseFloat(pminText.getText().toString());
             intent.putExtra("pmin", pmin);
         }
+
         EditText pmaxText= (EditText) findViewById(R.id.editText_max_price);
-        Float pmax=Float.parseFloat(pmaxText.getText().toString());
-        if(!name.matches("")) {
+        if(!pmaxText.getText().toString().matches("")) {
+            Float pmax=Float.parseFloat(pmaxText.getText().toString());
             intent.putExtra("pmax", pmax);
         }
+
         startActivity(intent);
     }
 
