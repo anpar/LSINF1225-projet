@@ -29,7 +29,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nouvelle addition"
+        android:text="@string/numero_table"
         android:id="@+id/button_new_bill"
         android:onClick="newBill"
         android:layout_below="@+id/new_bill_table_number"

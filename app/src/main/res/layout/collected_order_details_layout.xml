@@ -10,7 +10,8 @@
         android:layout_height="28dp"
         android:id="@+id/order_details_row_drink"
         android:layout_gravity="center_vertical"
-        android:layout_weight="48.95" />
+        android:layout_weight="48.95"
+        android:gravity="center_vertical|left" />
 
     <TextView
         android:layout_width="29dp"
@@ -26,5 +27,6 @@
         android:id="@+id/order_details_row_price"
         android:layout_gravity="center_vertical"
         android:layout_weight="26.20"
-        android:textAlignment="center"/>
+        android:textAlignment="center"
+        android:gravity="center_vertical|right" />
 </LinearLayout>

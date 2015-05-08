@@ -10,7 +10,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_weight="70"
-        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"/>
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+        android:gravity="center_vertical|left" />
 
     <TextView
         android:id="@+id/show_row_waiter"
@@ -19,5 +20,6 @@
         android:layout_gravity="center_vertical"
         android:layout_weight="30"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:gravity="center_vertical|right" />
 </LinearLayout>
