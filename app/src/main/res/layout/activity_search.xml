@@ -115,8 +115,6 @@
         android:text="Prix maximal"
         android:id="@+id/textView15"
         android:layout_below="@+id/spinner_subcat"
-        android:layout_alignLeft="@+id/textView18"
-        android:layout_alignStart="@+id/textView18"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -129,56 +127,8 @@
         android:layout_below="@+id/textView15"
         android:layout_alignRight="@+id/textView15"
         android:layout_alignEnd="@+id/textView15"
-        android:layout_toEndOf="@+id/editText_min_note"
         android:layout_alignLeft="@+id/textView15"
         android:layout_alignStart="@+id/textView15"
         android:layout_alignParentRight="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Note minimale"
-        android:id="@+id/textView17"
-        android:layout_below="@+id/editText_min_price"
-        android:layout_alignLeft="@+id/editText_min_price"
-        android:layout_alignStart="@+id/editText_min_price" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Note maximale"
-        android:id="@+id/textView18"
-        android:layout_below="@+id/editText_min_price"
-        android:layout_alignRight="@+id/spinner_subcat"
-        android:layout_alignEnd="@+id/spinner_subcat"
-        android:layout_alignParentRight="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/editText_min_note"
-        android:layout_below="@+id/textView17"
-        android:layout_alignLeft="@+id/textView14"
-        android:layout_alignStart="@+id/textView14"
-        android:layout_toStartOf="@+id/textView18"
-        android:layout_alignRight="@+id/subcategory_spinner_search_label"
-        android:layout_alignEnd="@+id/subcategory_spinner_search_label" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/editText_max_note"
-        android:layout_alignTop="@+id/editText_min_note"
-        android:layout_alignRight="@+id/textView18"
-        android:layout_alignEnd="@+id/textView18"
-        android:layout_toEndOf="@+id/advanced_search_text"
-        android:layout_alignLeft="@+id/textView18"
-        android:layout_alignStart="@+id/textView18" />
 
 </RelativeLayout>

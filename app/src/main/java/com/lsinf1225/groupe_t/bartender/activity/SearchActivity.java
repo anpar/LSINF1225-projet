@@ -48,10 +48,6 @@ public class SearchActivity extends Activity  implements TextView.OnEditorAction
         priceMin.setOnEditorActionListener(this);
         EditText priceMax = (EditText) findViewById(R.id.editText_max_price);
         priceMax.setOnEditorActionListener(this);
-        EditText noteMin = (EditText) findViewById(R.id.editText_min_note);
-        noteMin.setOnEditorActionListener(this);
-        EditText noteMax = (EditText) findViewById(R.id.editText_max_note);
-        noteMax.setOnEditorActionListener(this);
     }
 
     public void onClick(View v) {
