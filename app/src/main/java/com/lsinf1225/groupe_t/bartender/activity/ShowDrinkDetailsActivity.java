@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import com.lsinf1225.groupe_t.bartender.BarTenderApp;
 import com.lsinf1225.groupe_t.bartender.R;
 import com.lsinf1225.groupe_t.bartender.model.Drink;
+import com.lsinf1225.groupe_t.bartender.model.OrderDetails;
 import com.lsinf1225.groupe_t.bartender.model.User;
 
 public class ShowDrinkDetailsActivity extends Activity {
@@ -91,5 +93,14 @@ public class ShowDrinkDetailsActivity extends Activity {
         Intent intent = new Intent(this, ShowCommentsActivity.class);
         intent.putExtra("id_drink", currentDrink.getId_drink());
         startActivity(intent);
+    }
+
+    public void addDrinkToOrder (View v){
+        EditText quantityText = (EditText) findViewById(R.id.drink_quantity);
+        int quantity = Integer.parseInt(quantityText.getText().toString());
+        OrderDetails.addDrink(getIntent().getIntExtra("id_order", -1), quantity,currentDrink.getId_drink());
+        BarTenderApp.notifyShort(R.string.add__drink_succeed);
+        finish();
+
     }
 }

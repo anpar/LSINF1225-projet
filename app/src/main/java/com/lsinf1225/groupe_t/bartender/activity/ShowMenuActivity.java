@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -12,6 +13,8 @@ import com.lsinf1225.groupe_t.bartender.BarTenderApp;
 import com.lsinf1225.groupe_t.bartender.R;
 import com.lsinf1225.groupe_t.bartender.activity.adapter.MyDrinksListAdapter;
 import com.lsinf1225.groupe_t.bartender.model.Drink;
+import com.lsinf1225.groupe_t.bartender.model.Order;
+import com.lsinf1225.groupe_t.bartender.model.User;
 
 import java.util.ArrayList;
 
@@ -33,6 +36,17 @@ public class ShowMenuActivity extends Activity implements AdapterView.OnItemClic
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_show_menu);
+        int id_order = getIntent().getIntExtra("id_order", -1);
+        if(id_order == -1){ //TODO
+            Button finishButton=(Button) findViewById(R.id.close_order_button);
+            finishButton.setVisibility(View.INVISIBLE);
+            TextView id_orderText=(TextView) findViewById(R.id.show_menu_order_id_text);
+            id_orderText.setVisibility(View.INVISIBLE);
+        }
+        else{
+            TextView id_orderText = (TextView) findViewById(R.id.show_current_id_order);
+            id_orderText.setText(Float.toString(id_order));
+        }
 
         // Chargement des éléments à afficher dans la variable de classe collectedItems
         loadCollectedItems();
@@ -112,6 +126,8 @@ public class ShowMenuActivity extends Activity implements AdapterView.OnItemClic
         // L'id de l'élément de collection est passé en argument afin que la vue de détails puisse
         // récupérer celui-ci.
         intent.putExtra("id_drink", collectedItems.get(position).getId_drink());
+        intent.putExtra("id_order", getIntent().getIntExtra("id_order", -1));
+
         startActivity(intent);
     }
 
@@ -175,4 +191,7 @@ public class ShowMenuActivity extends Activity implements AdapterView.OnItemClic
         boolean orderByRating = Drink.order_by.equals(Drink.DB_COL_PRICE);
     }
 
+    public void closeOrder(View v){
+        finish();
+    }
 }

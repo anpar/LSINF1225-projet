@@ -64,4 +64,39 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Commande n#"
+        android:id="@+id/show_menu_order_id_text"
+        android:layout_alignBaseline="@+id/close_order_button"
+        android:layout_alignBottom="@+id/close_order_button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="21dp"
+        android:layout_marginStart="21dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Finir commande"
+        android:textSize="10dip"
+        android:onClick="closeOrder"
+        android:id="@+id/close_order_button"
+        android:layout_below="@+id/textView4"
+        android:layout_alignRight="@+id/show_list_titles"
+        android:layout_alignEnd="@+id/show_list_titles" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/show_current_id_order"
+        android:layout_alignBaseline="@+id/show_menu_order_id_text"
+        android:layout_alignBottom="@+id/show_menu_order_id_text"
+        android:layout_toRightOf="@+id/show_menu_order_id_text"
+        android:layout_toEndOf="@+id/show_menu_order_id_text" />
+
+
 </RelativeLayout>

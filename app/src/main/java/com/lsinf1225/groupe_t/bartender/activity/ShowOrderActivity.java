@@ -7,14 +7,17 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+
 
 import com.lsinf1225.groupe_t.bartender.BarTenderApp;
 import com.lsinf1225.groupe_t.bartender.R;
 import com.lsinf1225.groupe_t.bartender.activity.adapter.MyOrdersListAdapter;
 import com.lsinf1225.groupe_t.bartender.model.Bill;
 import com.lsinf1225.groupe_t.bartender.model.Order;
+import com.lsinf1225.groupe_t.bartender.model.User;
 
 import java.util.ArrayList;
 
@@ -120,10 +123,33 @@ public class ShowOrderActivity extends Activity implements AdapterView.OnItemCli
         intent.putExtra("id_order", collectedItems.get(position).getId());
         startActivity(intent);
     }
-/*
 
 
-/**
+    public void newOrder(View v) {
+
+            Intent intent = new Intent(this, ShowMenuActivity.class);
+            EditText table_numberText = (EditText) findViewById(R.id.show_order_table_number);
+
+            String tableString = table_numberText.getText().toString();
+            if (tableString.matches("")){
+                BarTenderApp.notifyShort(R.string.no_table_number);
+            }
+            else {
+                int table_number = Integer.parseInt(tableString);
+                int id_order = Order.addOrder(table_number);
+
+                if (table_number == -1) {
+                    BarTenderApp.notifyShort(R.string.sorry_error);
+
+                } else {
+                    intent.putExtra("id_order", id_order);
+                    startActivity(intent);
+                }
+            }
+    }
+
+
+    /**
      * Gère le changement du tri sur la liste.
      *
      * Cette méthode est appelée grâce à l'arttribut onClick présent dans le fichier xml de layout.

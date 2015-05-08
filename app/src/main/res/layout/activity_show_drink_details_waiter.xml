@@ -150,4 +150,37 @@
         android:layout_alignRight="@+id/textview_drink_detail_threshold"
         android:layout_alignEnd="@+id/textview_drink_detail_threshold" />
 
+    <EditText
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/drink_quantity"
+        android:layout_marginBottom="17dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/button_read_comment"
+        android:layout_alignStart="@+id/button_read_comment" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        android:id="@+id/add_drink"
+        android:onClick="addDrinkToOrder"
+        android:layout_alignTop="@+id/drink_quantity"
+        android:layout_alignRight="@+id/ratingBar2"
+        android:layout_alignEnd="@+id/ratingBar2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="X"
+        android:textSize="20dip"
+        android:id="@+id/multiplicator"
+        android:layout_alignBaseline="@+id/add_drink"
+        android:layout_alignBottom="@+id/add_drink"
+        android:layout_toRightOf="@+id/drink_quantity"
+        android:layout_toEndOf="@+id/drink_quantity" />
+
 </RelativeLayout>

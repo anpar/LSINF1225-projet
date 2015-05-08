@@ -53,7 +53,7 @@
     <string name="show_list_price_title">Prix</string>
     <string name="menu_title">La carte</string>
     <string name="title_activity_show_drink_details" translatable="false">ShowDrinkDetailsActivity</string>
-    <string name="show_list_error_no_item">Pas de commande en cours.</string>
+    <string name="show_list_error_no_item">La carte est vide.</string>
     <string name="show_list_no_result">Pas de résulat.</string>
 
     <!-- ShowOrderActivity -->
@@ -85,6 +85,8 @@
     <string name="add_bill_success">Addition ajoutée.</string>
     <string name="error_adding_bill">Impossible de créer l\'addition.</string>
     <string name="error_no_bills">Pas de facture.</string>
+    <string name="add__drink_succeed">Ajout des boissons à la commande</string>
+    <string name="no_table_number">Veuillez entrer un numéro de table</string>
     <string name="addition_closed">Addition clôturée.</string>
     <string name="bill_closed">Facture cloturée.</string>
 </resources>
