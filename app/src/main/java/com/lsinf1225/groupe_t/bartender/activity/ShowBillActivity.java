@@ -7,14 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.lsinf1225.groupe_t.bartender.BarTenderApp;
 import com.lsinf1225.groupe_t.bartender.R;
 import com.lsinf1225.groupe_t.bartender.activity.adapter.MyBillListAdapter;
-import com.lsinf1225.groupe_t.bartender.activity.adapter.MyDrinksListAdapter;
 import com.lsinf1225.groupe_t.bartender.model.Bill;
-import com.lsinf1225.groupe_t.bartender.model.Drink;
 
 import java.util.ArrayList;
 
