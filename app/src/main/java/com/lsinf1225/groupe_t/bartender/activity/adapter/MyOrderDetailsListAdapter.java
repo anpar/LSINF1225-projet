@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.BaseAdapter;
 
 import com.lsinf1225.groupe_t.bartender.R;
+import com.lsinf1225.groupe_t.bartender.model.OrderDetails;
 import com.lsinf1225.groupe_t.bartender.model.Opinion;
 
 import java.util.ArrayList;
