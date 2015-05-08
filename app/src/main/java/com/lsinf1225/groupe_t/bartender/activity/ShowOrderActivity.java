@@ -71,6 +71,8 @@ public class ShowOrderActivity extends Activity implements AdapterView.OnItemCli
         updateDrawableOrder();
     }
 
+
+
     /**
      * Charge la liste des éléments de collection dans la variables de classe collectedItems.
      *
@@ -112,6 +114,10 @@ public class ShowOrderActivity extends Activity implements AdapterView.OnItemCli
         loadCollectedItems();
 
         myListViewAdapter.setCollectedItems(collectedItems);
+
+        EditText table_numberEditText = (EditText) findViewById(R.id.show_order_table_number);
+        table_numberEditText.setText("");
+
     }
 
     /**
