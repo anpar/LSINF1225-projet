@@ -56,4 +56,4 @@ INSERT INTO "users" VALUES(1,'anparis','041195','customer');
 INSERT INTO "users" VALUES(2,'john','041195','waiter');
 INSERT INTO "users" VALUES(3, 'test', 'test', 'customer');
 INSERT INTO "users" VALUES(4, 'testthib', '', 'waiter');
-INSERT INTO "users" VALUES(5, 'lou', 'lou', 'waiter');
+INSERT INTO "users" VALUES(5, 'louis', 'lou', 'waiter');
