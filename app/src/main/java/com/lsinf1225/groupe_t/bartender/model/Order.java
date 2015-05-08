@@ -303,7 +303,7 @@ public class Order {
     /**
      *  Supprime les bill de la base de donné et tous les info la concernant
      *
-     * @param id_bill
+     * @param
      * @return nombre d'élément (orders/bill)supprimé de la base de donnée
      */
     public static int remove_order(int table_number) {
