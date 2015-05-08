@@ -85,4 +85,5 @@
     <string name="add_bill_success">Addition ajoutée.</string>
     <string name="error_adding_bill">Impossible de créer l\'addition.</string>
     <string name="error_no_bills">Pas de facture.</string>
+    <string name="addition_closed">Addition clôturée.</string>
 </resources>
