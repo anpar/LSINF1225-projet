@@ -48,7 +48,6 @@
     <string name="error_adding_bill">Impossible to create the bill </string>
     <string name="error_no_bills">No bill</string>
     <string name="error_retrieving_order_details">An error occured while retrieving drinks. (order details)</string>
-    <string name="hello_world"></string>
     <string name="menu_title">The menu</string>
     <string name="order_title">Orders</string>
     <string name="show_list_id_order_title">Order number</string>
@@ -57,11 +56,15 @@
     <string name="show_now_order_details">No details for the order</string>
     <string name="title_activity_show_bill">Orders</string>
     <string name="title_activity_show_order">Bills</string>
-    <string name="show_list_no_order">No order</string>
-    <string name="no_table_number">Enter a table number please</string>
+    <string name="show_list_no_order">No order.</string>
+    <string name="no_table_number">Enter a table number please.</string>
     <string name="bill_closed">Bill payed</string>
     <string name="addition_closed">Bill payed</string>
     <string name="add__drink_succeed">Drinks add to the order</string>
     <string name="show_list_table_number_title">N\° table</string>
     <string name="title_activity_search">Search</string>
+    <string name="nonvalid_quantity">Please enter a valid quantity.</string>
+    <string name="not_enough_drinks">There is not enough of this drinkin stock</string>
+    <string name="no_quantity">Please enter a quantity.</string>
+    <string name="numero_table">New bill</string>
 </resources>

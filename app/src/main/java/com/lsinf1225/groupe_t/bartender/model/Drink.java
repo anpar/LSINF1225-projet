@@ -240,6 +240,7 @@ public class Drink {
      *
      * @return Liste d'éléments de collection répondant à la requête de recherche.
      */
+
     public static ArrayList<Drink> searchDrink(String searchQuery) {
         String selection = DB_COL_NAME_DRINK + " LIKE ?";
         String[] selectionArgs = new String[]{"%" + searchQuery + "%"};
