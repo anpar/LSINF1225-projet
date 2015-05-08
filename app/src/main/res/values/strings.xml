@@ -32,7 +32,7 @@
     <!-- MainLoggedActivity strings -->
     <string name="welcome_text">Bienvenue</string>
     <string name="logout_button">Déconnexion</string>
-    <string name="search_button">Recherche</string>
+    <string name="search_button">Recherches</string>
     <string name="order_button">Commandes</string>
 
     <!--ShowDrinkDetailsActivity strings -->
@@ -58,12 +58,15 @@
 
     <!-- ShowOrderActivity -->
     <string name="title_activity_show_bill">Commandes</string>
-    <string name="show_list_id_order_title">N\* commande</string>
+    <string name="show_list_table_number_title">N\* Table</string>
     <string name="show_list_waiter_title">Serveur</string>
     <string name="order_title">Commandes</string>
 
     <!-- ShowBillActivity -->
     <string name="title_activity_show_order">Additions</string>
+
+    <!--AddBillActivity-->
+    <string name="numero_table">Nouvelle addition</string>
 
     <!-- DRAFT -->
     <string name="hello_world" translatable="false">Hello world!</string>
@@ -90,4 +93,10 @@
     <string name="addition_closed">Addition clôturée.</string>
     <string name="bill_closed">Facture cloturée.</string>
     <string name="show_list_no_order">Pas de commande en cours.</string>
+
+    <string name="title_activity_search">Recherches</string>
+    <string name="no_quantity">Veuillez insérer une quantité.</string>
+    <string name="nonvalid_quantity">Veuillez insérer une quantité valide.</string>
+    <string name="not_enough_drinks">Il n\'y a plus assez de cette boisson en stock.</string>
+
 </resources>

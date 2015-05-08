@@ -171,4 +171,27 @@ public class Bill {
 
         return removeSuccessful;
     }
+
+    public static ArrayList<Integer> getAllTable(){
+
+        ArrayList<Integer> tables = new ArrayList<Integer>();
+        SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
+        String[] columns = new String[]{DB_COL_TABLE_NUMBER};
+        Cursor c = db.query(true,DB_TABLE_BILLS, columns, null, null, null, null, null,null);
+
+        if(c != null && c.moveToFirst()) {
+            while (!c.isAfterLast()) {
+                Integer table = c.getInt(0);
+                tables.add(table);
+                c.moveToNext();
+            }
+
+            c.close();
+        }
+
+        db.close();
+
+        return tables;
+
+    }
 }

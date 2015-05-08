@@ -2,14 +2,9 @@ package com.lsinf1225.groupe_t.bartender.activity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -17,9 +12,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.lsinf1225.groupe_t.bartender.BarTenderApp;
 import com.lsinf1225.groupe_t.bartender.R;
-import com.lsinf1225.groupe_t.bartender.RangeSeekBar;
 import com.lsinf1225.groupe_t.bartender.model.Drink;
 
 import java.util.ArrayList;
