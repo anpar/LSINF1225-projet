@@ -37,7 +37,6 @@ public class AddBillActivity extends Activity implements TextView.OnEditorAction
         EditText tableNumber = (EditText) findViewById(R.id.new_bill_table_number);
         int table_number = Integer.parseInt(tableNumber.getText().toString());
 
-        Log.d("newBill", "table_number = " + table_number);
         if(Bill.addBill(table_number)) {
             BarTenderApp.notifyShort(R.string.add_bill_success);
             finish();
