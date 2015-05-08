@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.lsinf1225.groupe_t.bartender.BarTenderApp;
 import com.lsinf1225.groupe_t.bartender.R;
 import com.lsinf1225.groupe_t.bartender.activity.adapter.MyOrdersListAdapter;
+import com.lsinf1225.groupe_t.bartender.model.Bill;
 import com.lsinf1225.groupe_t.bartender.model.Order;
 
 import java.util.ArrayList;
@@ -181,4 +182,15 @@ public class ShowOrderActivity extends Activity implements AdapterView.OnItemCli
         TextView nameTitle = (TextView) findViewById(R.id.show_list_id);
     }
 
+    public void closeBill(View v) {
+        int table_number = getIntent().getIntExtra("table_number", -1);
+
+        if(table_number != -1) {
+            if(Bill.close(table_number)) {
+                BarTenderApp.notifyShort(R.string.bill_closed);
+            }
+        } else {
+            BarTenderApp.notifyShort(R.string.sorry_error);
+        }
+    }
 }
