@@ -23,8 +23,7 @@
         android:id="@+id/login_button"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:onClick="login"
-        android:background="#3fb24f" />
+        android:onClick="login" />
 
     <Button
         android:layout_width="match_parent"

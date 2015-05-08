@@ -6,7 +6,7 @@
     <string name="show_list_waiter_title">Garçon</string>
     <string name="show_list_no_result">Geen resultaten.</string>
     <string name="show_list_name_title">Drank</string>
-    <string name="show_list_id_order_title">N* bestelling</string>
+    <string name="show_list_id_order_title">Bestelling nr.</string>
     <string name="show_list_error_no_item">De kaart is leeg.</string>
     <string name="show_details_volume_title">Volume:</string>
     <string name="show_details_threshold_title">Drempel:</string>
@@ -61,4 +61,6 @@
     <string name="addition_closed">Rekening beïndigen</string>
     <string name="bill_closed">Facture beïndigd</string>
     <string name="hello_world" translatable="false"></string>
+    <string name="show_list_table_number_title">tafel nr.</string>
+    <string name="title_activity_search">Zoeken</string>
 </resources>
