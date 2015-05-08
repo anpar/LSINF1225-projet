@@ -184,13 +184,16 @@ public class ShowOrderActivity extends Activity implements AdapterView.OnItemCli
 
     public void closeBill(View v) {
         int table_number = getIntent().getIntExtra("table_number", -1);
+        Intent intent = new Intent(this, ShowBillActivity.class);
 
         if(table_number != -1) {
             if(Bill.close(table_number)) {
                 BarTenderApp.notifyShort(R.string.bill_closed);
+                startActivity(intent);
             }
         } else {
             BarTenderApp.notifyShort(R.string.sorry_error);
+            startActivity(intent);
         }
     }
 }
