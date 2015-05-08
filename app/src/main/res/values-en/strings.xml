@@ -6,7 +6,7 @@
     <string name="login_button">Connect</string>
     <string name="login_button_text">Connect</string>
     <string name="login_field_label">Username</string>
-    <string name="login_wrong_password_msg">Inccorect username</string>
+    <string name="login_wrong_password_msg">Incorrect username</string>
     <string name="logout_button">Log out</string>
     <string name="main_back_button_disable">Disconnect to go back to the previous view</string>
     <string name="menu_button">Menu</string>
@@ -37,7 +37,7 @@
     <string name="show_list_price_title">Price</string>
     <string name="sorry_error">Sorry, there is an error</string>
     <string name="welcome_text">Welcome</string>
-    <string name="you_have_to_be_connected">You have to log in.</string>
+    <string name="you_have_to_be_connected">connexion required</string>
     <string name="show_msg_error_already_commented">Opinion already given.</string>
     <string name="please_specify_a_note_value">Please, specify a note.</string>
     <string name="opinion_added">Opinion successfully added!!</string>
@@ -57,4 +57,9 @@
     <string name="show_now_order_details">No details for the order</string>
     <string name="title_activity_show_bill">Orders</string>
     <string name="title_activity_show_order">Bills</string>
+    <string name="show_list_no_order">No order</string>
+    <string name="no_table_number">Enter a table number please</string>
+    <string name="bill_closed">Bill payed</string>
+    <string name="addition_closed">Bill payed</string>
+    <string name="add__drink_succeed">Drinks add to the order</string>
 </resources>
