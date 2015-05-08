@@ -42,6 +42,8 @@ public class ShowDrinkDetailsActivity extends Activity {
             AddButton.setVisibility(View.INVISIBLE);
             TextView X=(TextView) findViewById(R.id.multiplicator);
             X.setVisibility(View.INVISIBLE);
+            EditText number=(EditText) findViewById(R.id.drink_quantity);
+            number.setVisibility(View.INVISIBLE);
 
         }
 
@@ -118,12 +120,14 @@ public class ShowDrinkDetailsActivity extends Activity {
             if (quantity <= 0){
                 BarTenderApp.notifyShort(R.string.nonvalid_quantity);
             }
-            if (!Drink.upDateStock(currentDrink.getId_drink(), quantity)) {
-                BarTenderApp.notifyShort(R.string.not_enough_drinks);
-            } else {
-                OrderDetails.addDrink(getIntent().getIntExtra("id_order", -1), quantity, currentDrink.getId_drink());
-                BarTenderApp.notifyShort(R.string.add__drink_succeed);
-                finish();
+            else {
+                if (!Drink.upDateStock(currentDrink.getId_drink(), quantity)) {
+                    BarTenderApp.notifyShort(R.string.not_enough_drinks);
+                } else {
+                    OrderDetails.addDrink(getIntent().getIntExtra("id_order", -1), quantity, currentDrink.getId_drink());
+                    BarTenderApp.notifyShort(R.string.add__drink_succeed);
+                    finish();
+                }
             }
         }
     }
