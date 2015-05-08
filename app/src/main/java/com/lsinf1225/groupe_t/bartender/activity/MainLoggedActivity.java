@@ -40,7 +40,7 @@ public class MainLoggedActivity extends Activity {
         startActivity(intent);
     }
 
-    public void search(View v) {
+    public void searchLaunch(View v) {
         Intent intent = new Intent(this, SearchActivity.class);
         startActivity(intent);
     }
