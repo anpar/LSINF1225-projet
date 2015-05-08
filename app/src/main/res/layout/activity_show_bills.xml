@@ -6,6 +6,79 @@
     android:weightSum="1"
     tools:context=".activity.ShowBillActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Additions"
+        android:id="@+id/textView10"
+        android:layout_alignBaseline="@+id/add_bill_activity_button"
+        android:layout_alignBottom="@+id/add_bill_activity_button"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:onClick="addBillActivity"
+        android:id="@+id/add_bill_activity_button"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_below="@+id/add_bill_activity_button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/linearLayout">
+
+        <Button
+            style="?android:attr/borderlessButtonStyle"
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:onClick="change_order"
+            android:padding="@dimen/default_padding"
+            android:text="table"
+            android:textStyle="bold"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/button2"
+            android:layout_toStartOf="@+id/button2"
+            android:gravity="center|left" />
+
+        <Button
+            style="?android:attr/borderlessButtonStyle"
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center|right"
+            android:onClick="change_order"
+            android:padding="@dimen/default_padding"
+            android:text="total"
+            android:textStyle="bold"
+            android:layout_gravity="right"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="15dp"
+            android:layout_centerVertical="true"
+            android:clickable="false" />
+
+    </RelativeLayout>
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -13,66 +86,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:id="@+id/show_BillListView"
-        android:layout_marginTop="130dp"/>
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="@dimen/default_padding"
-        android:weightSum="100"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp">
-
-        <Button
-            style="?android:attr/borderlessButtonStyle"
-            android:id="@+id/button"
-            android:layout_marginTop="50dp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="67.33"
-            android:clickable="true"
-            android:gravity="left"
-            android:onClick="change_order"
-            android:padding="@dimen/default_padding"
-            android:text="table"
-            android:textStyle="bold"
-            android:layout_gravity="center_vertical" />
-
-        <Button
-            style="?android:attr/borderlessButtonStyle"
-            android:id="@+id/button2"
-            android:layout_marginTop="50dp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="27.98"
-            android:gravity="center"
-            android:onClick="change_order"
-            android:padding="@dimen/default_padding"
-            android:text="total"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Additions"
-        android:id="@+id/textView10"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nouvelle addition"
-        android:onClick="addBillActivity"
-        android:id="@+id/add_bill_activity_button"
-        android:layout_below="@+id/textView10"
-        android:layout_centerHorizontal="true"
-        android:background="#3fb24f" />
+        android:layout_below="@+id/linearLayout" />
 
 </RelativeLayout>

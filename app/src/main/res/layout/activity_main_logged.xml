@@ -44,7 +44,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="#fc4949" />
+        android:background="#dd4814" />
 
 
     <TextView

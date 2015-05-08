@@ -39,7 +39,7 @@
         android:id="@+id/textView4"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:typeface="monospace" />
+        android:typeface="normal" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -47,7 +47,10 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Boisson"
         android:id="@+id/textView11"
-        android:layout_above="@+id/show_order_details_ListView" />
+        android:layout_above="@+id/show_order_details_ListView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:gravity="center_vertical|left" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -56,7 +59,12 @@
         android:text="Prix"
         android:id="@+id/textView12"
         android:layout_alignTop="@+id/textView13"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignLeft="@+id/textView4"
+        android:layout_alignStart="@+id/textView4"
+        android:layout_toLeftOf="@+id/textView13"
+        android:layout_toStartOf="@+id/textView13"
+        android:gravity="center_vertical|right"
+        android:layout_marginRight="10dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -67,8 +75,7 @@
         android:layout_alignBottom="@+id/show_list_titles"
         android:layout_alignRight="@+id/show_list_titles"
         android:layout_alignEnd="@+id/show_list_titles"
-        android:layout_marginRight="24dp"
-        android:layout_marginEnd="24dp" />
+        android:gravity="center_vertical|right" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -80,7 +87,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="24dp"
-        android:typeface="monospace" />
+        android:typeface="serif" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -94,7 +101,8 @@
         android:layout_toStartOf="@+id/textView13"
         android:layout_alignRight="@+id/textView4"
         android:layout_alignEnd="@+id/textView4"
-        android:text="40" />
+        android:text="40"
+        android:typeface="serif" />
 
 
 </RelativeLayout>
