@@ -14,7 +14,7 @@ import java.io.InputStreamReader;
 public class MySQLiteHelper extends SQLiteOpenHelper {
     private static final String DATABASE_SQL_FILENAME = "database.sql";
     private static final String DATABASE_NAME = "database.sqlite";
-    private static final int DATABASE_VERSION = 11;
+    private static final int DATABASE_VERSION = 13;
 
     private static MySQLiteHelper instance;
 

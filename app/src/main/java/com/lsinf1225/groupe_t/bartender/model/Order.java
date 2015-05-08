@@ -9,32 +9,25 @@ import android.util.SparseArray;
 
 import com.lsinf1225.groupe_t.bartender.MySQLiteHelper;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 
 /**
  * Created by Louis on 7/05/2015.
  */
 public class Order {
-
     /*
      * Noms des tables et des colonnes dans la base de données.
      */
     public static final String DB_TABLE_ORDERS = "orders";
-    public static final String DB_TABLE_ORDER_DETAILS = "order_details";
 
     public static final String DB_COL_ID = "id_order";
     public static final String DB_COL_DATE = "date";
     public static final String DB_COL_LOGIN_WAITER = "login_waiter";
     public static final String DB_COL_TABLE_NUMBER = "table_number";
-
-    public static final String DB_COL_ID_DRINK = "id_drink";
-    public static final String DB_COL_QUANTITY = "quantity";
-
-
+    public static final String DB_TABLE_ORDERS_DETAILS = "order_details";
+    public static final String DB_TABLE_BILLS = "bills";
 
     /**
      * Nom de colonne sur laquelle le tri est effectué
@@ -311,42 +304,42 @@ public class Order {
     /**
      *  Supprime les bill de la base de donné et tous les info la concernant
      *
-     * @param id_bill
+     * @param
      * @return nombre d'élément (orders/bill)supprimé de la base de donnée
      */
-    int remove_order(int id_bill) {
+    public static int remove_order(int table_number) {
         SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
 
-        String re[]= {""+id_bill};
-        Cursor c = db.rawQuery("SELECT B.table_number FROM bills B WHERE B.id_number = ?",re);
+        // On supprime la facture
+        String where = DB_COL_TABLE_NUMBER + " = ?";
+        String whereArg1[] = {String.valueOf(table_number)};
+        int r = db.delete(DB_TABLE_BILLS,where,whereArg1);
 
-        int table_number = 0;
-        while (!c.isAfterLast()) {
-            table_number = c.getInt(0);
-            c.moveToNext();
-        }
-        c.close();
-
-        String salt[] = {""+id_bill};
-        int r = db.delete("bills","id_bill = ?",salt);
-
-        String arg[] = {""+table_number};
-        Cursor cursor = db.rawQuery("SELECT DISTINCT D.id_order FROM order_details D,orders O WHERE D.id_order = O.id_order AND O.table_number = ?",arg);
+        // On sélectionne les id de commande correspondant à la table
+        String columns[] = new String[]{DB_COL_ID};
+        where = DB_COL_TABLE_NUMBER + " = ?";
+        String whereArg2[] = {Integer.toString(table_number)};
+        Cursor cursor = db.query(DB_TABLE_ORDERS, columns, where, whereArg2, null, null, null);
 
         cursor.moveToFirst();
 
+        // On supprimer les order details correspondant au id de commande
         int id;
-        int s=0;
+        int s = 0;
+        where = DB_COL_ID + " = ?";
         while (!cursor.isAfterLast()) {
             id = cursor.getInt(0);
-            String pepper[] = {""+id};
-            s += db.delete("order_details","id_order = ?",pepper);
+            String whereArg3[] = {Integer.toString(id)};
+            s += db.delete(DB_TABLE_ORDERS_DETAILS, where, whereArg3);
             cursor.moveToNext();
         }
         cursor.close();
-        String fred[] = {""+id_bill,""+table_number};
-        int q = db.delete("orders","id_bill = ? AND table_number = ?",fred);
 
+        // On supprimer les commandes
+        where = DB_COL_TABLE_NUMBER + " = ?";
+        String whereArg4[] = {Integer.toString(table_number)};
+        int q = db.delete(DB_TABLE_ORDERS,where,whereArg4);
+        cursor.close();
         return r+q+s;
     }
 

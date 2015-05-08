@@ -83,5 +83,13 @@
         android:layout_toStartOf="@+id/textView4"
         android:layout_toLeftOf="@+id/textView4" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cloturer l&apos;addition"
+        android:id="@+id/button_close_bill"
+        android:onClick="closeBill"
+        android:layout_below="@+id/textView4"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

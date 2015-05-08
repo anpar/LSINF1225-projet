@@ -87,4 +87,6 @@
     <string name="error_no_bills">Pas de facture.</string>
     <string name="add__drink_succeed">Ajout des boissons à la commande</string>
     <string name="no_table_number">Veuillez entrer un numéro de table</string>
+    <string name="addition_closed">Addition clôturée.</string>
+    <string name="bill_closed">Facture cloturée.</string>
 </resources>

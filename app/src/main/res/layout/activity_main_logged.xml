@@ -14,10 +14,11 @@
         android:id="@+id/menu_button"
         android:onClick="menu"
         android:layout_above="@+id/search_button"
-        android:layout_alignRight="@+id/search_button"
-        android:layout_alignEnd="@+id/search_button"
-        android:layout_alignLeft="@+id/search_button"
-        android:layout_alignStart="@+id/search_button" />
+        android:layout_alignRight="@+id/logout_button"
+        android:layout_alignEnd="@+id/logout_button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="#FC3A9EC9" />
 
     <Button
         android:layout_width="wrap_content"
@@ -25,10 +26,12 @@
         android:text="@string/search_button"
         android:id="@+id/search_button"
         android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/order_button"
-        android:layout_alignStart="@+id/order_button"
-        android:layout_alignRight="@+id/order_button"
-        android:layout_alignEnd="@+id/order_button" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="#FC3A9EC9"
+        android:layout_marginTop="5dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -40,7 +43,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="#fc4949" />
 
 
     <TextView
@@ -59,7 +63,12 @@
         android:onClick="order"
         android:id="@+id/order_button"
         android:layout_below="@+id/search_button"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/search_button"
+        android:layout_alignEnd="@+id/search_button"
+        android:background="#FC3A9EC9"
+        android:layout_marginTop="5dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -71,5 +80,16 @@
         android:layout_alignRight="@+id/order_button"
         android:layout_alignEnd="@+id/order_button"
         android:layout_alignLeft="@+id/order_button"
-        android:layout_alignStart="@+id/order_button" />
+        android:layout_alignStart="@+id/order_button"
+        android:background="#FC3A9EC9"
+        android:layout_marginTop="5dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:src="@drawable/logotransparent"
+        android:layout_below="@+id/welcome_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp" />
 </RelativeLayout>

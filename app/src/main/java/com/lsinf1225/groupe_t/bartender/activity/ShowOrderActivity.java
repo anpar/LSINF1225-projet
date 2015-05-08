@@ -7,13 +7,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.lsinf1225.groupe_t.bartender.BarTenderApp;
 import com.lsinf1225.groupe_t.bartender.R;
 import com.lsinf1225.groupe_t.bartender.activity.adapter.MyOrdersListAdapter;
-import com.lsinf1225.groupe_t.bartender.model.Opinion;
+import com.lsinf1225.groupe_t.bartender.model.Bill;
 import com.lsinf1225.groupe_t.bartender.model.Order;
 import com.lsinf1225.groupe_t.bartender.model.User;
 
@@ -42,6 +43,13 @@ public class ShowOrderActivity extends Activity implements AdapterView.OnItemCli
         loadCollectedItems();
 
         ListView myListView = (ListView) findViewById(R.id.show_OrderView);
+
+        int table_number = getIntent().getIntExtra("table_number", -1);
+        Button closeBill = (Button) findViewById(R.id.button_close_bill);
+
+        if(table_number == -1) {
+            closeBill.setVisibility(Button.INVISIBLE);
+        }
 
         // Création de l'adapter pour faire la liaison entre les données (collectedItems) et
         // l'affichage de chaque ligne de la liste.
@@ -86,10 +94,8 @@ public class ShowOrderActivity extends Activity implements AdapterView.OnItemCli
         // "Aucun élément n'est présent dans votre collection).
         if (collectedItems.isEmpty()) {
             if (table_number == -1) {
-                // TODO : changer les string ici.
+                // TODO : OK mais a vérifier
                 BarTenderApp.notifyShort(R.string.show_list_error_no_item);
-            } else {
-                BarTenderApp.notifyShort(R.string.show_list_no_result);
             }
             // Cloture de l'activité d'affichage de la liste (car liste vide). Retour à l'écran
             // précédent.
@@ -125,29 +131,18 @@ public class ShowOrderActivity extends Activity implements AdapterView.OnItemCli
     }
 
 
-    public void newOrder(View v) {
+   /* public void newOrder(View v) {
 
-            Intent intent = new Intent(this, ShowMenuActivity.class);
-            EditText table_numberText = (EditText) findViewById(R.id.show_order_table_number);
-
-            String tableString = table_numberText.getText().toString();
-            if (tableString.matches("")){
-                BarTenderApp.notifyShort(R.string.no_table_number);
-            }
-            else {
-                int table_number = Integer.parseInt(tableString);
-                int id_order = Order.addOrder(table_number);
-
-                if (table_number == -1) {
-                    BarTenderApp.notifyShort(R.string.sorry_error);
-
-                } else {
-                    intent.putExtra("id_order", id_order);
+                Intent intent = new Intent(this, ShowMenuActivity.class);
+                int table_number = getIntent().getIntExtra("table_number", -1);
+                if(table_number!= -1) {
+                    intent.putExtra("id_drink", table_number);
                     startActivity(intent);
+                } else {
+                    BarTenderApp.notifyShort(R.string.sorry_error);
                 }
-            }
     }
-
+*/
 
     /**
      * Gère le changement du tri sur la liste.

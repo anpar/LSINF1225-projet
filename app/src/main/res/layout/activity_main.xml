@@ -14,7 +14,7 @@
         android:layout_marginBottom="42dp"
         android:layout_above="@+id/login_button"
         android:layout_centerHorizontal="true"
-        android:onClick="menu"/>
+        android:onClick="menu" />
 
     <Button
         android:layout_width="match_parent"
@@ -23,7 +23,8 @@
         android:id="@+id/login_button"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:onClick="login"/>
+        android:onClick="login"
+        android:background="#3fb24f" />
 
     <Button
         android:layout_width="match_parent"
@@ -35,5 +36,13 @@
         android:layout_alignLeft="@+id/login_button"
         android:layout_alignStart="@+id/login_button"
         android:onClick="register"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="@drawable/logotransparent"
+        android:layout_above="@+id/show_menu_button"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
