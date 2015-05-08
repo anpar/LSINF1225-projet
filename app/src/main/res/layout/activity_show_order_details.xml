@@ -38,7 +38,8 @@
         android:text="Détails de commande"
         android:id="@+id/textView4"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:typeface="monospace" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -78,7 +79,8 @@
         android:layout_below="@+id/textView4"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="24dp" />
+        android:layout_marginTop="24dp"
+        android:typeface="monospace" />
 
     <TextView
         android:layout_width="wrap_content"
