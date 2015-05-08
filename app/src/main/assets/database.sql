@@ -28,6 +28,7 @@ INSERT INTO "drinks" VALUES(21,'Expresso',2.50,100,15,'Café corsé avec un fort
 INSERT INTO "drinks" VALUES(22,'Cappuccino',4.50,100,15,'Le cappuccino est un café, servi dans une grande tasse, à base d''un expresso et coiffé de lait préalablement chauffé à la vapeur jusqu''à le faire mousser.','icon/CAFE',100,20,'Soft', 'Café');
 INSERT INTO "drinks" VALUES(23,'Thé vert',2.50,100,15,'Le thé vert provient du théier, un arbre à feuillage persistant, originaire des régions montagneuses du sud-ouest de la Chine, du nord de la Thaïlande et du Myanmar.','icon/THE',100,20,'Soft', 'Thé');
 INSERT INTO "drinks" VALUES(24,'Thé citron',2.50,100,15,'Le thé citron a de vertu anti-oxydant','icon/THE',100,20,'Soft', 'Thé');
+INSERT INTO "drinks" VALUES(25,'Kriek',2.90,100,25,'La Kriek est une bière belge aromatisée avec des cerises acides','icon/KRIEK.jpg',100,20,'Bières','Fruitée');
 DROP TABLE IF EXISTS "order_details";
 CREATE TABLE "order_details" ("id_order" INTEGER NOT NULL, "id_drink" INTEGER NOT NULL, "quantity" INTEGER NOT NULL , PRIMARY KEY ("id_order", "id_drink"));
 INSERT INTO "order_details" VALUES(1,1,3);
