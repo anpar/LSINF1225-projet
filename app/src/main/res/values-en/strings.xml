@@ -48,7 +48,6 @@
     <string name="error_adding_bill">Impossible to create the bill </string>
     <string name="error_no_bills">No bill</string>
     <string name="error_retrieving_order_details">An error occured while retrieving drinks. (order details)</string>
-    <string name="hello_world">H</string>
     <string name="menu_title">The menu</string>
     <string name="order_title">Orders</string>
     <string name="show_list_id_order_title">Order number</string>
