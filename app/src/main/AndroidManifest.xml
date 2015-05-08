@@ -61,6 +61,10 @@
             android:name=".activity.AddBillActivity"
             android:label="@string/title_activity_add_bill" >
         </activity>
+        <activity
+            android:name=".activity.SearchActivity"
+            android:label="@string/title_activity_search" >
+        </activity>
     </application>
 
 </manifest>

@@ -14,6 +14,7 @@ import com.lsinf1225.groupe_t.bartender.MySQLiteHelper;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -321,6 +322,44 @@ public class Drink {
      */
     public String toString() {
         return getName_drink() + " - " + getPrice() + "€";
+    }
+
+    public static ArrayList<String> getCategories() {
+        SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
+        String[] columns = new String[]{DB_COL_CATEGORY};
+        Cursor c = db.query(true, DB_TABLE_DRINKS, columns, null, null, null, null, null, null);
+        c.moveToFirst();
+
+        ArrayList<String> list = new ArrayList<>();
+        while(!c.isAfterLast()) {
+            list.add(c.getString(0));
+            c.moveToNext();
+        }
+
+        c.close();
+        db.close();
+
+        return list;
+    }
+
+    public static ArrayList<String> getSubcategories(String category) {
+        SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
+        String[] columns = new String[]{DB_COL_SUBCATEGORY};
+        String where = DB_COL_CATEGORY + "  = ?";
+        String[] whereArg = new String[]{category};
+        Cursor c = db.query(true, DB_TABLE_DRINKS, columns, where, whereArg, null, null, null, null);
+        c.moveToFirst();
+
+        ArrayList<String> list = new ArrayList<>();
+        while(!c.isAfterLast()) {
+            list.add(c.getString(0));
+            c.moveToNext();
+        }
+
+        c.close();
+        db.close();
+
+        return list;
     }
 
     public static boolean upDateStock(int id_drink,int quantity){

@@ -40,6 +40,11 @@ public class MainLoggedActivity extends Activity {
         startActivity(intent);
     }
 
+    public void search(View v) {
+        Intent intent = new Intent(this, SearchActivity.class);
+        startActivity(intent);
+    }
+
     public void order(View v){
         Intent intent = new Intent(this,ShowOrderActivity.class);
         startActivity(intent);
