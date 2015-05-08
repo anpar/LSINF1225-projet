@@ -90,4 +90,5 @@
     <string name="addition_closed">Addition clôturée.</string>
     <string name="bill_closed">Facture cloturée.</string>
     <string name="show_list_no_order">Pas de commande en cours.</string>
+    <string name="title_activity_search">SearchActivity</string>
 </resources>
