@@ -99,5 +99,6 @@
     <string name="nonvalid_quantity">Veuillez insérer une quantité valide.</string>
     <string name="not_enough_drinks">Il n\'y a plus assez de cette boisson en stock.</string>
     <string name="finish_order_to_go_back">Terminer la commande pour revenir en arrière.</string>
+    <string name="show_list_id_order_title"></string>
 
 </resources>

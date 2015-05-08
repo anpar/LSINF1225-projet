@@ -29,7 +29,7 @@ public class SearchActivity extends Activity  implements TextView.OnEditorAction
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_search);
 
         EditText name = (EditText) findViewById(R.id.name_edit_text_search);
         name.setOnEditorActionListener(this);

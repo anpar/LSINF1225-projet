@@ -62,4 +62,6 @@
     <string name="bill_closed">Bill payed</string>
     <string name="addition_closed">Bill payed</string>
     <string name="add__drink_succeed">Drinks add to the order</string>
+    <string name="show_list_table_number_title">N\° table</string>
+    <string name="title_activity_search">Search</string>
 </resources>
