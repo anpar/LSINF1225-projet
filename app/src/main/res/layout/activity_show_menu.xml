@@ -14,10 +14,10 @@
             android:orientation="horizontal"
             android:padding="@dimen/default_padding"
             android:weightSum="100"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="60dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true">
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_below="@+id/relativeLayout2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
 
             <Button
                 android:id="@+id/show_list_name_title"
@@ -61,39 +61,53 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Commande n#"
-        android:id="@+id/show_menu_order_id_text"
-        android:layout_alignBaseline="@+id/close_order_button"
-        android:layout_alignBottom="@+id/close_order_button"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="21dp"
-        android:layout_marginStart="21dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Finir commande"
-        android:textSize="10dip"
-        android:onClick="closeOrder"
-        android:id="@+id/close_order_button"
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
         android:layout_below="@+id/textView4"
-        android:layout_alignRight="@+id/show_list_titles"
-        android:layout_alignEnd="@+id/show_list_titles" />
+        android:id="@+id/relativeLayout2">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:id="@+id/show_current_id_order"
-        android:layout_alignBaseline="@+id/show_menu_order_id_text"
-        android:layout_alignBottom="@+id/show_menu_order_id_text"
-        android:layout_toRightOf="@+id/show_menu_order_id_text"
-        android:layout_toEndOf="@+id/show_menu_order_id_text" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Commande n#"
+            android:id="@+id/show_menu_order_id_text"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="21dp"
+            android:gravity="center_vertical|left"
+            android:layout_marginLeft="0dp"
+            android:layout_alignParentTop="false"
+            android:layout_marginTop="0dp"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:layout_width="66dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:id="@+id/show_current_id_order"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignTop="@+id/show_menu_order_id_text"
+            android:layout_toLeftOf="@+id/close_order_button"
+            android:layout_toStartOf="@+id/close_order_button" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Finir commande"
+            android:textSize="10dip"
+            android:onClick="closeOrder"
+            android:id="@+id/close_order_button"
+            android:layout_alignEnd="@+id/show_list_titles"
+            android:layout_gravity="right"
+            android:gravity="center_vertical|right"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentTop="false"
+            android:layout_alignParentRight="true" />
+
+    </RelativeLayout>
 
 
 </RelativeLayout>
