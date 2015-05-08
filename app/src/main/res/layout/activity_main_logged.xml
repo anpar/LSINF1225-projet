@@ -17,7 +17,8 @@
         android:layout_alignRight="@+id/logout_button"
         android:layout_alignEnd="@+id/logout_button"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="#FC3A9EC9" />
 
     <Button
         android:layout_width="wrap_content"
@@ -28,7 +29,9 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:background="#FC3A9EC9"
+        android:layout_marginTop="5dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -40,7 +43,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="#fc4949" />
 
 
     <TextView
@@ -62,7 +66,9 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/search_button"
-        android:layout_alignEnd="@+id/search_button" />
+        android:layout_alignEnd="@+id/search_button"
+        android:background="#FC3A9EC9"
+        android:layout_marginTop="5dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -74,7 +80,9 @@
         android:layout_alignRight="@+id/order_button"
         android:layout_alignEnd="@+id/order_button"
         android:layout_alignLeft="@+id/order_button"
-        android:layout_alignStart="@+id/order_button" />
+        android:layout_alignStart="@+id/order_button"
+        android:background="#FC3A9EC9"
+        android:layout_marginTop="5dp" />
 
     <ImageView
         android:layout_width="wrap_content"

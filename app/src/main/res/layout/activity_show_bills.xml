@@ -72,6 +72,7 @@
         android:onClick="addBillActivity"
         android:id="@+id/add_bill_activity_button"
         android:layout_below="@+id/textView10"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="#3fb24f" />
 
 </RelativeLayout>
