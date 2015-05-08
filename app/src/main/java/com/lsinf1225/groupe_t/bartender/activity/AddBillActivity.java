@@ -2,6 +2,7 @@ package com.lsinf1225.groupe_t.bartender.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -38,6 +39,7 @@ public class AddBillActivity extends Activity implements TextView.OnEditorAction
 
         if(Bill.addBill(table_number)) {
             BarTenderApp.notifyShort(R.string.add_bill_success);
+            finish();
         } else {
             BarTenderApp.notifyShort(R.string.error_adding_bill);
         }

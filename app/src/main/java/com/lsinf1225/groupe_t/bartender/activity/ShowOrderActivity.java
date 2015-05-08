@@ -66,12 +66,12 @@ public class ShowOrderActivity extends Activity implements AdapterView.OnItemCli
     private void loadCollectedItems() {
         // Récupération de la requête de recherche.
         // Si aucune requête n'a été passée lors de la création de l'activité, searchQuery sera null.
-        Log.d("myApp", "Rentre dans load");
-        String searchQuery = getIntent().getStringExtra("searchQuery");
+        int table_number = getIntent().getIntExtra("table_number", -1);
 
-
-        if(searchQuery != null) {
-            collectedItems = Order.searchOrder(searchQuery);
+        if(table_number != -1) {
+            String where = "table_number = ?";
+            String[] whereArgs = new String[]{Integer.toString(table_number)};
+            collectedItems = Order.getOrders(where, whereArgs);
         } else {
             collectedItems = Order.getOrders();
         }
@@ -82,7 +82,8 @@ public class ShowOrderActivity extends Activity implements AdapterView.OnItemCli
         // l'utilisateur vient directement du menu principal et veut tout afficher (message du type
         // "Aucun élément n'est présent dans votre collection).
         if (collectedItems.isEmpty()) {
-            if (searchQuery == null) {
+            if (table_number == -1) {
+                // TODO : changer les string ici.
                 BarTenderApp.notifyShort(R.string.show_list_error_no_item);
             } else {
                 BarTenderApp.notifyShort(R.string.show_list_no_result);
@@ -178,35 +179,6 @@ public class ShowOrderActivity extends Activity implements AdapterView.OnItemCli
     private void updateDrawableOrder() {
         TextView priceTitle = (TextView) findViewById(R.id.show_list_waiter);
         TextView nameTitle = (TextView) findViewById(R.id.show_list_id);
-
-        /**
-         * Remise à zéro des images de tri.
-         * @note : Attention, le tri par défaut pour les noms est croissant
-         * (up) et celui pour les notes est décroissant (down). Il faut que cela correspondent dans
-         * le comportement de la méthode change_order.
-         */
-        //nameTitle.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_up_inactive, 0, 0, 0);
-        //priceTitle.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_down_inactive, 0, 0, 0);
-
-
-        // Détermination de la colonne sur laquelle le tri est effectué.
-        TextView orderTitle;
-        boolean orderByRating = Order.order_by.equals(Order.DB_COL_ID);
-        if (orderByRating) {
-            orderTitle = priceTitle;
-        } else {
-            orderTitle = nameTitle;
-        }
-
-        // Détermination de l'ordre de tri.
-        boolean orderDesc = Order.order.equals("DESC");
-
-        // Placement de l'icône en fonction de l'ordre de tri.
-       /*if (orderDesc) {
-            orderTitle.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_down_active, 0, 0, 0);
-        } else {
-            orderTitle.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_up_active, 0, 0, 0);
-        }*/
     }
 
 }

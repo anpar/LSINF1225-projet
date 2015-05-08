@@ -112,7 +112,7 @@ public class Bill {
         String where = DB_COL_TABLE_NUMBER + " = ?";
         String[] whereArgs = new String[]{Integer.toString(table_number)};
         Cursor c = db.query(DB_TABLE_BILLS, columns, where, whereArgs, null, null, null);
-
+        c.moveToFirst();
         // Si il y a déjà une facture ouverte pour cette table
         if(c.getCount() >= 1) {
             c.close();
@@ -126,8 +126,8 @@ public class Bill {
         where = DB_COL_TABLE_NUMBER + " = ?";
         whereArgs = new String[]{Integer.toString(table_number)};
         c = db.query(DB_TABLE_ORDER, columns, where, whereArgs, null, null, null);
-
-        // Si il n'y a aucune commande en cours pour cette tabme
+        c.moveToFirst();
+        // Si il n'y a aucune commande en cours pour cette table
         if(c.getCount() <= 0) {
             c.close();
             db.close();
@@ -139,7 +139,7 @@ public class Bill {
 
         SimpleDateFormat parse = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         ContentValues contentValues=new ContentValues();
-        contentValues.put(DB_COL_DATE, table_number);
+        contentValues.put(DB_COL_TABLE_NUMBER, table_number);
         contentValues.put(DB_COL_DATE, parse.format(new Date()));
         addSuccessful = db.insert(DB_TABLE_BILLS,null,contentValues) > 0;
 
