@@ -32,7 +32,7 @@
     <!-- MainLoggedActivity strings -->
     <string name="welcome_text">Bienvenue</string>
     <string name="logout_button">Déconnexion</string>
-    <string name="search_button">Recherche</string>
+    <string name="search_button">Recherches</string>
     <string name="order_button">Commandes</string>
 
     <!--ShowDrinkDetailsActivity strings -->
