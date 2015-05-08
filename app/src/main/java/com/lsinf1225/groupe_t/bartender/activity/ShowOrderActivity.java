@@ -12,7 +12,9 @@ import android.widget.TextView;
 import com.lsinf1225.groupe_t.bartender.BarTenderApp;
 import com.lsinf1225.groupe_t.bartender.R;
 import com.lsinf1225.groupe_t.bartender.activity.adapter.MyOrdersListAdapter;
+import com.lsinf1225.groupe_t.bartender.model.Opinion;
 import com.lsinf1225.groupe_t.bartender.model.Order;
+import com.lsinf1225.groupe_t.bartender.model.User;
 
 import java.util.ArrayList;
 
@@ -119,10 +121,22 @@ public class ShowOrderActivity extends Activity implements AdapterView.OnItemCli
         intent.putExtra("id_order", collectedItems.get(position).getId());
         startActivity(intent);
     }
-/*
 
 
-/**
+   /* public void newOrder(View v) {
+
+                Intent intent = new Intent(this, ShowMenuActivity.class);
+                int table_number = getIntent().getIntExtra("table_number", -1);
+                if(table_number!= -1) {
+                    intent.putExtra("id_drink", table_number);
+                    startActivity(intent);
+                } else {
+                    BarTenderApp.notifyShort(R.string.sorry_error);
+                }
+    }
+*/
+
+    /**
      * Gère le changement du tri sur la liste.
      *
      * Cette méthode est appelée grâce à l'arttribut onClick présent dans le fichier xml de layout.
