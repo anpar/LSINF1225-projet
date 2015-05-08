@@ -94,8 +94,8 @@
         android:text="Prix minimal"
         android:id="@+id/textView14"
         android:layout_below="@+id/spinner_subcat"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignRight="@+id/subcategory_spinner_search_label"
+        android:layout_alignEnd="@+id/subcategory_spinner_search_label" />
 
     <EditText
         android:layout_width="wrap_content"
