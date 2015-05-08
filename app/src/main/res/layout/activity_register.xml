@@ -32,7 +32,8 @@
         android:text="@string/register_password_field_label"
         android:id="@+id/textView2"
         android:layout_below="@+id/register_login_field_value"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -50,7 +51,8 @@
         android:text="@string/register_password_confirmation_field_label"
         android:id="@+id/textView3"
         android:layout_below="@+id/register_password_field_value"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -68,8 +70,8 @@
         android:id="@+id/register_button"
         android:onClick="register"
         android:layout_below="@+id/register_password_confirmed_field_value"
-        android:layout_alignRight="@+id/register_password_confirmed_field_value"
-        android:layout_alignEnd="@+id/register_password_confirmed_field_value"
-        android:layout_marginTop="36dp" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="63dp"
+        android:background="#3fb24f" />
 
 </RelativeLayout>

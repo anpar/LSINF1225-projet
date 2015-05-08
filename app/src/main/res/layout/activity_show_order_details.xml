@@ -87,7 +87,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/order_details_total"
-        android:textColor="#ffff00cf"
+        android:textColor="#ff1300ff"
         android:autoText="false"
         android:layout_alignBaseline="@+id/textView_order_details_total"
         android:layout_alignBottom="@+id/textView_order_details_total"
