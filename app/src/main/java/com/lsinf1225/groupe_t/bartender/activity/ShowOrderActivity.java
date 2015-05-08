@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -35,15 +36,20 @@ public class ShowOrderActivity extends Activity implements AdapterView.OnItemCli
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_show_order);
-        Log.d("myApp", "Constructeur ");
         // Chargement des éléments à afficher dans la variable de classe collectedItems
         loadCollectedItems();
 
         ListView myListView = (ListView) findViewById(R.id.show_OrderView);
 
+        int table_number = getIntent().getIntExtra("table_number", -1);
+        Button closeBill = (Button) findViewById(R.id.button_close_bill);
+
+        if(table_number == -1) {
+            closeBill.setVisibility(Button.INVISIBLE);
+        }
+
         // Création de l'adapter pour faire la liaison entre les données (collectedItems) et
         // l'affichage de chaque ligne de la liste.
-        Log.d("myApp", "Adaptateur ");
         myListViewAdapter = new MyOrdersListAdapter(this, collectedItems);
         myListView.setAdapter(myListViewAdapter);
 
@@ -86,8 +92,6 @@ public class ShowOrderActivity extends Activity implements AdapterView.OnItemCli
             if (table_number == -1) {
                 // TODO : OK mais a vérifier
                 BarTenderApp.notifyShort(R.string.show_list_error_no_item);
-            } else {
-                BarTenderApp.notifyShort(R.string.show_list_no_result);
             }
             // Cloture de l'activité d'affichage de la liste (car liste vide). Retour à l'écran
             // précédent.
@@ -184,16 +188,13 @@ public class ShowOrderActivity extends Activity implements AdapterView.OnItemCli
 
     public void closeBill(View v) {
         int table_number = getIntent().getIntExtra("table_number", -1);
-        Intent intent = new Intent(this, ShowBillActivity.class);
 
         if(table_number != -1) {
             if(Bill.close(table_number)) {
                 BarTenderApp.notifyShort(R.string.bill_closed);
-                startActivity(intent);
             }
         } else {
             BarTenderApp.notifyShort(R.string.sorry_error);
-            startActivity(intent);
         }
     }
 }
