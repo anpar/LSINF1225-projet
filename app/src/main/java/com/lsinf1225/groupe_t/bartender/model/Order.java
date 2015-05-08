@@ -310,7 +310,7 @@ public class Order {
         SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
 
         String re[]= {""+id_bill};
-        Cursor c = db.rawQuery("SELECT B.table_number FROM bills B WHERE B.id_number = ?",re);
+        Cursor c = db.rawQuery("SELECT B.table_number FROM bills B WHERE B.id_order = ?",re);
 
         int table_number = 0;
         while (!c.isAfterLast()) {
