@@ -129,7 +129,7 @@ public class Order {
         return id_order;
     }
 
-
+    public float getTotal(){  return total;}
     public ArrayList<Drink> getDrink_list(){
         return drink_list;
     }
@@ -230,7 +230,7 @@ public class Order {
      *
      * @return Liste d'objets. La liste peut être vide si aucun objet ne correspond.
      */
-    private static ArrayList<Order> getOrders(String selection, String[] selectionArgs) {
+    public static ArrayList<Order> getOrders(String selection, String[] selectionArgs) {
         ArrayList<Order> orders = new ArrayList<Order>();
         SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
         String[] columns = new String[]{DB_COL_ID};
