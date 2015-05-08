@@ -9,10 +9,8 @@ import android.util.SparseArray;
 
 import com.lsinf1225.groupe_t.bartender.MySQLiteHelper;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 
 /**
