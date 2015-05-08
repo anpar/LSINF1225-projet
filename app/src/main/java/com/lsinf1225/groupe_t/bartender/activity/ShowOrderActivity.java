@@ -113,10 +113,10 @@ public class ShowOrderActivity extends Activity implements AdapterView.OnItemCli
      */
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intent = new Intent(this, ShowOrderActivity.class);
+        Intent intent = new Intent(this, ShowOrderDetailsActivity.class);
         // L'id de l'élément de collection est passé en argument afin que la vue de détails puisse
         // récupérer celui-ci.
-        intent.putExtra("s_id", collectedItems.get(position).getId());
+        intent.putExtra("id_order", collectedItems.get(position).getId());
         startActivity(intent);
     }
 /*

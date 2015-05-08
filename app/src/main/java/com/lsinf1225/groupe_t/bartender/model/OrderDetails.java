@@ -2,6 +2,7 @@ package com.lsinf1225.groupe_t.bartender.model;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.lsinf1225.groupe_t.bartender.MySQLiteHelper;
 
@@ -21,7 +22,7 @@ public class OrderDetails {
     private Drink drink;
     private int idOrder;
     private int quantity;
-    public OrderDetails(Drink drink,int id_order,int quantity){
+    public OrderDetails(int id_order,Drink drink,int quantity){
         this.drink=drink;
         this.idOrder=id_order;
         this.quantity=quantity;
@@ -43,7 +44,7 @@ public class OrderDetails {
 
         String[] columns = new String[]{DB_COLUMN_ID_ORDER,DB_COLUMN_ID_DRINK,DB_COLUMN_QUANTITY};
 
-        String selection = DB_COLUMN_ID_DRINK + " = ? ";
+        String selection = DB_COLUMN_ID_ORDER + " = ? ";
         String[] selectionArgs = new String[]{String.valueOf(id_order)};
 
         Cursor c = db.query(DB_TABLE_ORDER_DETAILS, columns, selection, selectionArgs, null, null, null);
@@ -54,8 +55,9 @@ public class OrderDetails {
         if(c != null && c.moveToFirst()) {
             while (!c.isAfterLast()) {
                 drink=Drink.get(c.getInt(1));
+                Log.d("ValeurDrink", "id_drink" + c.getInt(1));
                 total=total+(drink.getPrice()*c.getInt(2));
-                item = new OrderDetails(drink, c.getInt(0), c.getInt(2));
+                item = new OrderDetails(c.getInt(0),drink, c.getInt(2));
                 c.moveToNext();
                 list.add(item);
             }
@@ -63,6 +65,7 @@ public class OrderDetails {
             c.close();
         }
         Order.get(id_order).setTotal(total);
+        Log.d("ValeurTotal", "Valeur du total" + total);
         db.close();
         return list;
     }
