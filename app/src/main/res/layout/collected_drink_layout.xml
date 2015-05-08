@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="@dimen/default_padding"
     android:weightSum="100">
@@ -11,7 +11,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_weight="70"
-            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"/>
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            android:gravity="center_vertical|left" />
 
         <TextView
             android:id="@+id/show_row_price"
@@ -20,5 +21,6 @@
             android:layout_gravity="center_vertical"
             android:layout_weight="30"
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:gravity="center_vertical|right" />
 </LinearLayout>

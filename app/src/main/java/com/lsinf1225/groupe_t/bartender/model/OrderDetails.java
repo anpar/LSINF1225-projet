@@ -1,5 +1,6 @@
 package com.lsinf1225.groupe_t.bartender.model;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
@@ -7,6 +8,7 @@ import android.util.Log;
 import com.lsinf1225.groupe_t.bartender.MySQLiteHelper;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by jacquesth on 7/05/15.
@@ -70,4 +72,15 @@ public class OrderDetails {
         return list;
     }
 
+    public static int addDrink(int id_order, int quantity, int id_drink) {
+
+        SQLiteDatabase db = MySQLiteHelper.get().getWritableDatabase();
+
+
+        ContentValues contentValues=new ContentValues();
+        contentValues.put(DB_COLUMN_ID_DRINK, id_drink);
+        contentValues.put(DB_COLUMN_ID_ORDER, id_order);
+        contentValues.put(DB_COLUMN_QUANTITY, quantity);
+        return (int)db.insert(DB_TABLE_ORDER_DETAILS,null,contentValues);
+    }
 }

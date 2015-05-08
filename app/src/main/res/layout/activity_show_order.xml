@@ -14,36 +14,34 @@
         android:orientation="horizontal"
         android:padding="@dimen/default_padding"
         android:weightSum="100"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/show_order_table_number"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="60dp">
+        android:layout_alignParentEnd="true">
 
         <Button
             android:id="@+id/show_list_id"
             style="?android:attr/borderlessButtonStyle"
-            android:layout_width="0dp"
+            android:layout_width="186dp"
             android:layout_height="wrap_content"
-            android:layout_weight="67.33"
             android:clickable="true"
-            android:gravity="left"
+            android:gravity="center_vertical|left"
             android:onClick="change_order"
             android:padding="@dimen/default_padding"
             android:text="@string/show_list_id_order_title"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:layout_gravity="center_vertical|left" />
 
         <Button
             android:id="@+id/show_list_waiter"
             style="?android:attr/borderlessButtonStyle"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="27.98"
-            android:gravity="center"
+            android:gravity="center_vertical|right"
             android:onClick="change_order"
             android:padding="@dimen/default_padding"
             android:text="@string/show_list_waiter_title"
             android:textStyle="bold"
-            />
+            android:layout_gravity="center_vertical|right" />
     </LinearLayout>
 
     <ListView
@@ -67,10 +65,33 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="+"
+        android:id="@+id/new_order_button"
+        android:onClick="newOrder"
+        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@+id/show_list_titles"
+        android:layout_alignParentRight="true" />
+
+    <EditText
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/show_order_table_number"
+        android:layout_toEndOf="@+id/textView4"
+        android:layout_alignStart="@+id/new_order_button"
+        android:layout_below="@+id/new_order_button"
+        android:layout_alignParentRight="true"
+        android:layout_alignLeft="@+id/new_order_button" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Cloturer l&apos;addition"
         android:id="@+id/button_close_bill"
         android:onClick="closeBill"
         android:layout_below="@+id/textView4"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp" />
 
 </RelativeLayout>

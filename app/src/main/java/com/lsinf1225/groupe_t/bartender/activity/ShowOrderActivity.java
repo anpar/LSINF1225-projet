@@ -7,14 +7,17 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+
 
 import com.lsinf1225.groupe_t.bartender.BarTenderApp;
 import com.lsinf1225.groupe_t.bartender.R;
 import com.lsinf1225.groupe_t.bartender.activity.adapter.MyOrdersListAdapter;
 import com.lsinf1225.groupe_t.bartender.model.Bill;
 import com.lsinf1225.groupe_t.bartender.model.Order;
+import com.lsinf1225.groupe_t.bartender.model.User;
 
 import java.util.ArrayList;
 
@@ -43,9 +46,14 @@ public class ShowOrderActivity extends Activity implements AdapterView.OnItemCli
 
         int table_number = getIntent().getIntExtra("table_number", -1);
         Button closeBill = (Button) findViewById(R.id.button_close_bill);
+        Button newOrder = (Button) findViewById(R.id.new_order_button);
+        EditText newOrderTable = (EditText) findViewById(R.id.show_order_table_number);
 
         if(table_number == -1) {
             closeBill.setVisibility(Button.INVISIBLE);
+        } else {
+            newOrder.setVisibility(Button.INVISIBLE);
+            newOrderTable.setVisibility(Button.INVISIBLE);
         }
 
         // Création de l'adapter pour faire la liaison entre les données (collectedItems) et
@@ -90,14 +98,9 @@ public class ShowOrderActivity extends Activity implements AdapterView.OnItemCli
         // "Aucun élément n'est présent dans votre collection).
         if (collectedItems.isEmpty()) {
             if (table_number == -1) {
-                // TODO : OK mais a vérifier
-                BarTenderApp.notifyShort(R.string.show_list_error_no_item);
+                BarTenderApp.notifyShort(R.string.show_list_no_order);
             }
-            // Cloture de l'activité d'affichage de la liste (car liste vide). Retour à l'écran
-            // précédent.
-            finish();
         }
-
     }
 
     @Override
@@ -125,10 +128,33 @@ public class ShowOrderActivity extends Activity implements AdapterView.OnItemCli
         intent.putExtra("id_order", collectedItems.get(position).getId());
         startActivity(intent);
     }
-/*
 
 
-/**
+    public void newOrder(View v) {
+
+            Intent intent = new Intent(this, ShowMenuActivity.class);
+            EditText table_numberText = (EditText) findViewById(R.id.show_order_table_number);
+
+            String tableString = table_numberText.getText().toString();
+            if (tableString.matches("")){
+                BarTenderApp.notifyShort(R.string.no_table_number);
+            }
+            else {
+                int table_number = Integer.parseInt(tableString);
+                int id_order = Order.addOrder(table_number);
+
+                if (table_number == -1) {
+                    BarTenderApp.notifyShort(R.string.sorry_error);
+
+                } else {
+                    intent.putExtra("id_order", id_order);
+                    startActivity(intent);
+                }
+            }
+    }
+
+
+    /**
      * Gère le changement du tri sur la liste.
      *
      * Cette méthode est appelée grâce à l'arttribut onClick présent dans le fichier xml de layout.
@@ -188,10 +214,11 @@ public class ShowOrderActivity extends Activity implements AdapterView.OnItemCli
 
     public void closeBill(View v) {
         int table_number = getIntent().getIntExtra("table_number", -1);
-
+        Intent intent = new Intent(this, ShowBillActivity.class);
         if(table_number != -1) {
             if(Bill.close(table_number)) {
                 BarTenderApp.notifyShort(R.string.bill_closed);
+                startActivity(intent);
             }
         } else {
             BarTenderApp.notifyShort(R.string.sorry_error);

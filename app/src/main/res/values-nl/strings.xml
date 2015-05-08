@@ -56,6 +56,9 @@
     <string name="menu_title">Kaart</string>
     <string name="title_activity_show_bill">Bestellingen</string>
     <string name="title_activity_show_order">Rekeningen</string>
-    <string name="addition_closed">rekening betaald</string>
-    <string name="bill_closed">facture betaald</string>
+    <string name="no_table_number">Geef een tafelnummer</string>
+    <string name="add__drink_succeed">Toevoegen van dranken</string>
+    <string name="addition_closed">Rekening beïndigen</string>
+    <string name="bill_closed">Facture beïndigd</string>
+    <string name="hello_world" translatable="false"></string>
 </resources>
