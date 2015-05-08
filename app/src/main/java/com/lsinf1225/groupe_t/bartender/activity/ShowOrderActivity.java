@@ -192,6 +192,7 @@ public class ShowOrderActivity extends Activity implements AdapterView.OnItemCli
         if(table_number != -1) {
             if(Bill.close(table_number)) {
                 BarTenderApp.notifyShort(R.string.bill_closed);
+                onResume();
             }
         } else {
             BarTenderApp.notifyShort(R.string.sorry_error);
