@@ -39,6 +39,8 @@ public class SearchActivity extends Activity  implements TextView.OnEditorAction
         catadapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, catlist);
         catSpinner.setAdapter(catadapter);
 
+
+
         subcatSpinner= (Spinner) findViewById(R.id.spinner_subcat);
         subcatlist = Drink.getSubcategories("");
         subcatadapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, subcatlist);
