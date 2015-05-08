@@ -56,4 +56,6 @@
     <string name="menu_title">Kaart</string>
     <string name="title_activity_show_bill">Bestellingen</string>
     <string name="title_activity_show_order">Rekeningen</string>
+    <string name="addition_closed">rekening betaald</string>
+    <string name="bill_closed">facture betaald</string>
 </resources>
