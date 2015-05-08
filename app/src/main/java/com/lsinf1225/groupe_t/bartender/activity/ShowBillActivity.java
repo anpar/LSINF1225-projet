@@ -94,6 +94,6 @@ public class ShowBillActivity extends Activity implements AdapterView.OnItemClic
         // L'id de l'élément de collection est passé en argument afin que la vue de détails puisse
         // récupérer celui-ci.
         intent.putExtra("table_number", collectedItems.get(position).getTable_number());
-        onResume();
+        startActivity(intent);
     }
 }
