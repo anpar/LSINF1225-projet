@@ -80,8 +80,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView2"
-        android:src="@drawable/logoTransparent"
-        android:layout_above="@+id/menu_button"
+        android:src="@drawable/logotransparent"
+        android:layout_below="@+id/welcome_text"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="29dp" />
+        android:layout_marginTop="29dp" />
 </RelativeLayout>
