@@ -58,7 +58,7 @@
 
     <!-- ShowOrderActivity -->
     <string name="title_activity_show_bill">Commandes</string>
-    <string name="show_list_id_order_title">N\* commande</string>
+    <string name="show_list_table_number_title">N\* Table</string>
     <string name="show_list_waiter_title">Serveur</string>
     <string name="order_title">Commandes</string>
 
