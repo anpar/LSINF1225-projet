@@ -69,7 +69,6 @@
     <string name="numero_table">Nouvelle addition</string>
 
     <!-- DRAFT -->
-    <string name="hello_world" translatable="false">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_show_order_details" translatable="false">ShowOrderDetailsActivity</string>
     <string name="title_activity_show_comments" translatable="false">ShowCommentsActivity</string>
@@ -99,5 +98,6 @@
     <string name="nonvalid_quantity">Veuillez insérer une quantité valide.</string>
     <string name="not_enough_drinks">Il n\'y a plus assez de cette boisson en stock.</string>
     <string name="show_list_id_order_title"></string>
+    <string name="hello_world" translatable="false">Hello</string>
 
 </resources>

@@ -56,11 +56,16 @@
     <string name="menu_title">Kaart</string>
     <string name="title_activity_show_bill">Bestellingen</string>
     <string name="title_activity_show_order">Rekeningen</string>
-    <string name="no_table_number">Geef een tafelnummer</string>
+    <string name="no_table_number">Geef een tafelnummer.</string>
     <string name="add__drink_succeed">Toevoegen van dranken</string>
     <string name="addition_closed">Rekening beïndigen</string>
     <string name="bill_closed">Facture beïndigd</string>
     <string name="hello_world" translatable="false"></string>
     <string name="show_list_table_number_title">tafel nr.</string>
     <string name="title_activity_search">Zoeken</string>
+    <string name="nonvalid_quantity">Geef een geldige hoeveelheid.</string>
+    <string name="no_quantity">Geef een hoeveelheid.</string>
+    <string name="not_enough_drinks">Er zijn niet genoeg dranken in de voorraad.</string>
+    <string name="numero_table">Nieuwe rekening</string>
+    <string name="show_list_no_order">Geen bestellingen.</string>
 </resources>
