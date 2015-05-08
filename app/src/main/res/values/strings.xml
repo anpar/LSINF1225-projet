@@ -92,4 +92,6 @@
     <string name="addition_closed">Addition clôturée.</string>
     <string name="bill_closed">Facture cloturée.</string>
     <string name="show_list_no_order">Pas de commande en cours.</string>
+    <string name="numero_table">Nouvelle addition</string>
+    <string name="not_enough_drinks">Il n\'y a pas assez de boissons dans le stock</string>
 </resources>

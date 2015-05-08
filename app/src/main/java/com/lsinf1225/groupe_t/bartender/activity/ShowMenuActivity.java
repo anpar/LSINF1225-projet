@@ -192,7 +192,7 @@ public class ShowMenuActivity extends Activity implements AdapterView.OnItemClic
         boolean orderByRating = Drink.order_by.equals(Drink.DB_COL_PRICE);
     }
 
-    private void closeOrder(View v){
+    public void closeOrder(View v){
         finish();
     }
 }
