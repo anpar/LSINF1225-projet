@@ -15,6 +15,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.sql.SQLInput;
 import java.util.ArrayList;
 
 /**
@@ -249,6 +250,41 @@ public class Drink {
         return getDrinks(selection, selectionArgs);
     }
 
+    public static String checkString(String token) {
+        String out;
+        if(token == null) {
+            out = "*";
+        } else {
+            out = "%" + token + "%";
+        }
+        return(out);
+    }
+
+    public static ArrayList<Drink> advancedSearch(String name, String cat, String subcat, float pmin, float pmax) {
+        SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
+        String[] columns = new String[]{DB_COL_DRINK_ID, DB_COL_NAME_DRINK, DB_COL_PRICE, DB_COL_DESCRIPTION, DB_COL_ICON, DB_COL_CATEGORY,
+                                        DB_COL_SUBCATEGORY, DB_COL_VOLUME,DB_COL_AVAILABLE_QUANTITY, DB_COL_THRESHOLD, DB_COL_MAX_STOCK};
+        String selection = DB_COL_NAME_DRINK + " = LIKE ? AND "
+                         + DB_COL_CATEGORY + " = LIKE ? AND "
+                         + DB_COL_SUBCATEGORY + " = LIKE ? AND "
+                         + DB_COL_PRICE + " > ? AND"
+                         + DB_COL_PRICE + " < ?";
+        String selectionArgs[] = new String[]{checkString(name), checkString(cat), checkString(subcat), Float.toString(pmin), Float.toString(pmax)};
+        Cursor c = db.query(DB_TABLE_DRINKS, columns, selection, selectionArgs, null, null, null, null);
+
+        c.moveToFirst();
+        ArrayList<Drink> list = new ArrayList<Drink>();
+        while(!c.isAfterLast()) {
+            Drink drink = new Drink(c.getInt(0));
+            list.add(drink);
+            c.moveToNext();
+        }
+
+        c.close();
+        db.close();
+        return list;
+    }
+
     /**
      * Fournit la liste de tous les objets correspondant aux critères de sélection demandés.
      *
@@ -343,12 +379,10 @@ public class Drink {
         return list;
     }
 
-    public static ArrayList<String> getSubcategories(String category) {
+    public static ArrayList<String> getSubcategories() {
         SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
         String[] columns = new String[]{DB_COL_SUBCATEGORY};
-        String where = DB_COL_CATEGORY + "  = ?";
-        String[] whereArg = new String[]{category};
-        Cursor c = db.query(true, DB_TABLE_DRINKS, columns, where, whereArg, null, null, null, null);
+        Cursor c = db.query(true, DB_TABLE_DRINKS, columns, null, null, null, null, null, null);
         c.moveToFirst();
 
         ArrayList<String> list = new ArrayList<>();

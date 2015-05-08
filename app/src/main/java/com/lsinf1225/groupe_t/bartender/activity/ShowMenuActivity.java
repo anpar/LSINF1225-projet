@@ -80,9 +80,14 @@ public class ShowMenuActivity extends Activity implements AdapterView.OnItemClic
         // Récupération de la requête de recherche.
         // Si aucune requête n'a été passée lors de la création de l'activité, searchQuery sera null.
         String searchQuery = getIntent().getStringExtra("searchQuery");
+        String name = getIntent().getStringExtra("name");
+        String cat = getIntent().getStringExtra("cat");
+        String subcat = getIntent().getStringExtra("subcat");
+        Float pmin  = getIntent().getFloatExtra("pmin", 0);
+        Float pmax = getIntent().getFloatExtra("pmax", 10000);
 
         if(searchQuery != null) {
-            collectedItems = Drink.searchDrink(searchQuery);
+            collectedItems = Drink.advancedSearch(name, cat, subcat, pmin, pmax);
         } else {
             collectedItems = Drink.getDrinks();
         }
@@ -101,7 +106,6 @@ public class ShowMenuActivity extends Activity implements AdapterView.OnItemClic
             // précédent.
             finish();
         }
-
     }
 
     @Override
