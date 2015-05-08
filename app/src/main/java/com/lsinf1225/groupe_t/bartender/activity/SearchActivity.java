@@ -39,8 +39,6 @@ public class SearchActivity extends Activity  implements TextView.OnEditorAction
         catadapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, catlist);
         catSpinner.setAdapter(catadapter);
 
-
-
         subcatSpinner= (Spinner) findViewById(R.id.spinner_subcat);
         subcatlist = Drink.getSubcategories("");
         subcatadapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, subcatlist);
@@ -81,7 +79,8 @@ public class SearchActivity extends Activity  implements TextView.OnEditorAction
 
     public void search(View v) {
         Intent intent = new Intent(this, ShowMenuActivity.class);
-        String searchQuery = null;
+        EditText name = (EditText) findViewById(R.id.name_edit_text_search);
+        String searchQuery = name.getText().toString();
         intent.putExtra("searchQuery", searchQuery);
         startActivity(intent);
     }
