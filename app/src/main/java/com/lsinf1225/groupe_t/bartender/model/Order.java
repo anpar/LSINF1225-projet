@@ -19,22 +19,15 @@ import java.util.Date;
  * Created by Louis on 7/05/2015.
  */
 public class Order {
-
     /*
      * Noms des tables et des colonnes dans la base de données.
      */
     public static final String DB_TABLE_ORDERS = "orders";
-    public static final String DB_TABLE_ORDER_DETAILS = "order_details";
 
     public static final String DB_COL_ID = "id_order";
     public static final String DB_COL_DATE = "date";
     public static final String DB_COL_LOGIN_WAITER = "login_waiter";
     public static final String DB_COL_TABLE_NUMBER = "table_number";
-
-    public static final String DB_COL_ID_DRINK = "id_drink";
-    public static final String DB_COL_QUANTITY = "quantity";
-
-
 
     /**
      * Nom de colonne sur laquelle le tri est effectué
@@ -313,7 +306,7 @@ public class Order {
      * @param id_bill
      * @return nombre d'élément (orders/bill)supprimé de la base de donnée
      */
-    int remove_order(int id_bill) {
+    public static int remove_order(int id_bill) {
         SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
 
         String re[]= {""+id_bill};
@@ -345,7 +338,7 @@ public class Order {
         cursor.close();
         String fred[] = {""+id_bill,""+table_number};
         int q = db.delete("orders","id_bill = ? AND table_number = ?",fred);
-
+        cursor.close();
         return r+q+s;
     }
 
