@@ -2,6 +2,7 @@ package com.lsinf1225.groupe_t.bartender.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -36,6 +37,17 @@ public class ShowOrderDetailsActivity extends Activity {
             if(!collectedItems.isEmpty() ) {
                 myListView.setAdapter(myListViewAdapter);
             }
+
+    }
+
+    public void onResume() {
+        super.onResume();
+        // La liste des éléments est ici rechargées car en cas de modification d'un élément, l'ordre
+        // a peut-être changé.
+
+        loadCollectedItems();
+
+        myListViewAdapter.setCollectedItems(collectedItems);
 
     }
 
