@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.lsinf1225.groupe_t.bartender.BarTenderApp;
 import com.lsinf1225.groupe_t.bartender.R;
 import com.lsinf1225.groupe_t.bartender.activity.adapter.MyOrdersListAdapter;
-import com.lsinf1225.groupe_t.bartender.model.Opinion;
+import com.lsinf1225.groupe_t.bartender.model.Bill;
 import com.lsinf1225.groupe_t.bartender.model.Order;
 import com.lsinf1225.groupe_t.bartender.model.User;
 
@@ -37,15 +37,20 @@ public class ShowOrderActivity extends Activity implements AdapterView.OnItemCli
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_show_order);
-        Log.d("myApp", "Constructeur ");
         // Chargement des éléments à afficher dans la variable de classe collectedItems
         loadCollectedItems();
 
         ListView myListView = (ListView) findViewById(R.id.show_OrderView);
 
+        int table_number = getIntent().getIntExtra("table_number", -1);
+        Button closeBill = (Button) findViewById(R.id.button_close_bill);
+
+        if(table_number == -1) {
+            closeBill.setVisibility(Button.INVISIBLE);
+        }
+
         // Création de l'adapter pour faire la liaison entre les données (collectedItems) et
         // l'affichage de chaque ligne de la liste.
-        Log.d("myApp", "Adaptateur ");
         myListViewAdapter = new MyOrdersListAdapter(this, collectedItems);
         myListView.setAdapter(myListViewAdapter);
 
@@ -86,10 +91,8 @@ public class ShowOrderActivity extends Activity implements AdapterView.OnItemCli
         // "Aucun élément n'est présent dans votre collection).
         if (collectedItems.isEmpty()) {
             if (table_number == -1) {
-                // TODO : changer les string ici.
+                // TODO : OK mais a vérifier
                 BarTenderApp.notifyShort(R.string.show_list_error_no_item);
-            } else {
-                BarTenderApp.notifyShort(R.string.show_list_no_result);
             }
             // Cloture de l'activité d'affichage de la liste (car liste vide). Retour à l'écran
             // précédent.
@@ -207,4 +210,16 @@ public class ShowOrderActivity extends Activity implements AdapterView.OnItemCli
         TextView nameTitle = (TextView) findViewById(R.id.show_list_id);
     }
 
+    public void closeBill(View v) {
+        int table_number = getIntent().getIntExtra("table_number", -1);
+
+        if(table_number != -1) {
+            if(Bill.close(table_number)) {
+                BarTenderApp.notifyShort(R.string.bill_closed);
+                onResume();
+            }
+        } else {
+            BarTenderApp.notifyShort(R.string.sorry_error);
+        }
+    }
 }
