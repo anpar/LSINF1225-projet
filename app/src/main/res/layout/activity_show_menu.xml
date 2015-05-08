@@ -15,18 +15,17 @@
             android:padding="@dimen/default_padding"
             android:weightSum="100"
             android:layout_alignParentTop="true"
+            android:layout_marginTop="60dp"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="60dp">
+            android:layout_alignParentEnd="true">
 
             <Button
                 android:id="@+id/show_list_name_title"
                 style="?android:attr/borderlessButtonStyle"
-                android:layout_width="0dp"
+                android:layout_width="222dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="67.33"
                 android:clickable="true"
-                android:gravity="left"
+                android:gravity="center_vertical|left"
                 android:onClick="change_order"
                 android:padding="@dimen/default_padding"
                 android:text="@string/show_list_name_title"
@@ -35,15 +34,13 @@
             <Button
                 android:id="@+id/show_list_price_title"
                 style="?android:attr/borderlessButtonStyle"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="27.98"
-                android:gravity="center"
+                android:gravity="center_vertical|right"
                 android:onClick="change_order"
                 android:padding="@dimen/default_padding"
                 android:text="@string/show_list_price_title"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
         </LinearLayout>
 
         <ListView
