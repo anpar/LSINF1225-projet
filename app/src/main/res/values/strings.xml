@@ -89,5 +89,6 @@
     <string name="no_table_number">Veuillez entrer un numéro de table</string>
     <string name="addition_closed">Addition clôturée.</string>
     <string name="bill_closed">Facture cloturée.</string>
-    <string name="show_list_no_order">Pas de commande en cours.</string>
+    <string name="numero_table" translatable="false">+</string>
+    <string name="show_list_no_order">No orders</string>
 </resources>
