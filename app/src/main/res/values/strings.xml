@@ -79,4 +79,7 @@
     <string name="error_retrieving_opinions">Erreur lors de la récupération des avis.</string>
     <string name="error_adding_opinion">Erreur lors de l\'ajout du commentaire.</string>
     <string name="add_comment_label">Ajouter</string>
+    <string name="title_activity_add_bill">AddBillActivity</string>
+    <string name="add_bill_success">Addition ajoutée.</string>
+    <string name="error_adding_bill">Impossible de créer l\'addition.</string>
 </resources>

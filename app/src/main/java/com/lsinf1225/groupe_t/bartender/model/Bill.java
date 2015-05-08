@@ -19,6 +19,9 @@ public class Bill {
     private static final String DB_COL_DATE = "date";
     private static final String DB_COL_TABLE_NUMBER = "table_number";
 
+    private static final String DB_TABLE_ORDER = "orders";
+    private static final String DB_COL_ID_ORDER = "id_order";
+
     /**
      * Contient les instances déjà existantes des objets afin d'éviter de créer deux instances du
      * même objet.
@@ -101,34 +104,46 @@ public class Bill {
         return new Bill(id_bill);
     }
 
-    public void addBill(int table_number) {
-        // create a new bill in db
+    public static boolean addBill(int table_number) {
+        boolean addSuccessful = false;
         SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
 
-        String[] columns = {"id_bill"};
-        Cursor c = db.query("bills",columns,null ,null, null,null,"id_bill ASC");
+        String[] columns = new String[]{DB_COL_ID_BILL};
+        String where = DB_COL_TABLE_NUMBER + " = ?";
+        String[] whereArgs = new String[]{Integer.toString(table_number)};
+        Cursor c = db.query(DB_TABLE_BILLS, columns, where, whereArgs, null, null, null);
 
-        c.moveToFirst();
-
-        int new_id_bill=1;
-        while(!c.isAfterLast()) {
-            if (c.getInt(0) != new_id_bill) {
-                break;
-            }
-            new_id_bill++;
+        // Si il y a déjà une facture ouverte pour cette table
+        if(c.getCount() >= 1) {
+            c.close();
+            db.close();
+            return addSuccessful;
         }
-        c.close();
+
+        db.close();
+        db = MySQLiteHelper.get().getReadableDatabase();
+        columns = new String[]{DB_COL_ID_ORDER};
+        where = DB_COL_TABLE_NUMBER + " = ?";
+        whereArgs = new String[]{Integer.toString(table_number)};
+        c = db.query(DB_TABLE_ORDER, columns, where, whereArgs, null, null, null);
+
+        // Si il n'y a aucune commande en cours pour cette tabme
+        if(c.getCount() <= 0) {
+            c.close();
+            db.close();
+            return addSuccessful;
+        }
+
+        db.close();
+        db = MySQLiteHelper.get().getWritableDatabase();
 
         SimpleDateFormat parse = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
         ContentValues contentValues=new ContentValues();
-        contentValues.put("id_bill", new_id_bill);
-        contentValues.put("table_number", table_number);
-        contentValues.put("login_waiter", User.getConnectedUser().getLogin());
-        contentValues.put("date", parse.format(new Date()));
+        contentValues.put(DB_COL_DATE, table_number);
+        contentValues.put(DB_COL_DATE, parse.format(new Date()));
+        addSuccessful = db.insert(DB_TABLE_BILLS,null,contentValues) > 0;
 
-        db.insert("bills",null,contentValues);
-
+        return(addSuccessful);
     }
 
     public float getTotal() {

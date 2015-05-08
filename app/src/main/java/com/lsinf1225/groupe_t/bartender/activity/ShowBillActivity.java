@@ -71,6 +71,11 @@ public class ShowBillActivity extends Activity implements AdapterView.OnItemClic
         }
     }
 
+    public void addBillActivity(View v) {
+        Intent intent = new Intent(this, AddBillActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public void onResume() {
         super.onResume();

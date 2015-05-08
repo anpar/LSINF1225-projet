@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="add_bill_success" type="id">Addition créée!</item>
+    <item name="error_adding_bill" type="id">Cette table a déjà une addition en cours ou n\'a pas de
+        commande en cours.
+    </item>
+</resources>

@@ -57,6 +57,10 @@
             android:name=".activity.ShowOrderDetailsActivity"
             android:label="@string/title_activity_show_order_details" >
         </activity>
+        <activity
+            android:name=".activity.AddBillActivity"
+            android:label="@string/title_activity_add_bill" >
+        </activity>
     </application>
 
 </manifest>
