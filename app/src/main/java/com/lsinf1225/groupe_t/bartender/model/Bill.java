@@ -164,4 +164,11 @@ public class Bill {
 
         return total;
     }
+
+    public static boolean close(int id_bill) {
+        boolean removeSuccessful = false;
+        removeSuccessful = Order.remove_order(id_bill) > 0;
+
+        return removeSuccessful;
+    }
 }

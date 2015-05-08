@@ -1,6 +1,7 @@
 package com.lsinf1225.groupe_t.bartender.model;
 
 
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
@@ -12,27 +13,21 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by Louis on 7/05/2015.
  */
 public class Order {
-
     /*
      * Noms des tables et des colonnes dans la base de données.
      */
     public static final String DB_TABLE_ORDERS = "orders";
-    public static final String DB_TABLE_ORDER_DETAILS = "order_details";
 
     public static final String DB_COL_ID = "id_order";
     public static final String DB_COL_DATE = "date";
     public static final String DB_COL_LOGIN_WAITER = "login_waiter";
     public static final String DB_COL_TABLE_NUMBER = "table_number";
-
-    public static final String DB_COL_ID_DRINK = "id_drink";
-    public static final String DB_COL_QUANTITY = "quantity";
-
-
 
     /**
      * Nom de colonne sur laquelle le tri est effectué
@@ -106,17 +101,18 @@ public class Order {
      */
 
 
-    public Order(Drink drink,int id_order, int table_number, String login_waiter, int quantity){
-        this.drink_list.add(drink);
-        this.id_order = id_order;
+    public Order( int table_number, String login_waiter){
+        //this.drink_list.add(drink);
+        //this.id_order = id_order;
         this.table_number = table_number;
         this.login_waiter = login_waiter;
-        this.list_quantity.add(quantity);
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        Calendar cal = Calendar.getInstance();
-        this.date = dateFormat.format(cal.getTime()); //TODO pas sur que ca fonctionne
+        //this.list_quantity.add(quantity);
+
+        //this.date = ;
 
     }
+
+
 
 
     /**
@@ -290,5 +286,60 @@ public class Order {
         return num.toString() + " - " + getLogin_waiter();
     }
 
+    public static boolean addOrder(int table_number) {
+        boolean addSuccessful = false;
+        SQLiteDatabase db = MySQLiteHelper.get().getWritableDatabase();
+
+        SimpleDateFormat parse = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        ContentValues contentValues=new ContentValues();
+        contentValues.put(DB_COL_TABLE_NUMBER, table_number);
+        contentValues.put(DB_COL_DATE, parse.format(new Date()));
+        contentValues.put(DB_COL_LOGIN_WAITER, User.getConnectedUser().getLogin());
+        addSuccessful = db.insert(DB_TABLE_ORDERS,null,contentValues) > 0;
+
+        return(addSuccessful);
+    }
+
+    /**
+     *  Supprime les bill de la base de donné et tous les info la concernant
+     *
+     * @param id_bill
+     * @return nombre d'élément (orders/bill)supprimé de la base de donnée
+     */
+    public static int remove_order(int id_bill) {
+        SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
+
+        String re[]= {""+id_bill};
+        Cursor c = db.rawQuery("SELECT B.table_number FROM bills B WHERE B.id_number = ?",re);
+
+        int table_number = 0;
+        while (!c.isAfterLast()) {
+            table_number = c.getInt(0);
+            c.moveToNext();
+        }
+        c.close();
+
+        String salt[] = {""+id_bill};
+        int r = db.delete("bills","id_bill = ?",salt);
+
+        String arg[] = {""+table_number};
+        Cursor cursor = db.rawQuery("SELECT DISTINCT D.id_order FROM order_details D,orders O WHERE D.id_order = O.id_order AND O.table_number = ?",arg);
+
+        cursor.moveToFirst();
+
+        int id;
+        int s=0;
+        while (!cursor.isAfterLast()) {
+            id = cursor.getInt(0);
+            String pepper[] = {""+id};
+            s += db.delete("order_details","id_order = ?",pepper);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        String fred[] = {""+id_bill,""+table_number};
+        int q = db.delete("orders","id_bill = ? AND table_number = ?",fred);
+        cursor.close();
+        return r+q+s;
+    }
 
 }
