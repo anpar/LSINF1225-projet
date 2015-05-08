@@ -79,9 +79,32 @@ public class SearchActivity extends Activity  implements TextView.OnEditorAction
 
     public void search(View v) {
         Intent intent = new Intent(this, ShowMenuActivity.class);
-        EditText name = (EditText) findViewById(R.id.name_edit_text_search);
-        String searchQuery = name.getText().toString();
-        intent.putExtra("searchQuery", searchQuery);
+        intent.putExtra("searchQuery", "ok");
+
+        EditText nameText= (EditText) findViewById(R.id.name_edit_text_search);
+        String name=nameText.getText().toString();
+        if(!name.matches("")) {
+            intent.putExtra("name", name);
+        }
+        String catText = (String)catSpinner.getSelectedItem();
+        if(!name.matches("")) {
+            intent.putExtra("cat", catText);
+        }
+        String subcatText = (String)subcatSpinner.getSelectedItem();
+        if(!name.matches("")) {
+            intent.putExtra("subcat", subcatText);
+        }
+
+        EditText pminText= (EditText) findViewById(R.id.editText_min_price);
+        Float pmin=Float.parseFloat(pminText.getText().toString());
+        if(!name.matches("")) {
+            intent.putExtra("pmin", pmin);
+        }
+        EditText pmaxText= (EditText) findViewById(R.id.editText_max_price);
+        Float pmax=Float.parseFloat(pmaxText.getText().toString());
+        if(!name.matches("")) {
+            intent.putExtra("pmax", pmax);
+        }
         startActivity(intent);
     }
 
