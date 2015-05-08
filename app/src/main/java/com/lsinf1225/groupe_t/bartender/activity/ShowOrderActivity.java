@@ -46,7 +46,7 @@ public class ShowOrderActivity extends Activity implements AdapterView.OnItemCli
 
         int table_number = getIntent().getIntExtra("table_number", -1);
         Button closeBill = (Button) findViewById(R.id.button_close_bill);
-        Button newOrder = (Button) findViewById(R.id.new_bill_table_number);
+        Button newOrder = (Button) findViewById(R.id.new_order_button);
         EditText newOrderTable = (EditText) findViewById(R.id.show_order_table_number);
 
         if(table_number == -1) {
