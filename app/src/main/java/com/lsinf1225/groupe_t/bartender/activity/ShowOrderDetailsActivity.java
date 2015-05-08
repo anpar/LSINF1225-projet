@@ -3,6 +3,7 @@ package com.lsinf1225.groupe_t.bartender.activity;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.lsinf1225.groupe_t.bartender.BarTenderApp;
 import com.lsinf1225.groupe_t.bartender.R;
@@ -35,6 +36,7 @@ public class ShowOrderDetailsActivity extends ActionBarActivity {
             if(!collectedItems.isEmpty() ) {
                 myListView.setAdapter(myListViewAdapter);
             }
+
     }
 
     /**
@@ -51,7 +53,8 @@ public class ShowOrderDetailsActivity extends ActionBarActivity {
         } else {
             BarTenderApp.notifyShort(R.string.error_retrieving_order_details);
         }
-
+        TextView name = (TextView) findViewById(R.id.order_details_total);
+        name.setText(Float.toString(Order.get(id_order).getTotal())+"€");
         // S'il n'y a aucun éléments dans la liste, il faut afficher un message. Ce message est différent
         // s'il y avait une requête de recherche (message du type "Aucun résultat trouvé") ou si
         // l'utilisateur vient directement du menu principal et veut tout afficher (message du type

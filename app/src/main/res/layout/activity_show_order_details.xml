@@ -87,11 +87,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/textView15"
-        android:layout_alignTop="@+id/textView_order_details_total"
-        android:layout_alignLeft="@+id/textView12"
-        android:layout_alignStart="@+id/textView12"
-        android:textColor="#ff20ff11" />
+        android:id="@+id/order_details_total"
+        android:textColor="#ff20ff11"
+        android:autoText="false"
+        android:layout_alignBaseline="@+id/textView_order_details_total"
+        android:layout_alignBottom="@+id/textView_order_details_total"
+        android:layout_toLeftOf="@+id/textView13"
+        android:layout_toStartOf="@+id/textView13"
+        android:layout_marginRight="12dp"
+        android:layout_marginEnd="12dp" />
 
 
 </RelativeLayout>

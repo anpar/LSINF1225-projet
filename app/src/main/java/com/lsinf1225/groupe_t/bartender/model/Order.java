@@ -126,7 +126,7 @@ public class Order {
         return id_order;
     }
 
-
+    public float getTotal(){  return total;}
     public ArrayList<Drink> getDrink_list(){
         return drink_list;
     }
