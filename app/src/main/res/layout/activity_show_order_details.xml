@@ -54,11 +54,8 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Prix"
         android:id="@+id/textView12"
-        android:layout_marginRight="38dp"
-        android:layout_marginEnd="38dp"
-        android:layout_alignBottom="@+id/show_list_titles"
-        android:layout_toLeftOf="@+id/textView13"
-        android:layout_toStartOf="@+id/textView13" />
+        android:layout_alignTop="@+id/textView13"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -88,14 +85,14 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/order_details_total"
-        android:textColor="#ff20ff11"
+        android:textColor="#ffff00cf"
         android:autoText="false"
         android:layout_alignBaseline="@+id/textView_order_details_total"
         android:layout_alignBottom="@+id/textView_order_details_total"
-        android:layout_toLeftOf="@+id/textView13"
         android:layout_toStartOf="@+id/textView13"
-        android:layout_marginRight="12dp"
-        android:layout_marginEnd="12dp" />
+        android:layout_alignRight="@+id/textView4"
+        android:layout_alignEnd="@+id/textView4"
+        android:text="40" />
 
 
 </RelativeLayout>

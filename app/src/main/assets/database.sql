@@ -29,11 +29,13 @@ INSERT INTO "order_details" VALUES(1,5,1);
 INSERT INTO "order_details" VALUES(2,6,3);
 INSERT INTO "order_details" VALUES(2,1,4);
 INSERT INTO "order_details" VALUES(3,5,12);
+INSERT INTO "order_details" VALUES(4,4,12);
 DROP TABLE IF EXISTS "orders";
 CREATE TABLE "orders" ("id_order" INTEGER PRIMARY KEY  NOT NULL  UNIQUE , "date" DATETIME NOT NULL  DEFAULT CURRENT_DATE, "login_waiter" CHAR(30) NOT NULL , "table_number" INTEGER NOT NULL );
 INSERT INTO "orders" VALUES(1,'2015-02-27','john',1);
 INSERT INTO "orders" VALUES(2,'2015-02-27','john',2);
 INSERT INTO "orders" VALUES(3,'2015-02-27','john',3);
+INSERT INTO "orders" VALUES(4,'2015-02-27','testthib',4);
 DROP TABLE IF EXISTS "ratings";
 CREATE TABLE "ratings" ("id_drink" INTEGER NOT NULL ,"login_client" CHAR(30) NOT NULL ,"value" INTEGER NOT NULL ,"comment" TEXT, PRIMARY KEY ("id_drink", "login_client"));
 INSERT INTO "ratings" VALUES(1,'anparis',4.5,'Excellente bière ! Bien meilleure que le Cara Pils !');
@@ -45,3 +47,4 @@ CREATE TABLE "users" ("u_id" INTEGER PRIMARY KEY  NOT NULL  UNIQUE , "u_login" V
 INSERT INTO "users" VALUES(1,'anparis','041195','customer');
 INSERT INTO "users" VALUES(2,'john','041195','waiter');
 INSERT INTO "users" VALUES(3, 'test', 'test', 'customer');
+INSERT INTO "users" VALUES(4, 'testthib', '', 'waiter');
