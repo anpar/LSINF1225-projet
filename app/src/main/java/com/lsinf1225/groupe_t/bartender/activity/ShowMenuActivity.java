@@ -42,6 +42,7 @@ public class ShowMenuActivity extends Activity implements AdapterView.OnItemClic
             finishButton.setVisibility(View.INVISIBLE);
             TextView id_orderText=(TextView) findViewById(R.id.show_menu_order_id_text);
             id_orderText.setVisibility(View.INVISIBLE);
+
         }
         else{
             TextView id_orderText = (TextView) findViewById(R.id.show_current_id_order);

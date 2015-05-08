@@ -1,6 +1,7 @@
 package com.lsinf1225.groupe_t.bartender.model;
 
 
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
@@ -320,5 +321,35 @@ public class Drink {
      */
     public String toString() {
         return getName_drink() + " - " + getPrice() + "€";
+    }
+
+    public static boolean upDateStock(int id_drink,int quantity){
+        boolean upDateSuccesFull = false;
+        SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
+
+
+
+        // On sélectionne les id de commande correspondant à la table
+        String columns[] = new String[]{DB_COL_AVAILABLE_QUANTITY};
+        String where = DB_COL_DRINK_ID + " = ?";
+        String whereArg[] = {Integer.toString(id_drink)};
+        Cursor cursor = db.query(DB_TABLE_DRINKS, columns, where, whereArg, null, null, null);
+
+        cursor.moveToFirst();
+        int stock = cursor.getInt(0);
+
+        if (stock < quantity){
+            db.close();
+            return upDateSuccesFull;
+        }
+        db.close();
+        db = MySQLiteHelper.get().getWritableDatabase();
+
+
+        ContentValues values = new ContentValues();
+        values.put(DB_COL_AVAILABLE_QUANTITY, stock-quantity);
+
+        upDateSuccesFull = db.update(DB_TABLE_DRINKS,values, where, whereArg) >0;
+        return upDateSuccesFull;
     }
 }

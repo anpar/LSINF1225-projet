@@ -6,7 +6,7 @@
     <string name="login_button">Connect</string>
     <string name="login_button_text">Connect</string>
     <string name="login_field_label">Username</string>
-    <string name="login_wrong_password_msg">Incorect username</string>
+    <string name="login_wrong_password_msg">Inccorect username</string>
     <string name="logout_button">Log out</string>
     <string name="main_back_button_disable">Disconnect to go back to the previous view</string>
     <string name="menu_button">Menu</string>
@@ -57,8 +57,4 @@
     <string name="show_now_order_details">No details for the order</string>
     <string name="title_activity_show_bill">Orders</string>
     <string name="title_activity_show_order">Bills</string>
-    <string name="no_table_number">Enter a table number</string>
-    <string name="bill_closed">Bill payed</string>
-    <string name="add__drink_succeed">add drinks</string>
-    <string name="addition_closed">Bill payed</string>
 </resources>

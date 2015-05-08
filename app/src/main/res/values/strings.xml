@@ -87,8 +87,11 @@
     <string name="error_no_bills">Pas de facture.</string>
     <string name="add__drink_succeed">Ajout des boissons à la commande</string>
     <string name="no_table_number">Veuillez entrer un numéro de table</string>
+    <string name="no_quantity">Veuillez entrer une quantité à commander</string>
+    <string name="nonvalid_quantity">Veuillez entrer une quantité valide</string>
     <string name="addition_closed">Addition clôturée.</string>
     <string name="bill_closed">Facture cloturée.</string>
-    <string name="numero_table" translatable="false">+</string>
-    <string name="show_list_no_order">No orders</string>
+    <string name="show_list_no_order">Pas de commande en cours.</string>
+    <string name="numero_table">Nouvelle addition</string>
+    <string name="not_enough_drinks">Il n\'y a pas assez de boissons dans le stock</string>
 </resources>
