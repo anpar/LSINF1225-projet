@@ -8,11 +8,10 @@ import android.util.SparseArray;
 
 import com.lsinf1225.groupe_t.bartender.MySQLiteHelper;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Calendar;
-import java.text.SimpleDateFormat;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * Created by Louis on 7/05/2015.
@@ -34,7 +33,7 @@ public class Order {
     public static final String DB_COL_QUANTITY = "quantity";
 
 
-
+    private float total;
     /**
      * Nom de colonne sur laquelle le tri est effectué
      */
@@ -146,11 +145,9 @@ public class Order {
         return list_quantity;
     }
 
-
-
-
-
-
+    public void setTotal(float total) {
+        this.total = total;
+    }
 
     /**
      * (Re)charge les informations depuis la base de données.
