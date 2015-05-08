@@ -56,4 +56,5 @@
     <string name="menu_title">Kaart</string>
     <string name="title_activity_show_bill">Bestellingen</string>
     <string name="title_activity_show_order">Rekeningen</string>
+    <string name="numero_table">Nouvelle addition</string>
 </resources>

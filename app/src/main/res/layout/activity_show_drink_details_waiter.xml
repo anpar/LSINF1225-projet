@@ -117,11 +117,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/ratingBar2"
-        android:layout_below="@+id/textView7"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="71dp"
         android:numStars="5"
-        android:isIndicator="true"/>
+        android:isIndicator="true"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -130,7 +130,8 @@
         android:onClick="showComment"
         android:id="@+id/button_read_comment"
         android:layout_below="@+id/ratingBar2"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignLeft="@+id/textview_drink_detail_name_c"
+        android:layout_alignStart="@+id/textview_drink_detail_name_c" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -154,6 +155,47 @@
         android:layout_toRightOf="@+id/textview_drink_detail_category"
         android:layout_toEndOf="@+id/textview_drink_detail_category" />
 
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/textView7"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/relativeLayout">
+
+        <EditText
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/drink_quantity"
+            android:layout_alignTop="@+id/multiplicator"
+            android:layout_toLeftOf="@+id/multiplicator"
+            android:layout_toStartOf="@+id/multiplicator" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:id="@+id/add_drink"
+            android:onClick="addDrinkToOrder"
+            android:layout_alignEnd="@+id/ratingBar2"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="X"
+            android:textSize="20dip"
+            android:id="@+id/multiplicator"
+            android:layout_toEndOf="@+id/textView7"
+            android:layout_toLeftOf="@+id/add_drink"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -164,38 +206,5 @@
         android:layout_alignEnd="@+id/textview_drink_detail_threshold"
         android:layout_toRightOf="@+id/textView6"
         android:gravity="center_vertical|right" />
-
-    <EditText
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/drink_quantity"
-        android:layout_marginBottom="17dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/button_read_comment"
-        android:layout_alignStart="@+id/button_read_comment" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add"
-        android:id="@+id/add_drink"
-        android:onClick="addDrinkToOrder"
-        android:layout_alignTop="@+id/drink_quantity"
-        android:layout_alignRight="@+id/ratingBar2"
-        android:layout_alignEnd="@+id/ratingBar2" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="X"
-        android:textSize="20dip"
-        android:id="@+id/multiplicator"
-        android:layout_alignBaseline="@+id/add_drink"
-        android:layout_alignBottom="@+id/add_drink"
-        android:layout_toRightOf="@+id/drink_quantity"
-        android:layout_toEndOf="@+id/drink_quantity" />
 
 </RelativeLayout>
