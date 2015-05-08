@@ -67,7 +67,6 @@ public class ShowBillActivity extends Activity implements AdapterView.OnItemClic
         // "Aucun élément n'est présent dans votre collection).
         if (collectedItems.isEmpty()) {
             BarTenderApp.notifyShort(R.string.error_no_bills);
-            finish();
         }
     }
 
