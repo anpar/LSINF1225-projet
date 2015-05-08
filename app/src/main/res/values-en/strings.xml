@@ -44,4 +44,17 @@
     <string name="error_retrieving_opinions">An error occured while retrieving opinions.</string>
     <string name="error_adding_opinion">An error occured while adding your opinion.</string>
     <string name="add_comment_label">Add.</string>
+    <string name="add_bill_success">Bill added</string>
+    <string name="error_adding_bill">Impossible to create the bill </string>
+    <string name="error_no_bills">No bill</string>
+    <string name="error_retrieving_order_details">An error occured while retrieving drinks. (order details)</string>
+    <string name="hello_world"></string>
+    <string name="menu_title">The menu</string>
+    <string name="order_title">Orders</string>
+    <string name="show_list_id_order_title">Order number</string>
+    <string name="show_list_waiter_title">Waiteur</string>
+    <string name="show_now_comment">No opinion yet</string>
+    <string name="show_now_order_details">No details for the order</string>
+    <string name="title_activity_show_bill">Orders</string>
+    <string name="title_activity_show_order">Bills</string>
 </resources>
