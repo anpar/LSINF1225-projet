@@ -262,11 +262,7 @@ public class Drink {
         SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
         String[] columns = new String[]{DB_COL_DRINK_ID, DB_COL_NAME_DRINK, DB_COL_PRICE, DB_COL_DESCRIPTION, DB_COL_ICON, DB_COL_CATEGORY,
                                         DB_COL_SUBCATEGORY, DB_COL_VOLUME,DB_COL_AVAILABLE_QUANTITY, DB_COL_THRESHOLD, DB_COL_MAX_STOCK};
-        String selection = DB_COL_NAME_DRINK + " = LIKE ? AND "
-                         + DB_COL_CATEGORY + " = LIKE ? AND "
-                         + DB_COL_SUBCATEGORY + " = LIKE ? AND "
-                         + DB_COL_PRICE + " > ? AND "
-                         + DB_COL_PRICE + " < ?";
+        String selection = DB_COL_NAME_DRINK + " LIKE ? AND " + DB_COL_CATEGORY + " LIKE ? AND " + DB_COL_SUBCATEGORY + " LIKE ? AND " + DB_COL_PRICE + " > ? AND " + DB_COL_PRICE + " < ?";
         String selectionArgs[] = new String[]{checkString(name), checkString(cat), checkString(subcat), Float.toString(pmin), Float.toString(pmax)};
         Cursor c = db.query(DB_TABLE_DRINKS, columns, selection, selectionArgs, null, null, null, null);
 
