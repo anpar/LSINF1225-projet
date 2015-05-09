@@ -200,4 +200,20 @@ public class ShowMenuActivity extends Activity implements AdapterView.OnItemClic
     public void closeOrder(View v){
         finish();
     }
+
+    /**
+     * Désactive le bouton de retour. Désactive le retour à l'activité précédente (donc l'écran de
+     * connexion dans ce cas-ci) et affiche un message indiquant qu'il faut se déconnecter.
+     */
+    @Override
+    public void onBackPressed() {
+        int table_number = getIntent().getIntExtra("table_number", -1);
+        // On désactive le retour (car on se trouve au menu principal) en ne faisant
+        // rien dans cette méthode si ce n'est afficher un message à l'utilisateur.
+        if(table_number != -1) {
+            BarTenderApp.notifyShort(R.string.finish_order_to_go_back);
+        } else {
+            finish();
+        }
+    }
 }
