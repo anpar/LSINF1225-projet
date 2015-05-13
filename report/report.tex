@@ -1,0 +1,108 @@
+\input{lib.tex}
+\doctitle{BarTender : présentation du prototype}
+
+\section{Manuel d'utilisation}
+\subsection{Écran d'accueil de l'application}
+Lorsque l'application démarre, vous accédez à l'écran
+présenté sur la figure \ref{fig:main-menu}. Sur cet écran,
+il est possible d'accéder à la carte, de se connecter ou de
+s'inscrire.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.15]{img/main-menu.png}
+	\caption{Écran d'accueil de l'application.}
+	\label{fig:main-menu}
+\end{figure}
+
+\subsection{Connexion et inscription}
+Pour se connecter à l'application, il suffit de cliquer
+sur le bouton ``Connexion'' de l'écran d'accueil. Vous
+arrivez alors sur un écran similaire à la figure \ref{fig:register-login}
+sur lequel il vous suffit d'indiquer votre identifiant et votre
+mot de passe. Pour s'inscrire sur l'application, il suffit de cliquer
+sur le bouton ``Inscription'' de l'écran d'accueil. Vous arrivez alors à un écran similaire à la figure \ref{fig:register-login}. L'inscription
+est volontairement simple et ne demande qu'un identifiant, un mot
+de passe et sa confirmation. 
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}
+				\centering
+				\includegraphics[scale=0.15]{img/login.png}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}
+				\centering
+				\includegraphics[scale=0.15]{img/register.png}
+		\end{subfigure}
+    \caption{Page de connexion à gauche, et d'inscription à droite.}
+		\label{fig:register-login}
+\end{figure}
+
+\subsection{La carte}
+La carte est accessible de plusieurs manières. Premièrement, depuis l'écran d'accueil
+présenté à la figure \ref{fig:main-menu}. Ce bouton permet à un client qui ne désire
+pas créer un compte de quand même pouvoir consulter la carte. Bien évidemment, la carte
+est également accessible une fois connecté. La carte se présente comme sur la
+figure \ref{fig:carte}. Il est possible de trier les boissons par noms ou par prix,
+en cliquant respectivement sur ``Boisson'' ou ``prix''.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.15]{img/carte.png}
+	\caption{Carte des boissons.}
+	\label{fig:carte}
+\end{figure}
+
+En cliquant sur une boisson, des détails apparaissent. Ces détails sont bien
+sur différents selon que vous soyez connecté en tant que client ou en tant
+que serveur. Pour chaque boisson, le client pourra lire une courte
+description, un volume, un prix et une note moyenne (donnée par d'autres
+clients), comme présenté sur la figure \ref{fig:drink-details}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.15]{img/drink-details.png}
+	\caption{Détails d'une boisson.}
+	\label{fig:drink-details}
+\end{figure}
+
+Pour un serveur, ces détails sont un peu différents. Ils contiennent
+cette fois des informations sur le stock des boissons : le stock
+actuel, le stock maximum, et le seuil minimal (indiquant qu'il est temps
+de recommander cette boisson auprès du fournisseur). Ces informations
+sont représentés de façon plus visuelle dans une barre d'évolution.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}
+        \centering
+        \includegraphics[scale=0.15]{img/stock-full.png}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}
+        \centering
+        \includegraphics[scale=0.15]{img/stock-empty.png}
+    \end{subfigure}
+    \caption{Détails d'une boisson côté serveur.}
+		\label{fig:stocks}
+\end{figure}
+
+Comme le montre la figure \ref{fig:stocks}, la couleur de cette barre
+change selon que l'on soit en-dessous ou au-dessus du seuil minimal.
+
+\subsection{La recherche avancée}
+Le client et le serveur ont tous les deux accès à une fonctionnalité commune,
+la recherche avancée, présentée sur la figure \ref{fig:search}. 
+Différents critères de recherches sont disponibles : par nom, par catégorie
+et sous-catégorie, et en indiquant un prix mimimum et maximum.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.15]{img/search.png}
+	\caption{Recherche avancée.}
+	\label{fig:search}
+\end{figure}
+
+\input{footer.tex}
