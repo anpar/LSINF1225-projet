@@ -1,6 +1,5 @@
 package com.lsinf1225.groupe_t.bartender.model;
 
-
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -16,21 +15,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-/**
- * Représente un élément de collection et permet de le gérer.
- *
- * Cette classe représente un élément de collection et permet de le gérer. Elle utilise pour cela la
- * base de données par l'intermédiaire du MySQLiteHelper.
- *
- * Les méthodes statiques permettent de récupérer des listes d'éléments de collection. Afin de
- * déterminer l'ordre de tri des éléments pour ces méthodes, les variables de classe order et
- * order_by sont utilisées. La variable order fait référence au nom de colonne sur lequel est
- * effectué le tri. Et la variable order_by est soit ASC (pour un tri croissant) ou DESC (pour un
- * tri décroissant).
- *
- * @author Damien Mercier
- * @version 1
- */
 public class Drink {
     public static final String DB_TABLE_DRINKS = "drinks";
     public static final String DB_TABLE_RATINGS = "ratings";
@@ -47,9 +31,7 @@ public class Drink {
     public static final String DB_COL_CATEGORY = "category";
     public static final String DB_COL_SUBCATEGORY = "subcategory";
 
-    public static final String DB_COL_LOGIN_CLIENT = "login_client";
     public static final String DB_COL_VALUE = "value";
-    public static final String DB_COL_COMMENT = "comment";
 
     /* Pour éviter les ambiguités dans les requêtes, il faut utiliser le format
      *      nomDeTable.nomDeColonne
@@ -58,17 +40,11 @@ public class Drink {
     public static final String DB_COL_DRINK_ID = DB_TABLE_DRINKS + "." + DB_COL_ID;
     public static final String DB_COL_RATING_ID = DB_TABLE_RATINGS + "." + DB_COL_ID;
 
-    /*
-     * Pour joindre les deux tables dans une même requête.
-     */
-    public static final String DB_TABLES = DB_TABLE_DRINKS + " INNER JOIN " + DB_TABLE_RATINGS + " ON " + DB_COL_DRINK_ID + " = " + DB_COL_RATING_ID;
-
     public static String order_by = DB_COL_NAME_DRINK;
     public static String order = "ASC";
 
     private int id_drink;
     private float rating;
-    private String icon;
     private String name_drink;
     private float price;
     private int available_quantity;
@@ -94,44 +70,11 @@ public class Drink {
         loadData();
     }
 
-    public Bitmap getPicture() {
-        if (this.icon == null) {
-            // S'il n'y a pas de nom de fichier, il n'y a pas d'image.
-            return null;
-        }
-
-        try {
-            /**
-             *  @note Pour des questions de facilité, le choix a été fait de stocker les fichiers
-             *  des photos dans la mémoire interne de l'application.
-             *  Lisez https://developer.android.com/training/basics/data-storage/files.html afin de
-             *  comprendre les différentes possibilités.
-             */
-
-            FileInputStream in = BarTenderApp.getContext().openFileInput(icon);
-            Bitmap bitmap = BitmapFactory.decodeStream(in);
-            in.close();
-
-            return bitmap;
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
     public String getName_drink() {
         return name_drink;
     }
     public String getDescription() {
         return description;
-    }
-    public String getCategory() {
-        return category;
-    }
-    public String getSubcategory() {
-        return subcategory;
     }
     public int getId_drink() {
         return id_drink;
@@ -176,7 +119,6 @@ public class Drink {
         this.name_drink = c.getString(1);
         this.price = c.getFloat(2);
         this.description = c.getString(3);
-        this.icon = c.getString(4);
         this.category = c.getString(5);
         this.subcategory = c.getString(6);
         this.volume = c.getFloat(7);
@@ -230,23 +172,6 @@ public class Drink {
      * même objet.
      */
     private static final SparseArray<Drink>     drinkSparseArray = new SparseArray<Drink>();
-
-    /**
-     * Fournit la liste de tous les éléments de la collection de l'utilisateur courant dont le nom
-         * contient searchsearchQuery.
-     *
-     * @param searchQuery Requête de recherche.
-     *
-     * @return Liste d'éléments de collection répondant à la requête de recherche.
-     */
-
-    public static ArrayList<Drink> searchDrink(String searchQuery) {
-        String selection = DB_COL_NAME_DRINK + " LIKE ?";
-        String[] selectionArgs = new String[]{"%" + searchQuery + "%"};
-
-        // Les critères de selection sont passés à la sous-méthode de récupération des éléments.
-        return getDrinks(selection, selectionArgs);
-    }
 
     public static String checkString(String token) {
         String out;
@@ -395,8 +320,6 @@ public class Drink {
         boolean upDateSuccesFull = false;
         SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
 
-
-
         // On sélectionne les id de commande correspondant à la table
         String columns[] = new String[]{DB_COL_AVAILABLE_QUANTITY};
         String where = DB_COL_DRINK_ID + " = ?";
@@ -412,7 +335,6 @@ public class Drink {
         }
         db.close();
         db = MySQLiteHelper.get().getWritableDatabase();
-
 
         ContentValues values = new ContentValues();
         values.put(DB_COL_AVAILABLE_QUANTITY, stock-quantity);

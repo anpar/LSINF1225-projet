@@ -90,7 +90,6 @@ public class Opinion {
         values.put(DB_COLUMN_ID_DRINK, id_drink);
         values.put(DB_COLUMN_LOGIN_CLIENT, login);
         values.put(DB_COLUMN_VALUE, note);
-        Log.d("AddComment", "value of comment" + comment);
         values.put(DB_COLUMN_COMMENT, comment);
         addSuccessful = db.insert(DB_TABLE, null, values) > 0;
 

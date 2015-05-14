@@ -1,15 +1,8 @@
 package com.lsinf1225.groupe_t.bartender.activity;
 
 import android.app.Activity;
-import android.content.ContentValues;
-import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
@@ -17,7 +10,6 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.lsinf1225.groupe_t.bartender.BarTenderApp;
-import com.lsinf1225.groupe_t.bartender.MySQLiteHelper;
 import com.lsinf1225.groupe_t.bartender.R;
 import com.lsinf1225.groupe_t.bartender.model.Opinion;
 import com.lsinf1225.groupe_t.bartender.model.User;
@@ -28,7 +20,6 @@ import com.lsinf1225.groupe_t.bartender.model.User;
  */
 
 public class AddOpinionActivity extends Activity implements TextView.OnEditorActionListener, RatingBar.OnRatingBarChangeListener{
-
     private float note = -1;
     private String comment = null;
 
@@ -100,9 +91,6 @@ public class AddOpinionActivity extends Activity implements TextView.OnEditorAct
      */
     @Override
     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-        if (actionId == EditorInfo.IME_ACTION_DONE) {
-            return true;
-        }
-        return false;
+        return actionId == EditorInfo.IME_ACTION_DONE;
     }
 }

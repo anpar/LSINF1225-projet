@@ -17,7 +17,6 @@ import com.lsinf1225.groupe_t.bartender.model.Drink;
 import java.util.ArrayList;
 
 public class SearchActivity extends Activity  implements TextView.OnEditorActionListener{
-
     private Spinner catSpinner;
     private Spinner subcatSpinner;
     ArrayList<String> catlist;

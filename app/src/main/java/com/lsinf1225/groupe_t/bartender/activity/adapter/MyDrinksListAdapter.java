@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.lsinf1225.groupe_t.bartender.R;
@@ -13,18 +12,6 @@ import com.lsinf1225.groupe_t.bartender.model.Drink;
 
 import java.util.ArrayList;
 
-/**
- * Gère l'affichage personnalisé de notre liste.
- *
- * Cette classe permet de créer un Adapter personnalisé pour notre liste d'éléments de collection.
- * De cette manière il nous est possible d'utiliser un layout particulier (ici
- * collected_item_row.xml) pour chaque ligne reprenant le nom de l'élément et sa note (rating).
- *
- * @author Damien Mercier
- * @version 1
- * @see <a href="http://d.android.com/reference/android/widget/Adapter.html">Adapter</a>
- * @see <a href="http://d.android.com/reference/android/widget/BaseAdapter.html">BaseAdapter</a>
- */
 public class MyDrinksListAdapter extends BaseAdapter {
         /**
          * Permet d'instancier un fichier xml de layout dans une vue.
@@ -91,15 +78,6 @@ public class MyDrinksListAdapter extends BaseAdapter {
             return convertView;
         }
 
-        /**
-         * Change la liste des éléments de collection affichée.
-         *
-         * Permet de changer complètement la liste des éléments affichés dans la liste.
-         *
-         * @param newCollectedItems La nouvelle liste des éléments de collection à afficher.
-         *
-         * @post Les éléments de la liste ont été remplacés par les éléments passés en argument.
-         */
         public void setCollectedItems(ArrayList<Drink> newCollectedItems) {
             this.collectedItems = newCollectedItems;
             notifyDataSetChanged();

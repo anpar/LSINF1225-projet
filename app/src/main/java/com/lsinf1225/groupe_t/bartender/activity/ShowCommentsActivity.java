@@ -2,20 +2,14 @@ package com.lsinf1225.groupe_t.bartender.activity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
 import com.lsinf1225.groupe_t.bartender.BarTenderApp;
 import com.lsinf1225.groupe_t.bartender.R;
-import com.lsinf1225.groupe_t.bartender.activity.adapter.MyDrinksListAdapter;
 import com.lsinf1225.groupe_t.bartender.activity.adapter.MyOpinionsListAdapter;
-import com.lsinf1225.groupe_t.bartender.model.Drink;
 import com.lsinf1225.groupe_t.bartender.model.Opinion;
 import com.lsinf1225.groupe_t.bartender.model.User;
 

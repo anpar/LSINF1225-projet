@@ -37,13 +37,7 @@ public class AddBillActivity extends Activity implements TextView.OnEditorAction
         ArrayAdapter<Integer> adapter = new ArrayAdapter<Integer>(this, android.R.layout.simple_spinner_dropdown_item, tables);
         // On lie l'adapter au spinner.
         userSpinner.setAdapter(adapter);
-
-
-
-
     }
-
-
 
     public void newBill(View v) {
         int table_number = (Integer) userSpinner.getSelectedItem();

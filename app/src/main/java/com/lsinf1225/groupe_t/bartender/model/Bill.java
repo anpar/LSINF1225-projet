@@ -11,7 +11,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-
 public class Bill {
     private static final String DB_TABLE_BILLS =  "bills";
 
@@ -42,12 +41,6 @@ public class Bill {
 
     public int getTable_number() {
         return table_number;
-    }
-
-    public Bill(String date, int id_bill, int table_number) {
-        this.date = date;
-        this.id_bill = id_bill;
-        this.table_number = table_number;
     }
 
     public Bill(int id_bill) {
@@ -192,6 +185,5 @@ public class Bill {
         db.close();
 
         return tables;
-
     }
 }
