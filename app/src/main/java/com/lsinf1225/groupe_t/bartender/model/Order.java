@@ -1,6 +1,5 @@
 package com.lsinf1225.groupe_t.bartender.model;
 
-
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -13,9 +12,6 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Order {
-    /*
-     * Noms des tables et des colonnes dans la base de données.
-     */
     public static final String DB_TABLE_ORDERS = "orders";
 
     public static final String DB_COL_ID = "id_order";
@@ -24,7 +20,6 @@ public class Order {
     public static final String DB_COL_TABLE_NUMBER = "table_number";
     public static final String DB_TABLE_ORDERS_DETAILS = "order_details";
     public static final String DB_TABLE_BILLS = "bills";
-
 
     public static String order_by = DB_COL_ID;
     public static String order = "ASC";
@@ -41,9 +36,6 @@ public class Order {
         loadData();
     }
 
-    /**
-     * Fournit l'id de l'élément de collection courant.
-     */
     public int getId() {
         return id_order;
     }
@@ -77,11 +69,6 @@ public class Order {
 
     }
 
-    /**
-     * Fournit la liste de tous les éléments de la collection de l'utilisateur courant.
-     *
-     * @return Liste d'éléments.
-     */
     public static ArrayList<Order> getOrders() {
         return getOrders(null, null);
     }
@@ -89,27 +76,8 @@ public class Order {
     /******************************************************************************
      * Partie static de la classe.
      ******************************************************************************/
-
-    /**
-     * Contient les instances déjà existantes des objets afin d'éviter de créer deux instances du
-     * même objet.
-     */
     private static final SparseArray<Order> orderSparseArray = new SparseArray<>();
 
-    /**
-     * Fournit la liste de tous les objets correspondant aux critères de sélection demandés.
-     *
-     * Cette méthode est une sous-méthode de getSongs et de searchSongs.
-     *
-     * @param selection     Un filtre déclarant quels éléments retourner, formaté comme la clause
-     *                      SQL WHERE (excluant le WHERE lui-même). Donner null retournera tous les
-     *                      éléments.
-     * @param selectionArgs Vous pouvez inclure des ? dans selection, qui seront remplacés par les
-     *                      valeurs de selectionArgs, dans leur ordre d'apparition dans selection.
-     *                      Les valeurs seront liées en tant que chaînes.
-     *
-     * @return Liste d'objets. La liste peut être vide si aucun objet ne correspond.
-     */
     public static ArrayList<Order> getOrders(String selection, String[] selectionArgs) {
         ArrayList<Order> orders = new ArrayList<>();
         SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
@@ -148,17 +116,12 @@ public class Order {
         }
     }
 
-    /**
-     * Fournit une représentation sous forme de texte du morceau. Utilisé pour la liste dans
-     * PlayerActivity.
-     */
     public String toString() {
         Integer num = getTable_number();
         return num.toString() + " - " + getLogin_waiter();
     }
 
     public static int addOrder(int table_number) {
-
         SQLiteDatabase db = MySQLiteHelper.get().getWritableDatabase();
 
         SimpleDateFormat parse = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -206,7 +169,6 @@ public class Order {
     }
 
     public static ArrayList<Integer> getAllTable(){
-
         ArrayList<Integer> tables = new ArrayList<>();
         SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
         String[] columns = new String[]{DB_COL_TABLE_NUMBER};

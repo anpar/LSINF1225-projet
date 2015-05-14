@@ -28,7 +28,6 @@ public class ShowOrderDetailsActivity extends Activity {
 
         // Création de l'adapter pour faire la liaison entre les données (collectedItems) et
         // l'affichage de chaque ligne de la liste.
-
         myListViewAdapter = new MyOrderDetailsListAdapter(this, collectedItems);
         if(!collectedItems.isEmpty() ) {
             myListView.setAdapter(myListViewAdapter);
@@ -43,7 +42,6 @@ public class ShowOrderDetailsActivity extends Activity {
         loadCollectedItems();
 
         myListViewAdapter.setCollectedItems(collectedItems);
-
     }
 
     /**

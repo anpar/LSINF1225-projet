@@ -109,8 +109,6 @@ public class ShowDrinkDetailsActivity extends Activity {
     }
 
     public void addDrinkToOrder (View v){
-
-
         EditText quantityText = (EditText) findViewById(R.id.drink_quantity);
         String quantityString = quantityText.getText().toString();
         if (quantityString.matches("")){
