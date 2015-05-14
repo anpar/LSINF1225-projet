@@ -71,13 +71,10 @@ public class SearchActivity extends Activity  implements TextView.OnEditorAction
             intent.putExtra("name", name);
         }
         String catText = (String)catSpinner.getSelectedItem();
-        if(!catText.matches("")) {
-            intent.putExtra("cat", catText);
-        }
+        intent.putExtra("cat", catText);
+
         String subcatText = (String)subcatSpinner.getSelectedItem();
-        if(!subcatText.matches("")) {
-            intent.putExtra("subcat", subcatText);
-        }
+        intent.putExtra("subcat", subcatText);
 
         EditText pminText= (EditText) findViewById(R.id.editText_min_price);
         if(!pminText.getText().toString().matches("")) {
