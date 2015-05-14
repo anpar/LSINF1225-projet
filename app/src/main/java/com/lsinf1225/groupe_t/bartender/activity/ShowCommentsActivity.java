@@ -92,7 +92,9 @@ public class ShowCommentsActivity extends Activity {
         super.onResume();
         // La liste des éléments est ici rechargées car en cas de modification d'un élément, l'ordre
         // a peut-être changé.
+
         loadCollectedItems();
+
         myListViewAdapter.setCollectedItems(collectedItems);
     }
 }
