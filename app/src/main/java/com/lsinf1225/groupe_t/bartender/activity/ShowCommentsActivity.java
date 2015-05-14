@@ -78,10 +78,6 @@ public class ShowCommentsActivity extends Activity {
             BarTenderApp.notifyShort(R.string.error_retrieving_opinions);
         }
 
-        // S'il n'y a aucun éléments dans la liste, il faut afficher un message. Ce message est différent
-        // s'il y avait une requête de recherche (message du type "Aucun résultat trouvé") ou si
-        // l'utilisateur vient directement du menu principal et veut tout afficher (message du type
-        // "Aucun élément n'est présent dans votre collection).
         if (collectedItems.isEmpty()) {
             BarTenderApp.notifyShort(R.string.show_now_comment);
         }
@@ -92,9 +88,7 @@ public class ShowCommentsActivity extends Activity {
         super.onResume();
         // La liste des éléments est ici rechargées car en cas de modification d'un élément, l'ordre
         // a peut-être changé.
-
         loadCollectedItems();
-
         myListViewAdapter.setCollectedItems(collectedItems);
     }
 }
