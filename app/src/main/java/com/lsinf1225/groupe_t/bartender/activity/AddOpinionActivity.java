@@ -28,7 +28,6 @@ import com.lsinf1225.groupe_t.bartender.model.User;
  */
 
 public class AddOpinionActivity extends Activity implements TextView.OnEditorActionListener, RatingBar.OnRatingBarChangeListener{
-
     private float note = -1;
     private String comment = null;
 

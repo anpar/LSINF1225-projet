@@ -11,7 +11,6 @@ import android.view.View;
 import com.lsinf1225.groupe_t.bartender.R;
 
 public class MainActivity extends Activity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

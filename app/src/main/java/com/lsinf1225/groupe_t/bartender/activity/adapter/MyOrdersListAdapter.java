@@ -12,18 +12,6 @@ import com.lsinf1225.groupe_t.bartender.model.Order;
 
 import java.util.ArrayList;
 
-/**
- * Gère l'affichage personnalisé de notre liste.
- *
- * Cette classe permet de créer un Adapter personnalisé pour notre liste d'éléments de collection.
- * De cette manière il nous est possible d'utiliser un layout particulier (ici
- * collected_item_row.xml) pour chaque ligne reprenant le nom de l'élément et sa note (rating).
- *
- * @author Damien Mercier
- * @version 1
- * @see <a href="http://d.android.com/reference/android/widget/Adapter.html">Adapter</a>
- * @see <a href="http://d.android.com/reference/android/widget/BaseAdapter.html">BaseAdapter</a>
- */
 public class MyOrdersListAdapter extends BaseAdapter {
     /**
      * Permet d'instancier un fichier xml de layout dans une vue.

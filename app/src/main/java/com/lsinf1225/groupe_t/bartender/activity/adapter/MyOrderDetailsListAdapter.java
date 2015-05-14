@@ -16,9 +16,6 @@ import com.lsinf1225.groupe_t.bartender.model.Opinion;
 
 import java.util.ArrayList;
 
-/**
- * Created by Sylvain on 08/05/2015.
- */
 public class MyOrderDetailsListAdapter extends BaseAdapter{
     /**
      * Permet d'instancier un fichier xml de layout dans une vue.

@@ -13,9 +13,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-/**
- * Created by Louis on 7/05/2015.
- */
 public class Order {
     /*
      * Noms des tables et des colonnes dans la base de données.
@@ -29,45 +26,14 @@ public class Order {
     public static final String DB_TABLE_ORDERS_DETAILS = "order_details";
     public static final String DB_TABLE_BILLS = "bills";
 
-    /**
-     * Nom de colonne sur laquelle le tri est effectué
-     */
-    public static String order_by = DB_COL_ID;
-    /**
-     * Ordre de tri : ASC pour croissant et DESC pour décroissant
-     */
-    public static String order = "ASC";
 
-    /**
-     * ID unique de notre élément courant. Correspond à id_drink dans la base de données.
-     */
+    public static String order_by = DB_COL_ID;
+    public static String order = "ASC";
     private int id_order;
 
-    /**
-     * liste de boissons commandées
-     */
-    private ArrayList<Drink> drink_list;
-
-    /**
-     * liste du nombres de boissons commandées
-     */
-    private ArrayList<Integer> list_quantity;
-
-    /**
-     * numéro de la table
-     */
     private int table_number;
-
-    /**
-     * date de la commande
-     */
     private String date;
-
-    /**
-     *  login du serveur qui a servit la commande
-     */
     private String login_waiter;
-
     private float total;
 
     /**
@@ -79,7 +45,6 @@ public class Order {
      * utiliserons la méthode statique get(ciId) pour obtenir une instance d'un élément de notre
      * collection.
      */
-
     public Order(int id_order){
         this.id_order = id_order;
         Order.orderSparseArray.put(id_order, this);
@@ -93,28 +58,16 @@ public class Order {
     public int getId() {
         return id_order;
     }
-
     public float getTotal(){  return total;}
-    public ArrayList<Drink> getDrink_list(){
-        return drink_list;
-    }
-
     public String getDate(){
         return date;
     }
-
     public String getLogin_waiter(){
         return  login_waiter;
     }
-
     public int getTable_number() {
         return table_number;
     }
-
-    public ArrayList<Integer> getList_quantity(){
-        return list_quantity;
-    }
-
     public void setTotal(float total) {
         this.total = total;
     }
@@ -132,7 +85,6 @@ public class Order {
 
         String selection = DB_COL_ID + " = ? ";
         String[] selectionArgs = new String[]{String.valueOf(id_order)};
-        Log.d("Menu", "Trying to retrieve " + id_order);
 
         Cursor c = db.query(DB_TABLE_ORDERS, columns, selection, selectionArgs, null, null, null);
 
@@ -163,22 +115,6 @@ public class Order {
      * même objet.
      */
     private static final SparseArray<Order> orderSparseArray = new SparseArray<Order>();
-
-    /**
-     * Fournit la liste de tous les éléments de la collection de l'utilisateur courant dont le nom
-     * contient searchsearchQuery.
-     *
-     * @param searchQuery Requête de recherche.
-     *
-     * @return Liste d'éléments de collection répondant à la requête de recherche.
-     */
-    public static ArrayList<Order> searchOrder(String searchQuery) {
-        String selection = DB_COL_LOGIN_WAITER + " LIKE ?";
-        String[] selectionArgs = new String[]{"%" + searchQuery + "%"};
-
-        // Les critères de selection sont passés à la sous-méthode de récupération des éléments.
-        return getOrders(selection, selectionArgs);
-    }
 
     /**
      * Fournit la liste de tous les objets correspondant aux critères de sélection demandés.

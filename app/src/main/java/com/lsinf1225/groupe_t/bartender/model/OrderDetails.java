@@ -10,9 +10,6 @@ import com.lsinf1225.groupe_t.bartender.MySQLiteHelper;
 import java.util.ArrayList;
 import java.util.Date;
 
-/**
- * Created by jacquesth on 7/05/15.
- */
 public class OrderDetails {
     private static final String DB_TABLE_ORDER_DETAILS="order_details";
     private static final String DB_COLUMN_ID_ORDER = "id_order";

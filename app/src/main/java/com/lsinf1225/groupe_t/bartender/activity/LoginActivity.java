@@ -80,6 +80,4 @@ public class LoginActivity extends Activity implements TextView.OnEditorActionLi
         }
         return false;
     }
-
-
 }

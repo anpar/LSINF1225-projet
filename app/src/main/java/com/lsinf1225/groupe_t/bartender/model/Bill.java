@@ -11,7 +11,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-
 public class Bill {
     private static final String DB_TABLE_BILLS =  "bills";
 
@@ -186,6 +185,5 @@ public class Bill {
         db.close();
 
         return tables;
-
     }
 }

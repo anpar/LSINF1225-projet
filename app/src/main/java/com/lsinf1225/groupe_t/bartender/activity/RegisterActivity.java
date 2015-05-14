@@ -14,7 +14,6 @@ import com.lsinf1225.groupe_t.bartender.R;
 import com.lsinf1225.groupe_t.bartender.model.User;
 
 public class RegisterActivity extends Activity implements TextView.OnEditorActionListener {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

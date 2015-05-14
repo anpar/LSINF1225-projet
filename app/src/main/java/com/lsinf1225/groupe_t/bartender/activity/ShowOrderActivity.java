@@ -21,14 +21,6 @@ import com.lsinf1225.groupe_t.bartender.model.User;
 
 import java.util.ArrayList;
 
-/**
- * Gère l'affichage sous forme de liste des éléments de la collection de l'utilisateur en cours. Si
- * une requête de recherche est passée dans l'Intent, la recherche est effectuée et la liste des
- * éléments affichés sera la liste des résultats.
- *
- * @author Damien Mercier
- * @version 1
- */
 public class ShowOrderActivity extends Activity implements AdapterView.OnItemClickListener {
 
     private ArrayList<Order> collectedItems;
