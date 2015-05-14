@@ -6,6 +6,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -29,9 +30,13 @@ public class AddBillActivity extends Activity implements TextView.OnEditorAction
          */
 
         userSpinner = (Spinner) findViewById(R.id.spinner_add_bill);
+        Button newBill = (Button) findViewById(R.id.button_new_bill);
 
         // Obtention de la liste des utilisateurs.
         ArrayList<Integer> tables = Order.getAllTable();
+        if(tables.isEmpty()) {
+            newBill.setEnabled(false);
+        }
 
         // Création d'un ArrayAdapter en utilisant la liste des utilisateurs et un layout pour le spinner existant dans Android.
         ArrayAdapter<Integer> adapter = new ArrayAdapter<Integer>(this, android.R.layout.simple_spinner_dropdown_item, tables);
