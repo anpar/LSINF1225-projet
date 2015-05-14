@@ -106,24 +106,24 @@ et sous-catégorie, et en indiquant un prix mimimum et maximum.
 \end{figure}
 
 \subsection{Passer une commande}
-Le serveur est la seul personne à pouvoir passer une commande. Un fois connecté, le serveur peut cliquer sur le button "Commande" dans son menu pour passer une commande pour une table. Une page avec tous les commandes va s'ouvrir.
+Le serveur est la seul personne à pouvoir passer une commande. Un fois connecté, celui ci peut cliquer sur le button "Commande" dans son menu pour passer une commande pour une table. Une page avec tous les commandes va lui être proposé.
 
 \begin{figure}[H]
     \centering
     \begin{subfigure}
         \centering
-        \includegraphics[scale=0.2]{img/waiter-logged.png}
+        \includegraphics[scale=0.15]{img/waiter-logged.png}
     \end{subfigure}%
     ~ 
     \begin{subfigure}
         \centering
-        \includegraphics[scale=0.2]{img/orders.png}
+        \includegraphics[scale=0.15]{img/orders.png}
     \end{subfigure}
     \caption{Menu du serveur et liste de commandes.}
     \label{fig:Menu-server}
 \end{figure}
 
-Le serveur sélectionne le numero de table pour laquel il va passer commande et après confirmation du numero de table, la carte va s'ouvrir. Il choissit la boisson en cliquant dessus et donne la quantité de boissons à commande. 
+Le serveur sélectionne le numero de table pour laquel il va passer commande et après confirmation du numero de table, la carte va s'ouvrir. Il choissit la boisson en cliquant dessus et donne la quantité de boissons à commander. 
 
 \begin{figure}[H]
 	\centering
@@ -132,7 +132,7 @@ Le serveur sélectionne le numero de table pour laquel il va passer commande et 
 	\label{fig:add-drink}
 \end{figure}
 
-Une fois tous les boissons commander, le serveur appuie sur le bouton 'Finir commande' pour terminer la commande pour cette table. Il sera renvoyer sur le menu de commandes.
+Une fois toutes les boissons commandées, le serveur appuie sur le bouton 'Finir commande' pour terminer la commande pour cette table. Il sera renvoyer sur le menu des commandes.
 
 \begin{figure}[H]
 	\centering
@@ -142,25 +142,32 @@ Une fois tous les boissons commander, le serveur appuie sur le bouton 'Finir com
 \end{figure}
 
 \subsection{Créer une addition}
-Une fois une commande passée, il est possible de crée un addition à partir d'un numero de table. Une fois le serveur connecté, il appuie sur le button "Addition" de son menu. Le menu d'addition est une liste des additions en cours.
+Une fois une commande passée, il est possible de crée un addition à partir d'un numero de table. Une fois le serveur connecté, il appuie sur le button "Addition" de son menu. Le menu d'addition est une liste des additions en cours. Pour en crée une nouvelle, il appuie sur le button "+" qui va lui proposer plusieurs numeros de tables qui ont des commandes en cours. Il sélectionne une table, confirme et une nouvelle addition sera crée.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.15]{img/bills-list.png}
-	\caption{List des additions}
-	\label{fig:bills}
+	\begin{subfigure}
+		\centering
+		\includegraphics[scale=0.15]{img/bills-list.png}
+	\end{subfigure}%
+	~
+	\begin{subfigure}
+		\centering
+		\includegraphics[scale=0.15]{img/new-bill.png}
+	\end{subfigure}
+	\caption{List des additions \& Nouvelle addition}
 \end{figure}
 
-Pour voir les details d'une addition, il suffit de cliquer sur une addition. Une liste de tous les commandes associées à cette addition vont appareitre. Cliquer sur une commande pour avoir plus de détial de celle ci.
+Pour voir les details d'une addition, il suffit de cliquer sur une addition. Une liste de tous les commandes associées à cette addition vont apparaître. Cliquer sur une commande pour avoir plus de détail de celle ci.
 
 
 \subsection{Cloturer un addition}
-Pour cloturer une addition, il suffit d'en selctionner une et de cliquer sur le button "Cloturer l'addition" pour finir une addition.
+Pour cloturer une addition, il suffit d'en sélectionner une et de cliquer sur le button "Cloturer l'addition" pour finir une addition.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.15]{img/details-bill.png}
-	\caption{Details additions}
+	\caption{Detail d'une addition}
 	\label{fig:bill-details}
 \end{figure}
 
