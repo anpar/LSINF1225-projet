@@ -44,12 +44,6 @@ public class Bill {
         return table_number;
     }
 
-    public Bill(String date, int id_bill, int table_number) {
-        this.date = date;
-        this.id_bill = id_bill;
-        this.table_number = table_number;
-    }
-
     public Bill(int id_bill) {
         this.id_bill = id_bill;
         Bill.billSparseArray.put(id_bill, this);

@@ -14,12 +14,10 @@ import java.util.Date;
  * Created by jacquesth on 7/05/15.
  */
 public class OrderDetails {
-
     private static final String DB_TABLE_ORDER_DETAILS="order_details";
     private static final String DB_COLUMN_ID_ORDER = "id_order";
     private static final String DB_COLUMN_ID_DRINK="id_drink";
     private static final String DB_COLUMN_QUANTITY="quantity";
-
 
     private Drink drink;
     private int idOrder;
@@ -33,11 +31,9 @@ public class OrderDetails {
     public Drink getDrink() {
         return drink;
     }
-
     public int getId_order() {
         return idOrder;
     }
-
     public int getQuantity() {
         return quantity;
     }
@@ -73,9 +69,7 @@ public class OrderDetails {
     }
 
     public static int addDrink(int id_order, int quantity, int id_drink) {
-
         SQLiteDatabase db = MySQLiteHelper.get().getWritableDatabase();
-
 
         ContentValues contentValues=new ContentValues();
         contentValues.put(DB_COLUMN_ID_DRINK, id_drink);

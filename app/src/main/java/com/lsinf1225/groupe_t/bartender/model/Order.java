@@ -70,7 +70,6 @@ public class Order {
 
     private float total;
 
-
     /**
      * Constructeur de notre élément de collection. Initialise une instance de l'élément présent
      * dans la base de données.
@@ -80,7 +79,6 @@ public class Order {
      * utiliserons la méthode statique get(ciId) pour obtenir une instance d'un élément de notre
      * collection.
      */
-
 
     public Order(int id_order){
         this.id_order = id_order;
@@ -88,32 +86,6 @@ public class Order {
         loadData();
 
     }
-
-
-    /**
-     * Constructeur de notre élément de collection. Initialise une instance de l'élément présent
-     * dans la base de données.
-     *
-     * @note Ce constructeur est privé (donc utilisable uniquement depuis cette classe). Cela permet
-     * d'éviter d'avoir deux instances différentes d'un même élément dans la base de données, nous
-     * utiliserons la méthode statique get(ciId) pour obtenir une instance d'un élément de notre
-     * collection.
-     */
-
-
-    public Order( int table_number, String login_waiter){
-        //this.drink_list.add(drink);
-        //this.id_order = id_order;
-        this.table_number = table_number;
-        this.login_waiter = login_waiter;
-        //this.list_quantity.add(quantity);
-
-        //this.date = ;
-
-    }
-
-
-
 
     /**
      * Fournit l'id de l'élément de collection courant.
@@ -167,7 +139,6 @@ public class Order {
         c.moveToFirst();
 
         this.id_order = c.getInt(0);
-        //TODO date
         this.login_waiter = c.getString(2);
         this.table_number = c.getInt(3);
         c.close();
@@ -262,7 +233,6 @@ public class Order {
         return new Order(id_order);
     }
 
-
     /**
      * Inverse l'ordre de tri actuel.
      *
@@ -297,9 +267,6 @@ public class Order {
         contentValues.put(DB_COL_LOGIN_WAITER, User.getConnectedUser().getLogin());
         return (int)db.insert(DB_TABLE_ORDERS,null,contentValues);
     }
-
-
-
 
     /**
      *  Supprime les bill de la base de donné et tous les info la concernant
@@ -363,7 +330,5 @@ public class Order {
         db.close();
         tables.removeAll(Bill.getAllTable());
         return tables;
-
     }
-
 }
