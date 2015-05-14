@@ -36,18 +36,6 @@ public class LoginActivity extends Activity implements TextView.OnEditorActionLi
         passwordEditText.setText("");
     }
 
-    /**
-     * Vérifie le mot de passe et connecte l'utilisateur.
-     *
-     * Cette méthode vérifie le mot de passe saisi. Si celui-ci est bon, connecte l'utilisateur et
-     * affiche le menu principal, sinon un message est affiché à l'utilisateur.
-     *
-     * Cette méthode est appelée grâce à l'attribut onClick indiqué dans le fichier xml de layout
-     * sur le bouton de connexion. Elle peut également être appelée depuis la méthode
-     * "onEditorAction" de cette classe.
-     *
-     * @param v Une vue quelconque (n'est pas utilisé ici, mais requis par le onClick)
-     */
     public void login(View v) {
         EditText loginEditText = (EditText) findViewById(R.id.login_field_value);
         EditText passwordEditText = (EditText) findViewById(R.id.password_field_value);
@@ -65,13 +53,6 @@ public class LoginActivity extends Activity implements TextView.OnEditorActionLi
         }
     }
 
-    /**
-     * Récupère les actions faites depuis le clavier.
-     *
-     * Récupère les actions faites depuis le clavier lors de l'édition du champ du mot de passe afin
-     * de permettre de se connecter depuis le bouton "Terminer" du clavier. (Cela évite à
-     * l'utilisateur de devoir fermer le clavier et de cliquer sur le bouton se connecter).
-     */
     @Override
     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
         if (actionId == EditorInfo.IME_ACTION_DONE) {

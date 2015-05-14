@@ -171,7 +171,7 @@ public class Drink {
      * Contient les instances déjà existantes des objets afin d'éviter de créer deux instances du
      * même objet.
      */
-    private static final SparseArray<Drink>     drinkSparseArray = new SparseArray<Drink>();
+    private static final SparseArray<Drink> drinkSparseArray = new SparseArray<Drink>();
 
     public static String checkString(String token) {
         String out;

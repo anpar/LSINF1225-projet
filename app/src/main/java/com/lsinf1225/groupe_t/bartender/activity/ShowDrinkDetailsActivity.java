@@ -109,8 +109,6 @@ public class ShowDrinkDetailsActivity extends Activity {
     }
 
     public void addDrinkToOrder (View v){
-
-
         EditText quantityText = (EditText) findViewById(R.id.drink_quantity);
         String quantityString = quantityText.getText().toString();
         if (quantityString.matches("")){
@@ -131,5 +129,14 @@ public class ShowDrinkDetailsActivity extends Activity {
                 }
             }
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // La liste des éléments est ici rechargées car en cas de modification d'un élément, l'ordre
+        // a peut-être changé.
+        Drink.getDrinks();
+        currentDrink = Drink.get(currentDrink.getId_drink());
     }
 }

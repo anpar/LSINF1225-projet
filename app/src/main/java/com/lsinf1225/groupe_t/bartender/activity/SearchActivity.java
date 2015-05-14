@@ -34,13 +34,17 @@ public class SearchActivity extends Activity  implements TextView.OnEditorAction
 
         catSpinner = (Spinner) findViewById(R.id.spinner_cat);
         catlist = Drink.getCategories();
-        catadapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, catlist);
+        catadapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, catlist);
+        catadapter.add(null);
         catSpinner.setAdapter(catadapter);
+        catSpinner.setSelection(catadapter.getPosition(null));
 
         subcatSpinner= (Spinner) findViewById(R.id.spinner_subcat);
         subcatlist = Drink.getSubcategories();
-        subcatadapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, subcatlist);
+        subcatadapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, subcatlist);
+        subcatadapter.add(null);
         subcatSpinner.setAdapter(subcatadapter);
+        subcatSpinner.setSelection(subcatadapter.getPosition(null));
 
         EditText priceMin = (EditText) findViewById(R.id.editText_min_price);
         priceMin.setOnEditorActionListener(this);
@@ -69,13 +73,10 @@ public class SearchActivity extends Activity  implements TextView.OnEditorAction
             intent.putExtra("name", name);
         }
         String catText = (String)catSpinner.getSelectedItem();
-        if(!catText.matches("")) {
-            intent.putExtra("cat", catText);
-        }
+        intent.putExtra("cat", catText);
+
         String subcatText = (String)subcatSpinner.getSelectedItem();
-        if(!subcatText.matches("")) {
-            intent.putExtra("subcat", subcatText);
-        }
+        intent.putExtra("subcat", subcatText);
 
         EditText pminText= (EditText) findViewById(R.id.editText_min_price);
         if(!pminText.getText().toString().matches("")) {
