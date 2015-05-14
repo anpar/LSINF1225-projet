@@ -13,7 +13,6 @@ import com.lsinf1225.groupe_t.bartender.BarTenderApp;
 import com.lsinf1225.groupe_t.bartender.R;
 import com.lsinf1225.groupe_t.bartender.activity.adapter.MyDrinksListAdapter;
 import com.lsinf1225.groupe_t.bartender.model.Drink;
-import com.lsinf1225.groupe_t.bartender.model.Order;
 import com.lsinf1225.groupe_t.bartender.model.User;
 
 import java.util.ArrayList;
@@ -172,14 +171,6 @@ public class ShowMenuActivity extends Activity implements AdapterView.OnItemClic
         myListViewAdapter.setCollectedItems(collectedItems);
     }
 
-    /**
-     * Met à jour les icônes de tri afin qu'elles correspondent au tri actuellement en cours.
-     *
-     * @pre Les valeurs de CollectedItem.order et de CollectedItem.order_by sont correctement
-     * définies.
-     * @post Les icônes de tri sont mises à jour et correspondent aux valeurs de CollectedItem.order
-     * et de CollectedItem.order_by.
-     */
     private void updateDrawableOrder() {
         TextView priceTitle = (TextView) findViewById(R.id.show_list_price_title);
         TextView nameTitle = (TextView) findViewById(R.id.show_list_name_title);

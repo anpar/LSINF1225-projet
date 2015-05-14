@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.lsinf1225.groupe_t.bartender.R;
@@ -79,15 +78,6 @@ public class MyDrinksListAdapter extends BaseAdapter {
             return convertView;
         }
 
-        /**
-         * Change la liste des éléments de collection affichée.
-         *
-         * Permet de changer complètement la liste des éléments affichés dans la liste.
-         *
-         * @param newCollectedItems La nouvelle liste des éléments de collection à afficher.
-         *
-         * @post Les éléments de la liste ont été remplacés par les éléments passés en argument.
-         */
         public void setCollectedItems(ArrayList<Drink> newCollectedItems) {
             this.collectedItems = newCollectedItems;
             notifyDataSetChanged();

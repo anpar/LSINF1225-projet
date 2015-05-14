@@ -8,7 +8,6 @@ import android.util.Log;
 import com.lsinf1225.groupe_t.bartender.MySQLiteHelper;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class OrderDetails {
     private static final String DB_TABLE_ORDER_DETAILS="order_details";
@@ -50,7 +49,6 @@ public class OrderDetails {
         if(c != null && c.moveToFirst()) {
             while (!c.isAfterLast()) {
                 drink=Drink.get(c.getInt(1));
-                Log.d("ValeurDrink", "id_drink" + c.getInt(1));
                 total=total+(drink.getPrice()*c.getInt(2));
                 item = new OrderDetails(c.getInt(0),drink, c.getInt(2));
                 c.moveToNext();

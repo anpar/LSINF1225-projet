@@ -2,7 +2,6 @@ package com.lsinf1225.groupe_t.bartender.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -15,29 +14,25 @@ import com.lsinf1225.groupe_t.bartender.model.OrderDetails;
 import java.util.ArrayList;
 
 public class ShowOrderDetailsActivity extends Activity {
-    private Order currentOrder;
+    private ArrayList<OrderDetails> collectedItems;
+    private MyOrderDetailsListAdapter myListViewAdapter;
 
-        private ArrayList<OrderDetails> collectedItems;
-        private MyOrderDetailsListAdapter myListViewAdapter;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_show_order_details);
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_show_order_details);
+        loadCollectedItems();
 
+        ListView myListView = (ListView) findViewById(R.id.show_order_details_ListView);
 
-            loadCollectedItems();
+        // Création de l'adapter pour faire la liaison entre les données (collectedItems) et
+        // l'affichage de chaque ligne de la liste.
 
-            ListView myListView = (ListView) findViewById(R.id.show_order_details_ListView);
-
-            // Création de l'adapter pour faire la liaison entre les données (collectedItems) et
-            // l'affichage de chaque ligne de la liste.
-
-            myListViewAdapter = new MyOrderDetailsListAdapter(this, collectedItems);
-            if(!collectedItems.isEmpty() ) {
-                myListView.setAdapter(myListViewAdapter);
-            }
-
+        myListViewAdapter = new MyOrderDetailsListAdapter(this, collectedItems);
+        if(!collectedItems.isEmpty() ) {
+            myListView.setAdapter(myListViewAdapter);
+        }
     }
 
     public void onResume() {
