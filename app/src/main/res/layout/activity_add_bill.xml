@@ -36,4 +36,11 @@
         android:layout_toRightOf="@+id/textView16"
         android:layout_toEndOf="@+id/textView16" />
 
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/button_new_bill"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="158dp"></RadioGroup>
+
 </RelativeLayout>

@@ -7,9 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.lsinf1225.groupe_t.bartender.MySQLiteHelper;
 
 /**
- * User class.
- * Note : this is highly inspired from the user Class written
- * by Damien Mercier in TP10.
+ * User class..
  */
 public class User {
     private static final String DB_COLUMN_ID = "u_id";
